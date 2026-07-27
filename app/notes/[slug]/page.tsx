@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NoteToc } from "@/components/note-toc";
+import { formatDate, formatKind } from "@/lib/format";
 import { getNoteBySlug, getNoteSlugs } from "@/lib/notes";
 
 export const dynamicParams = false;
@@ -22,10 +23,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-function formatDate(value: string) {
-  return new Intl.DateTimeFormat("en", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
-}
-
 export default async function NotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const note = await getNoteBySlug(slug);
@@ -35,10 +32,10 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
     <div className="note-shell shell">
       <div className="note-utility">
         <Link href="/">← All notes</Link>
-        <div><span>{note.status}</span><span>Version {note.version}</span><span>{note.minutes} min read</span></div>
+        <div><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
       </div>
       <div className="note-intro">
-        <p className="eyebrow">Published {formatDate(note.published)} · checked {formatDate(note.checked)}</p>
+        <p className="eyebrow">Published {formatDate(note.published, "long")} · {note.checked ? `checked ${formatDate(note.checked, "long")}` : `updated ${formatDate(note.updated, "long")}`}</p>
         <p>{note.description}</p>
         <div className="note-actions">
           <a href={`/notes/${note.slug}/raw`}>View raw Markdown</a>

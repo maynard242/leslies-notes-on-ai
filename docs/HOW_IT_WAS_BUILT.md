@@ -10,7 +10,7 @@ This document records the decisions, implementation sequence, verification, and 
 
 ## 1. What we chose
 
-The site was designed as a maintained learning system rather than a news blog or document dump.
+The site was designed as Leslie’s maintained personal reference library rather than a news blog or document dump.
 
 The core choices were:
 
@@ -18,7 +18,7 @@ The core choices were:
 - **Git-backed history:** content and code change together, with reviewable diffs and recoverable versions.
 - **Static-first Next.js:** notes are discovered and rendered at build time rather than fetched from a database.
 - **No CMS or database:** the first release needs neither operational infrastructure nor proprietary content storage.
-- **Visible provenance:** note metadata records publication, update, verification, version, and maintenance status.
+- **Visible provenance:** note metadata records publication, update, and maintenance status, plus verification and version when supplied.
 - **Primary-source discipline:** time-sensitive claims are dated and supported close to the claim.
 - **Automated quality gates:** malformed or unsafe content fails before production deployment.
 - **Continuous deployment:** GitHub `main` is connected to Vercel; pull requests get previews and pushes to `main` go to production.
@@ -37,11 +37,13 @@ The core choices were:
 │   └── robots.ts                  Robots metadata
 ├── components/                    Header, footer, note cards, filtering, TOC
 ├── lib/
+│   ├── format.ts                  Shared date and note-kind labels
 │   ├── notes.ts                   Discovery, validation, rendering, TOC logic
+│   ├── search.ts                  Metadata-search normalization
 │   └── site.ts                    Site identity and canonical URL handling
 ├── scripts/validate-content.mjs  Build-time content contract
 ├── tests/notes.test.ts            Content-pipeline regression tests
-├── APPROACH.md                    Editorial and learning approach
+├── APPROACH.md                    Editorial and reference approach
 └── docs/                          Plans and implementation record
 ```
 
@@ -81,23 +83,26 @@ Each note uses its filename as a stable public slug and begins with YAML front m
 ---
 title: "A precise title"
 description: "One-sentence scope"
+kind: "reference"
 published: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
-checked: "YYYY-MM-DD"
-version: "1.0"
-status: "Draft | Reviewed | Maintained"
-tags:
+checked: "YYYY-MM-DD" # optional
+version: "1.0"        # optional
+status: "Draft | Reviewed | Maintained | Archived"
+topics:
   - topic
-featured: false
-order: 10
+order: 10              # optional
 ---
 ```
 
-The three statuses have distinct meanings:
+The four statuses have distinct meanings:
 
-- **Draft:** remains in the repository but is excluded from the site, direct note routes, RSS, and sitemap.
+- **Draft:** remains in the repository but is excluded from the site, direct note routes, RSS, and sitemap. It is not confidential if committed to the public GitHub repository.
 - **Reviewed:** checked and suitable for publication.
 - **Maintained:** published with an explicit expectation of continuing review.
+- **Archived:** remains public for historical reference with its lifecycle state visible.
+
+`kind` is an open kebab-case field describing how the note is used, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`. `topics` describe subject matter and power metadata search. `checked` and `version` are optional so shorter or durable notes do not need invented maintenance metadata.
 
 The first note, [`AI Governance for Engineers`](../notes/ai-governance-for-engineers.md), was revised as a long-form engineer-facing reference. Its regulatory, standards, research, and tooling claims were checked against cited primary sources, given explicit verification dates, and separated from durable engineering guidance.
 
@@ -109,7 +114,7 @@ The project and `notes/` directory were created first. The reviewed governance d
 
 ### Step 2 — Save the editorial model
 
-[`APPROACH.md`](../APPROACH.md) recorded the purpose, learning loop, note anatomy, front-matter contract, information architecture, and update policy before the UI was built.
+[`APPROACH.md`](../APPROACH.md) recorded the purpose, reference loop, note anatomy, front-matter contract, information architecture, and update policy before the UI was built.
 
 ### Step 3 — Build the content pipeline
 
@@ -144,7 +149,7 @@ The Next.js App Router was used for:
 - a filename that is not a stable kebab-case slug;
 - missing required front matter;
 - an impossible or malformed date;
-- an invalid status or empty tags;
+- an invalid status or empty topics;
 - no level-one heading;
 - unresolved `TODO` or `TBD` markers;
 - unsafe link or image schemes;
@@ -173,7 +178,7 @@ The resulting fixes included:
 - Markdown sanitization and URL-scheme checks;
 - mandatory content validation during production builds;
 - tests that continue to work when more notes are added;
-- genuine draft privacy;
+- consistent draft exclusion across public site surfaces;
 - stronger text contrast and visible keyboard focus;
 - strict calendar-date validation;
 - Vercel URL safeguards;
@@ -219,6 +224,21 @@ The local repository was published openly at <https://github.com/maynard242/lesl
 
 A real documentation push was used to verify the integration. Vercel detected the commit, built it, marked the deployment ready, and assigned <https://leslies-notes-on-ai.vercel.app> as the production alias.
 
+### Step 11 — Generalize the library and publish the second note
+
+The second note, [`Harnesses`](../notes/harnesses.md), exposed the remaining assumptions inherited from a one-note launch. The content model and interface were revised before publication:
+
+- `kind` now describes the form of a note without constraining future forms to a fixed application enum;
+- `topics` replaced the more publication-oriented `tags` name;
+- `checked` and `version` became optional rather than forcing artificial values onto every note;
+- `Archived` became an explicit public lifecycle state;
+- the unused `featured` field was removed;
+- note cards, note pages, search, and RSS consume the generalized metadata;
+- the home page was rewritten as a personal reference library rather than a learning programme;
+- [`docs/NOTE_TEMPLATE.md`](./NOTE_TEMPLATE.md) became the operational starting point for future notes.
+
+The static architecture did not change. This was a schema and positioning correction, not a reason to add a database or CMS.
+
 ## 6. Current publishing workflow
 
 ### Add or revise a note
@@ -227,7 +247,7 @@ A real documentation push was used to verify the integration. Vercel detected th
 # Create or edit the canonical source
 $EDITOR notes/my-note.md
 
-# Keep it private while working
+# Keep it off the website while working
 # status: "Draft"
 
 # Run the full local gate
@@ -260,7 +280,7 @@ Adding a note does not require a new page component, database row, CMS action, o
 
 - the home-page library;
 - static note generation;
-- reading-time and version metadata;
+- reading-time and optional version/verification metadata;
 - table-of-contents generation;
 - raw-source access;
 - RSS;
@@ -268,12 +288,12 @@ Adding a note does not require a new page component, database row, CMS action, o
 - Git history;
 - Vercel preview and production deployment.
 
-The trade-off is deliberate: this system optimizes for a single careful author and a reviewable research corpus. If editing volume or contributors grow substantially, a CMS can be added later without abandoning the Markdown source contract.
+The trade-off is deliberate: this system optimizes for a single careful author and a searchable, reviewable reference corpus. If editing volume or contributors grow substantially, a CMS can be added later without abandoning the Markdown source contract.
 
 ## 8. Operating principles worth preserving
 
 1. Markdown under `notes/` remains canonical.
-2. Draft must mean unpublished.
+2. Draft means unpublished by the website, not confidential in the public repository.
 3. Time-sensitive claims carry a `checked` date.
 4. Stable slugs should not change casually.
 5. The production build must enforce the content contract.

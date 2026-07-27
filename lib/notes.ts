@@ -19,19 +19,19 @@ import type { Heading, Root } from "mdast";
 
 const notesDirectory = path.join(process.cwd(), "notes");
 
-export type NoteStatus = "Draft" | "Reviewed" | "Maintained";
+export type NoteStatus = "Draft" | "Reviewed" | "Maintained" | "Archived";
 
 export type NoteMeta = {
   slug: string;
   title: string;
   description: string;
+  kind: string;
   published: string;
   updated: string;
-  checked: string;
-  version: string;
+  checked?: string;
+  version?: string;
   status: NoteStatus;
-  tags: string[];
-  featured: boolean;
+  topics: string[];
   order: number;
   minutes: number;
   words: number;
@@ -59,17 +59,26 @@ function assertDate(value: unknown, field: string, slug: string): string {
 }
 
 function parseMeta(slug: string, data: Record<string, unknown>, content: string): NoteMeta {
-  const required = ["title", "description", "version", "status"] as const;
+  const required = ["title", "description", "kind", "status"] as const;
   for (const field of required) {
     if (typeof data[field] !== "string" || !data[field].trim()) {
       throw new Error(`${slug}: missing or invalid ${field}`);
     }
   }
-  if (!Array.isArray(data.tags) || !data.tags.length || data.tags.some((tag) => typeof tag !== "string" || !tag.trim())) {
-    throw new Error(`${slug}: tags must be a non-empty string array`);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.kind as string)) {
+    throw new Error(`${slug}: kind must be a kebab-case value`);
   }
-  if (!["Draft", "Reviewed", "Maintained"].includes(data.status as string)) {
-    throw new Error(`${slug}: status must be Draft, Reviewed, or Maintained`);
+  if (!Array.isArray(data.topics) || !data.topics.length || data.topics.some((topic) => typeof topic !== "string" || !topic.trim())) {
+    throw new Error(`${slug}: topics must be a non-empty string array`);
+  }
+  if (!["Draft", "Reviewed", "Maintained", "Archived"].includes(data.status as string)) {
+    throw new Error(`${slug}: status must be Draft, Reviewed, Maintained, or Archived`);
+  }
+  if (data.version !== undefined && (typeof data.version !== "string" || !data.version.trim())) {
+    throw new Error(`${slug}: version must be a non-empty string when provided`);
+  }
+  if (data.order !== undefined && (typeof data.order !== "number" || !Number.isFinite(data.order))) {
+    throw new Error(`${slug}: order must be a finite number when provided`);
   }
 
   const stats = readingTime(content);
@@ -77,13 +86,13 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
     slug,
     title: data.title as string,
     description: data.description as string,
+    kind: data.kind as string,
     published: assertDate(data.published, "published", slug),
     updated: assertDate(data.updated, "updated", slug),
-    checked: assertDate(data.checked, "checked", slug),
-    version: data.version as string,
+    checked: data.checked === undefined ? undefined : assertDate(data.checked, "checked", slug),
+    version: data.version as string | undefined,
     status: data.status as NoteStatus,
-    tags: data.tags as string[],
-    featured: data.featured === true,
+    topics: data.topics as string[],
     order: typeof data.order === "number" ? data.order : 999,
     minutes: Math.max(1, Math.ceil(stats.minutes)),
     words: stats.words,

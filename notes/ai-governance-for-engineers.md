@@ -1,18 +1,18 @@
 ---
 title: "AI Governance for Engineers"
 description: "An engineer-first reference for making, keeping, and proving claims about AI-system behavior."
+kind: "reference"
 published: "2026-07-27"
 updated: "2026-07-27"
 checked: "2026-07-26"
 version: "2.0"
 status: "Reviewed"
-tags:
+topics:
   - AI governance
   - engineering
   - evaluation
   - safety
   - regulation
-featured: true
 order: 1
 ---
 

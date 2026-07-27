@@ -9,7 +9,11 @@ function escapeXml(value: string) {
 
 export function GET() {
   const base = getSiteUrl();
-  const notes = listNotes();
+  const notes = [...listNotes()].sort((a, b) =>
+    b.published.localeCompare(a.published)
+    || b.updated.localeCompare(a.updated)
+    || a.title.localeCompare(b.title)
+  );
   const items = notes.map((note) => `
     <item>
       <title>${escapeXml(note.title)}</title>
@@ -17,6 +21,8 @@ export function GET() {
       <guid>${new URL(`/notes/${note.slug}`, base)}</guid>
       <description>${escapeXml(note.description)}</description>
       <pubDate>${new Date(`${note.published}T00:00:00Z`).toUTCString()}</pubDate>
+      <category>${escapeXml(note.kind)}</category>${note.topics.map((topic) => `
+      <category>${escapeXml(topic)}</category>`).join("")}
     </item>`).join("");
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0"><channel>

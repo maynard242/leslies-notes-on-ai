@@ -3,13 +3,12 @@
 import { useMemo, useState } from "react";
 import { NoteCard } from "@/components/note-card";
 import type { NoteMeta } from "@/lib/notes";
+import { matchesNoteQuery } from "@/lib/search";
 
 export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
   const [query, setQuery] = useState("");
   const filtered = useMemo(() => {
-    const needle = query.trim().toLowerCase();
-    if (!needle) return notes;
-    return notes.filter((note) => [note.title, note.description, ...note.tags].join(" ").toLowerCase().includes(needle));
+    return notes.filter((note) => matchesNoteQuery(note, query));
   }, [notes, query]);
 
   return (
@@ -17,7 +16,7 @@ export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
       <label className="search-field">
         <span className="sr-only">Search notes</span>
         <span aria-hidden="true">⌕</span>
-        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search titles, ideas, or topics" />
+        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search titles, kinds, or topics" />
       </label>
       <div className="library-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? "note" : "notes"}</div>
       <div className="note-grid">

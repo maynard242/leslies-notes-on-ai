@@ -4,9 +4,9 @@ export function SiteFooter() {
       <div className="shell footer-inner">
         <div>
           <strong>Leslie’s Notes on AI</strong>
-          <p>A maintained field notebook—not a stream of AI news.</p>
+          <p>A personal reference library—not a stream of AI news.</p>
         </div>
-        <p>Primary sources first. Dates and uncertainty visible.</p>
+        <p>Built to be searched, checked, and revised.</p>
       </div>
     </footer>
   );
