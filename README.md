@@ -36,4 +36,8 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 
 ## Deployment
 
-The project is designed for Vercel and requires no database or runtime secrets. Vercel supplies its production hostname to metadata, RSS, and sitemap generation during deployment.
+Production: <https://leslies-notes-on-ai.vercel.app>
+
+The Vercel project is connected to [`maynard242/leslies-notes-on-ai`](https://github.com/maynard242/leslies-notes-on-ai). Pushes to `main` create production deployments; pull requests receive preview deployments.
+
+The site requires no database or runtime secrets. Vercel supplies its production hostname to metadata, RSS, and sitemap generation during deployment.
