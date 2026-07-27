@@ -1,0 +1,48 @@
+{
+  "name": "leslies-notes-on-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate:content": "node scripts/validate-content.mjs",
+    "check": "npm run validate:content && npm run test && npm run typecheck && npm run lint && npm run build"
+  },
+  "dependencies": {
+    "gray-matter": "latest",
+    "github-slugger": "latest",
+    "mdast-util-to-string": "latest",
+    "next": "latest",
+    "reading-time": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "rehype-autolink-headings": "latest",
+    "rehype-slug": "latest",
+    "rehype-stringify": "latest",
+    "remark-gfm": "latest",
+    "remark-parse": "latest",
+    "remark-rehype": "latest",
+    "server-only": "latest",
+    "unified": "latest",
+    "unist-util-visit": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "overrides": {
+    "minimatch": "10.2.5",
+    "brace-expansion": "5.0.8",
+    "postcss": "8.5.23",
+    "sharp": "0.35.3"
+  }
+}
