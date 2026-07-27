@@ -7,6 +7,7 @@ import GithubSlugger from "github-slugger";
 import { toString } from "mdast-util-to-string";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSanitize from "rehype-sanitize";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
@@ -50,7 +51,8 @@ export type Note = NoteMeta & {
 };
 
 function assertDate(value: unknown, field: string, slug: string): string {
-  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(Date.parse(`${value}T00:00:00Z`))) {
+  const parsed = typeof value === "string" ? new Date(`${value}T00:00:00Z`) : null;
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value) || !parsed || Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== value) {
     throw new Error(`${slug}: ${field} must be a valid YYYY-MM-DD date`);
   }
   return value;
@@ -88,12 +90,19 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
   };
 }
 
-export function getNoteSlugs() {
+function getAllNoteSlugs() {
   if (!fs.existsSync(notesDirectory)) return [];
   return fs.readdirSync(notesDirectory)
     .filter((name) => name.endsWith(".md"))
     .map((name) => name.replace(/\.md$/, ""))
     .sort();
+}
+
+export function getNoteSlugs() {
+  return getAllNoteSlugs().filter((slug) => {
+    const raw = fs.readFileSync(path.join(notesDirectory, `${slug}.md`), "utf8");
+    return matter(raw).data.status !== "Draft";
+  });
 }
 
 export function listNotes(): NoteMeta[] {
@@ -111,9 +120,10 @@ export function extractToc(content: string): TocItem[] {
   const slugger = new GithubSlugger();
   const items: TocItem[] = [];
   visit(tree, "heading", (node: Heading) => {
-    if (node.depth < 2 || node.depth > 3) return;
     const title = toString(node).trim();
-    if (title) items.push({ id: slugger.slug(title), title, depth: node.depth });
+    if (!title) return;
+    const id = slugger.slug(title);
+    if (node.depth >= 2 && node.depth <= 3) items.push({ id, title, depth: node.depth });
   });
   return items;
 }
@@ -123,6 +133,7 @@ export async function renderMarkdown(content: string) {
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype)
+    .use(rehypeSanitize)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
       behavior: "append",
@@ -140,6 +151,7 @@ export async function getNoteBySlug(slug: string): Promise<Note | null> {
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, "utf8");
   const parsed = matter(raw);
+  if (parsed.data.status === "Draft") return null;
   const meta = parseMeta(slug, parsed.data, parsed.content);
   return {
     ...meta,

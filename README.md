@@ -30,6 +30,7 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 1. Copy an existing front-matter block from `notes/`.
 2. Save the note as `notes/<stable-slug>.md`.
 3. Set `published`, `updated`, `checked`, `version`, `status`, and `tags`.
+   Notes with `status: Draft` are validated but omitted from public pages, RSS, sitemap, and static routes.
 4. Run `npm run check`.
 5. Deploy with `vercel --prod`.
 

@@ -15,7 +15,7 @@
     --paper: #f5efe3;
     --paper-deep: #e9dfcd;
     --white: #fffdf8;
-    --coral: #e95f42;
+    --coral: #c13e27;
     --gold: #d7a93f;
     --teal: #176b68;
     --line: rgba(19, 43, 43, .18);
@@ -70,7 +70,7 @@
   .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 60px; align-items: end; margin-bottom: 54px; }
   .section-heading p:last-child { max-width: 430px; margin: 0 0 8px; color: rgba(245,239,227,.72); }
   .search-field { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; max-width: 620px; padding: 12px 0; border-bottom: 1px solid rgba(245,239,227,.45); }
-  .search-field input { width: 100%; color: var(--paper); background: transparent; border: 0; outline: 0; font-size: 17px; }
+  .search-field input { width: 100%; color: var(--paper); background: transparent; border: 0; font-size: 17px; }
   .search-field input::placeholder { color: rgba(245,239,227,.52); }
   .library-count { margin: 18px 0 24px; color: rgba(245,239,227,.58); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
   .note-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }

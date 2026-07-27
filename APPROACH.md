@@ -95,6 +95,8 @@ order: 10
 ---
 ```
 
+`Draft` is an unpublished state. Draft files remain in `notes/` for local review but are excluded from the public library, routes, RSS, and sitemap.
+
 ## Near-term roadmap
 
 1. Publish the complete governance reference.
