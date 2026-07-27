@@ -1,6 +1,6 @@
 # Reference Library Generalization Implementation Plan
 
-**Status:** Implemented locally; production verification pending.
+**Status:** Completed and verified in production on 27 July 2026.
 
 > **For Hermes:** Implement and verify this plan task-by-task.
 
@@ -65,4 +65,4 @@
 - [x] Draft exclusion still covers routes, lists, RSS, and sitemap.
 - [x] Search finds notes by title, description, `kind`, and `topics`.
 - [x] `npm run check`, `npm audit`, link checking, documentation checks, and `git diff --check` pass.
-- [ ] Production serves the Harnesses page, raw Markdown, RSS entry, and sitemap entry.
+- [x] Production serves the Harnesses page, raw Markdown, RSS entry, and sitemap entry.
