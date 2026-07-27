@@ -8,6 +8,8 @@ Canonical notes live in [`notes/`](./notes). The website discovers Markdown file
 
 The editorial and learning approach is recorded in [`APPROACH.md`](./APPROACH.md).
 
+The implementation decisions, build sequence, hardening work, deployment, and current publishing workflow are recorded in [`docs/HOW_IT_WAS_BUILT.md`](./docs/HOW_IT_WAS_BUILT.md).
+
 ## Development
 
 ```bash
@@ -32,7 +34,7 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 3. Set `published`, `updated`, `checked`, `version`, `status`, and `tags`.
    Notes with `status: Draft` are validated but omitted from public pages, RSS, sitemap, and static routes.
 4. Run `npm run check`.
-5. Deploy with `vercel --prod`.
+5. Commit and push to `main`; Vercel deploys the successful build automatically.
 
 ## Deployment
 

@@ -73,9 +73,13 @@ npm run check
 # Preview locally
 npm run dev
 
-# Publish
-vercel --prod
+# Publish through the connected GitHub repository
+git add notes/my-note.md
+git commit -m "content: publish my note"
+git push origin main
 ```
+
+Vercel creates previews for pull requests and promotes successful `main` builds to production.
 
 ## Front matter contract
 

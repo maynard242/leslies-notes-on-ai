@@ -1,5 +1,11 @@
 # Leslie’s Notes on AI Initial Site Implementation Plan
 
+**Status:** Completed on 27 July 2026
+
+**Implementation record:** [`../HOW_IT_WAS_BUILT.md`](../HOW_IT_WAS_BUILT.md)
+
+**Production:** <https://leslies-notes-on-ai.vercel.app>
+
 > **For Hermes:** Implement and verify this plan task-by-task.
 
 **Goal:** Build and deploy a Markdown-first Vercel website with AI Governance for Engineers as the first published note.
