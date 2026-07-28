@@ -39,6 +39,16 @@ describe("note content pipeline", () => {
     ]);
   });
 
+  it("keeps ten board prompts under each of the five governance questions", () => {
+    const file = path.join(process.cwd(), "notes", "Governance", "ai-governance-board-note.md");
+    const questionSections = fs.readFileSync(file, "utf8").split(/^## [1-5]\. /m).slice(1);
+
+    expect(questionSections).toHaveLength(5);
+    for (const section of questionSections) {
+      expect(section.match(/^\d+\. /gm)).toHaveLength(10);
+    }
+  });
+
   it("orders RSS by publication date rather than manual library order", async () => {
     const slug = "temporary-newest-feed-note-test";
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);

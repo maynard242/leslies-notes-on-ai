@@ -6,7 +6,7 @@ section: "Governance"
 published: "2026-07-28"
 updated: "2026-07-28"
 checked: "2026-07-28"
-version: "1.1"
+version: "2.0"
 status: "Maintained"
 topics:
   - AI governance
@@ -45,6 +45,19 @@ Every serious framework in the world starts here, and for the same reason financ
 
 Understand what the answer tells you. A management team that produces the inventory in a week has been governing. A team that needs a quarter has been deploying.
 
+**Ask specifically:**
+
+1. Does the inventory include AI embedded in vendor and SaaS products, not just systems built in-house?
+2. Does it include the tools staff adopted without asking — the shadow AI no procurement process ever saw?
+3. What independent source, business-unit attestation, or technical evidence was used to test the inventory's completeness?
+4. Is there a gate that adds a new use to the inventory before launch, or only after someone asks?
+5. Which uses touch hiring, credit, insurance, or other protected decisions?
+6. Which uses face the customer or the public with no human in the loop?
+7. Which uses sit inside safety-critical or regulated operations?
+8. Which agents can commit the company — spend money, sign, communicate externally — without a person approving each action?
+9. Who owns keeping the inventory current, and on what cycle?
+10. What did management choose to leave off, and why?
+
 ## 2. Who answers for it — to management, and to us?
 
 Somebody in management must own AI risk end to end, with a name, a mandate, and a reporting line this board can see. And somebody on this board must own the topic. Practice varies defensibly — full board for strategy, risk or audit committee for controls, a technology committee where AI is the business. What is not defensible is ambiguity.
@@ -53,6 +66,19 @@ Write the allocation into committee charters. Put AI on the agenda at a stated c
 
 One demand belongs in the reporting structure from the start: AI risk is not one thing. Systems malfunction — bias, fabrication, quiet degradation. People misuse them — deliberately, adaptively. And systems working exactly as designed can produce harm in aggregate — to the workforce, the market, the franchise. Three failure types, three sets of controls, usually three different owners. A management report that blends them has not been thought through, and the board should say so.
 
+**Ask specifically:**
+
+1. Name the executive who owns AI risk end to end. Can they say no to a deployment, or only advise?
+2. Which board committee owns this — is it in the charter, or assumed?
+3. What is the standing cadence for AI risk reaching the board?
+4. Does the report separate malfunction, misuse, and aggregate harm — or blend all three into one slide?
+5. When a system crosses business units, who owns it — or does ownership diffuse at the boundary?
+6. Can risk or compliance escalate a concern independent of the team that built or bought the system?
+7. Is there an independent, appropriately resourced challenge and assurance function for material AI systems, with authority to challenge deployment?
+8. When the builder and the risk owner disagree, who has the final call?
+9. Has AI actually been on the agenda, or only mentioned in passing?
+10. Do the minutes show what was asked and answered — or only that AI came up?
+
 ## 3. What have we decided our AI will not do?
 
 This is the appetite question, and it belongs to the board, not the CIO. Which decisions may be automated, and which require a human accountable by name. Which uses the company will not pursue at any margin. What error rate is tolerable where.
@@ -60,6 +86,19 @@ This is the appetite question, and it belongs to the board, not the CIO. Which d
 Singapore's [Model AI Governance Framework for Agentic AI](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai) applies the familiar principle to agents: humans remain accountable, and meaningful human control and oversight belong in the lifecycle. The board's contribution is deciding which humans, for what, in advance. An appetite statement written after the incident is a press release.
 
 The economist's version of the same question: automation is a trade, not a gift. Every decision handed to a system saves cost and transfers a risk the company used to hold in a person's judgment. Price both sides before agreeing to the trade.
+
+**Ask specifically:**
+
+1. Which decisions may never be fully automated here, regardless of how well the model performs?
+2. For the decisions that remain automated, who is the named human accountable for each one?
+3. What failure rate triggers suspension, and who has the authority to pull the switch?
+4. Has the board approved an appetite statement, or has appetite simply become whatever management already built?
+5. Does the statement distinguish AI that assists a decision from AI that replaces one?
+6. What has the company turned down, and is that decision written anywhere?
+7. What is the ceiling on what an agent can do unsupervised — spend, contract, speak for the company?
+8. Can a customer or employee actually challenge an automated decision, and do they know how?
+9. How does appetite change by jurisdiction, and who is tracking the map?
+10. When did the board last revisit the statement, and what changed?
 
 ## 4. How would we know if it went wrong?
 
@@ -73,11 +112,37 @@ Second, some of these decisions do not reverse. A model released openly cannot b
 
 Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Reporting clocks differ by jurisdiction. For example, California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) and New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B) include incident-reporting requirements for covered frontier developers. A statutory clock is an engineering requirement wearing legal clothing: detection and escalation must run faster than the deadline, and the board should ask whether they do.
 
+**Ask specifically:**
+
+1. What did pre-deployment testing check, against what pass criteria?
+2. What runs in production monitoring, and how often — real time, daily, monthly sample?
+3. What exactly counts as an incident that must be escalated?
+4. Does the escalation clock beat the fastest statutory deadline the company faces?
+5. Who reviews the system independently — not the team that built it?
+6. What was the last incident, and did the company catch it or did someone else?
+7. For anything irreversible, does the board see it before deployment, or only after?
+8. When management says the system "cannot" do something, is that a design guarantee or an absence of observed failures?
+9. Is drift over time monitored, or only accuracy at launch?
+10. Who can shut the system down immediately, and has that authority ever actually been tested?
+
 ## 5. What could we prove?
 
 The closing question, and the one that compresses the other four. If a regulator, a plaintiff, or a major customer asked this company to evidence its AI governance tomorrow — the inventory, the ownership, the appetite statement, the test results, the incident record — what would we hand over, and how long would it take?
 
 If the answer is "a well-organized file, within days," the board's task is maintenance. Anything else, and the gaps name themselves. This question needs no technical literacy at all, which is why it is the one every director can press to the end.
+
+**Ask specifically:**
+
+1. If a regulator asked for the inventory tomorrow, how long to produce it, and would it be complete?
+2. Can the company produce the appetite statement and show the board approved it?
+3. Can it produce actual test and monitoring results — not an assurance that testing happened?
+4. Can it produce the incident log, including incidents assessed and not reported?
+5. Can it trace who approved a given deployment, and when?
+6. Does the evidence live in one place, or would someone have to reconstruct it from email and Slack?
+7. Would the answer differ for a system built in-house versus one bought from a vendor?
+8. Has anyone actually run the drill — assembled the file as if asked — or is this theory?
+9. Who owns the file day to day: is it maintained, or built only under threat?
+10. If it were handed over, would the gaps be visible before anyone had to explain them?
 
 ---
 
@@ -101,5 +166,6 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 
 ## Change history
 
+- **2026-07-28 — v2.0:** Added ten specific questions under each of the five sections, so a director can turn the general question into an actual line of inquiry.
 - **2026-07-28 — v1.1:** Rechecked regulatory and framework sources; added direct claim-adjacent citations, a formal source record, and clarified the legal limits of the guide.
 - **2026-07-28 — v1.0:** Initial reviewed version.
