@@ -6,7 +6,7 @@ section: "Governance"
 published: "2026-07-28"
 updated: "2026-07-28"
 checked: "2026-07-28"
-version: "2.0"
+version: "2.1"
 status: "Maintained"
 topics:
   - AI governance
@@ -90,14 +90,14 @@ The economist's version of the same question: automation is a trade, not a gift.
 **Ask specifically:**
 
 1. Which decisions may never be fully automated here, regardless of how well the model performs?
-2. For the decisions that remain automated, who is the named human accountable for each one?
+2. For material or consequential automated decisions, are accountable executive ownership and escalation authority documented?
 3. What failure rate triggers suspension, and who has the authority to pull the switch?
 4. Has the board approved an appetite statement, or has appetite simply become whatever management already built?
 5. Does the statement distinguish AI that assists a decision from AI that replaces one?
 6. What has the company turned down, and is that decision written anywhere?
 7. What is the ceiling on what an agent can do unsupervised — spend, contract, speak for the company?
 8. Can a customer or employee actually challenge an automated decision, and do they know how?
-9. How does appetite change by jurisdiction, and who is tracking the map?
+9. Has management identified material jurisdictional constraints that require changes to the board-approved appetite or controls, and how are those changes escalated to the board?
 10. When did the board last revisit the statement, and what changed?
 
 ## 4. How would we know if it went wrong?
@@ -117,7 +117,7 @@ Then the operational half: what incidents occurred last year, how were they dete
 1. What did pre-deployment testing check, against what pass criteria?
 2. What runs in production monitoring, and how often — real time, daily, monthly sample?
 3. What exactly counts as an incident that must be escalated?
-4. Does the escalation clock beat the fastest statutory deadline the company faces?
+4. Does the escalation clock beat the shortest applicable legal, regulatory, and contractual reporting deadline, as confirmed by counsel?
 5. Who reviews the system independently — not the team that built it?
 6. What was the last incident, and did the company catch it or did someone else?
 7. For anything irreversible, does the board see it before deployment, or only after?
@@ -166,6 +166,7 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 
 ## Change history
 
+- **2026-07-28 — v2.1:** Refined board prompts on accountable ownership, jurisdictional constraints, and reporting deadlines after independent governance review.
 - **2026-07-28 — v2.0:** Added ten specific questions under each of the five sections, so a director can turn the general question into an actual line of inquiry.
 - **2026-07-28 — v1.1:** Rechecked regulatory and framework sources; added direct claim-adjacent citations, a formal source record, and clarified the legal limits of the guide.
 - **2026-07-28 — v1.0:** Initial reviewed version.
