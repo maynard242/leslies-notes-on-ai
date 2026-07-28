@@ -52,7 +52,7 @@ describe("note content pipeline", () => {
   it("renders the governance illustrations from tracked static assets", async () => {
     const illustrations = [
       ["ai-governance-for-engineers", "ai-governance-control-loop-framework.webp"],
-      ["ai-governance-board-note", "five-ai-governance-board-questions.webp"],
+      ["ai-governance-board-note", "board-ai-governance-framework.webp"],
     ] as const;
 
     for (const [slug, filename] of illustrations) {

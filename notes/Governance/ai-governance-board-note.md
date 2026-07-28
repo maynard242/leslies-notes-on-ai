@@ -6,7 +6,7 @@ section: "Governance"
 published: "2026-07-28"
 updated: "2026-07-28"
 checked: "2026-07-28"
-version: "2.2"
+version: "2.3"
 status: "Maintained"
 topics:
   - AI governance
@@ -35,9 +35,9 @@ One frame organizes everything that follows. An organization using AI must be ab
 
 Five questions test the three verbs. Asking them, understanding the answers, and recording the exchange creates a practical oversight record; it does not by itself establish satisfaction of any fiduciary, statutory, or regulatory duty. A board that cannot get crisp answers has found its work plan.
 
-![AI governance board framework: management makes and keeps claims; the board confirms the organization can prove them, using five oversight questions and attention to malfunction, misuse, and aggregate harm.](/illustrations/five-ai-governance-board-questions.webp)
+![Board AI governance framework: management makes and keeps claims; the board asks whether the organization can evidence them, with separate reporting for malfunction, misuse, and aggregate harm.](/illustrations/board-ai-governance-framework.webp)
 
-*Figure — An illustrative overview. The five detailed questions below, together with their limits and evidence requirements, govern this note; the figure does not state legal requirements or establish fiduciary compliance.*
+*Figure — A practical reader aid. The five detailed questions below, their scope, and this note’s legal caveats control; the graphic is not a statement of generally applicable legal or fiduciary duties.*
 
 ---
 
@@ -170,6 +170,7 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 
 ## Change history
 
+- **2026-07-28 — v2.3:** Replaced the board-governance overview illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
 - **2026-07-28 — v2.2:** Added the board-governance illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
 - **2026-07-28 — v2.1:** Refined board prompts on accountable ownership, jurisdictional constraints, and reporting deadlines after independent governance review.
 - **2026-07-28 — v2.0:** Added ten specific questions under each of the five sections, so a director can turn the general question into an actual line of inquiry.
