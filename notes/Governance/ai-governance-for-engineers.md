@@ -2,6 +2,7 @@
 title: "AI Governance for Engineers"
 description: "An engineer-first reference for making, keeping, and proving claims about AI-system behavior."
 kind: "reference"
+section: "Governance"
 published: "2026-07-27"
 updated: "2026-07-27"
 checked: "2026-07-26"

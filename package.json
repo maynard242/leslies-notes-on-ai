@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "validate:content": "node scripts/validate-content.mjs",
+    "review:stale": "node scripts/review-notes.mjs",
     "check": "npm run test && npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {

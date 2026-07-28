@@ -1,7 +1,7 @@
 export const site = {
   name: "Leslie’s Notes on AI",
   shortName: "Notes on AI",
-  description: "A personal reference library for understanding how AI systems work, fail, and are governed.",
+  description: "Practical technical references by Leslie Teo, written and updated with AI assistance, for using and adopting AI safely.",
   tagline: "How AI systems work, fail, and are governed.",
 };
 

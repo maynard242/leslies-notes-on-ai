@@ -8,12 +8,12 @@ export default function Home() {
       <section className="hero">
         <div className="shell hero-grid">
           <div>
-            <p className="eyebrow">A personal AI reference library</p>
+            <p className="eyebrow">A reference library by Leslie Teo</p>
             <h1>Leslie’s Notes<br />on <em>AI</em></h1>
           </div>
           <div className="hero-copy">
             <p className="hero-lede">How AI systems work, fail, and are governed.</p>
-            <p>Long-form references, engineering detail, practical frameworks, and dated evidence—organized to be found again.</p>
+            <p>Practical technical references for using and adopting AI safely—written and updated by Leslie Teo with AI assistance.</p>
             <a className="text-link" href="#notes">Browse the library <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading">
             <div><p className="section-number">02 / Library</p><h2 id="notes-title">Reference notes</h2></div>
-            <p>References, guides, checklists, explainers, and working notes. Search by title, kind, or topic.</p>
+            <p>Practical technical references for using and adopting AI safely. Search by title, kind, or topic.</p>
           </div>
           <NoteLibrary notes={notes} />
         </div>

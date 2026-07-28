@@ -4,7 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { GET as getFeed } from "@/app/feed.xml/route";
-import { extractToc, getNoteBySlug, listNotes, renderMarkdown } from "@/lib/notes";
+import { extractToc, getNoteBySlug, listNotes, NOTE_SECTIONS, renderMarkdown } from "@/lib/notes";
 import { matchesNoteQuery } from "@/lib/search";
 
 describe("note content pipeline", () => {
@@ -15,24 +15,37 @@ describe("note content pipeline", () => {
       slug: "ai-governance-for-engineers",
       title: "AI Governance for Engineers",
       kind: "reference",
+      section: "Governance",
       status: "Reviewed",
     }));
     expect(notes).toContainEqual(expect.objectContaining({
       slug: "harnesses",
       title: "Harnesses",
       kind: "reference",
+      section: "Agents",
       status: "Reviewed",
     }));
     expect(notes.find((note) => note.slug === "ai-governance-for-engineers")?.words).toBeGreaterThan(10_000);
   });
 
+  it("uses the established section taxonomy and keeps public slugs stable after files move", () => {
+    expect(NOTE_SECTIONS).toEqual(["Data", "Training", "Post-Training", "Agents", "Governance", "Misc"]);
+    expect(listNotes().map((note) => note.slug)).toEqual([
+      "post-training-brief",
+      "harnesses",
+      "ai-governance-board-note",
+      "ai-governance-for-engineers",
+    ]);
+  });
+
   it("orders RSS by publication date rather than manual library order", async () => {
     const slug = "temporary-newest-feed-note-test";
-    const file = path.join(process.cwd(), "notes", `${slug}.md`);
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Newest feed note"
 description: "Regression fixture"
 kind: "reference"
+section: "Misc"
 published: "2027-01-01"
 updated: "2027-01-01"
 status: "Reviewed"
@@ -93,11 +106,12 @@ order: 999
 
   it("keeps draft notes out of public discovery and direct reads", async () => {
     const slug = "temporary-draft-test";
-    const file = path.join(process.cwd(), "notes", `${slug}.md`);
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Temporary draft"
 description: "Regression fixture"
 kind: "reference"
+section: "Misc"
 published: "2026-07-27"
 updated: "2026-07-27"
 status: "Draft"
@@ -116,11 +130,12 @@ topics: [test]
 
   it("supports a general note without optional checked or version fields", async () => {
     const slug = "temporary-general-note-test";
-    const file = path.join(process.cwd(), "notes", `${slug}.md`);
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "General note"
 description: "Regression fixture"
 kind: "checklist"
+section: "Misc"
 published: "2026-07-27"
 updated: "2026-07-27"
 status: "Reviewed"
@@ -153,6 +168,7 @@ topics: [test]
 title: []
 description: "Regression fixture"
 kind: "reference"
+section: "Misc"
 published: "2026-07-27"
 updated: "2026-07-27"
 status: "Draft"
@@ -176,11 +192,12 @@ topics: [test]
 
   it("rejects impossible calendar dates", () => {
     const slug = "temporary-invalid-date-test";
-    const file = path.join(process.cwd(), "notes", `${slug}.md`);
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Invalid date"
 description: "Regression fixture"
 kind: "reference"
+section: "Misc"
 published: "2026-02-30"
 updated: "2026-07-27"
 status: "Reviewed"
@@ -191,6 +208,77 @@ topics: [test]
 `);
     try {
       expect(() => listNotes()).toThrow("published must be a valid YYYY-MM-DD date");
+    } finally {
+      fs.rmSync(file, { force: true });
+    }
+  });
+
+  it("rejects duplicate public slugs across sections", () => {
+    const slug = "temporary-duplicate-slug-test";
+    const files = ["Data", "Misc"].map((section) => path.join(process.cwd(), "notes", section, `${slug}.md`));
+    for (const [index, file] of files.entries()) {
+      fs.writeFileSync(file, `---
+title: "Duplicate ${index}"
+description: "Regression fixture"
+kind: "reference"
+section: "${index === 0 ? "Data" : "Misc"}"
+published: "2026-07-27"
+updated: "2026-07-27"
+status: "Draft"
+topics: [test]
+---
+
+# Duplicate ${index}
+`);
+    }
+    try {
+      expect(() => listNotes()).toThrow("temporary-duplicate-slug-test: duplicate public slug");
+    } finally {
+      for (const file of files) fs.rmSync(file, { force: true });
+    }
+  });
+
+  it("requires a note's section to match its parent directory", () => {
+    const slug = "temporary-mismatched-section-test";
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
+    fs.writeFileSync(file, `---
+title: "Mismatched section"
+description: "Regression fixture"
+kind: "reference"
+section: "Governance"
+published: "2026-07-27"
+updated: "2026-07-27"
+status: "Reviewed"
+topics: [test]
+---
+
+# Mismatched section
+`);
+    try {
+      expect(() => listNotes()).toThrow("section Governance must match parent directory Misc");
+    } finally {
+      fs.rmSync(file, { force: true });
+    }
+  });
+
+  it("rejects notes with a section outside the reference taxonomy", () => {
+    const slug = "temporary-invalid-section-test";
+    const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
+    fs.writeFileSync(file, `---
+title: "Invalid section"
+description: "Regression fixture"
+kind: "reference"
+section: "Unsorted"
+published: "2026-07-27"
+updated: "2026-07-27"
+status: "Reviewed"
+topics: [test]
+---
+
+# Invalid section
+`);
+    try {
+      expect(() => listNotes()).toThrow("section must be Data, Training, Post-Training, Agents, Governance, or Misc");
     } finally {
       fs.rmSync(file, { force: true });
     }

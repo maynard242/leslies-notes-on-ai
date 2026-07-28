@@ -27,7 +27,7 @@ The core choices were:
 
 ```text
 .
-├── notes/                         Canonical Markdown notes
+├── notes/                         Canonical Markdown notes, organized by section
 ├── app/                           Next.js App Router pages and routes
 │   ├── notes/[slug]/              Static note page
 │   ├── notes/[slug]/raw/          Raw Markdown response
@@ -42,9 +42,10 @@ The core choices were:
 │   ├── search.ts                  Metadata-search normalization
 │   └── site.ts                    Site identity and canonical URL handling
 ├── scripts/validate-content.mjs  Build-time content contract
+├── scripts/review-notes.mjs       Staleness report for published notes
 ├── tests/notes.test.ts            Content-pipeline regression tests
 ├── APPROACH.md                    Editorial and reference approach
-└── docs/                          Plans and implementation record
+└── docs/                          Plans, implementation record, and review process
 ```
 
 Generated output such as `.next/`, local Vercel metadata under `.vercel/`, dependencies, environment files, logs, and TypeScript build metadata are ignored by Git.
@@ -52,10 +53,10 @@ Generated output such as `.next/`, local Vercel metadata under `.vercel/`, depen
 ## 3. Content flow
 
 ```text
-notes/*.md
+notes/<section>/*.md
    │
    ├── scripts/validate-content.mjs
-   │      rejects malformed metadata, invalid dates, unstable slugs,
+   │      rejects malformed metadata, invalid/mismatched sections, invalid dates, unstable slugs,
    │      unresolved placeholders, and unsafe URL schemes
    │
    └── lib/notes.ts
@@ -77,13 +78,14 @@ All published note routes are statically generated. `dynamicParams = false` mean
 
 ## 4. The note contract
 
-Each note uses its filename as a stable public slug and begins with YAML front matter:
+Each note sits in one of six section directories—`Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`—and uses its filename as a stable public slug. Its front matter repeats the matching section:
 
 ```yaml
 ---
 title: "A precise title"
 description: "One-sentence scope"
 kind: "reference"
+section: "Governance"
 published: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 checked: "YYYY-MM-DD" # optional
@@ -102,9 +104,9 @@ The four statuses have distinct meanings:
 - **Maintained:** published with an explicit expectation of continuing review.
 - **Archived:** remains public for historical reference with its lifecycle state visible.
 
-`kind` is an open kebab-case field describing how the note is used, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`. `topics` describe subject matter and power metadata search. `checked` and `version` are optional so shorter or durable notes do not need invented maintenance metadata.
+`kind` is an open kebab-case field describing how the note is used, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`. `section` is a closed retrieval field and must match the parent directory. `topics` describe subject matter and power metadata search. `checked` and `version` are optional so shorter or durable notes do not need invented maintenance metadata.
 
-The first note, [`AI Governance for Engineers`](../notes/ai-governance-for-engineers.md), was revised as a long-form engineer-facing reference. Its regulatory, standards, research, and tooling claims were checked against cited primary sources, given explicit verification dates, and separated from durable engineering guidance.
+The first note, [`AI Governance for Engineers`](../notes/Governance/ai-governance-for-engineers.md), was revised as a long-form engineer-facing reference. Its regulatory, standards, research, and tooling claims were checked against cited primary sources, given explicit verification dates, and separated from durable engineering guidance.
 
 ## 5. Implementation sequence
 
@@ -120,7 +122,8 @@ The project and `notes/` directory were created first. The reviewed governance d
 
 [`lib/notes.ts`](../lib/notes.ts) was implemented to:
 
-- discover Markdown by stable filename;
+- discover Markdown recursively by stable filename;
+- validate a note's section against its parent directory;
 - parse and validate required metadata;
 - reject impossible calendar dates;
 - calculate word count and reading time;
@@ -148,6 +151,7 @@ The Next.js App Router was used for:
 
 - a filename that is not a stable kebab-case slug;
 - missing required front matter;
+- a section that is invalid or does not match its parent directory;
 - an impossible or malformed date;
 - an invalid status or empty topics;
 - no level-one heading;
@@ -226,7 +230,7 @@ A real documentation push was used to verify the integration. Vercel detected th
 
 ### Step 11 — Generalize the library and publish the second note
 
-The second note, [`Harnesses`](../notes/harnesses.md), exposed the remaining assumptions inherited from a one-note launch. The content model and interface were revised before publication:
+The second note, [`Harnesses`](../notes/Agents/harnesses.md), exposed the remaining assumptions inherited from a one-note launch. The content model and interface were revised before publication:
 
 - `kind` now describes the form of a note without constraining future forms to a fixed application enum;
 - `topics` replaced the more publication-oriented `tags` name;
@@ -239,13 +243,25 @@ The second note, [`Harnesses`](../notes/harnesses.md), exposed the remaining ass
 
 The static architecture did not change. This was a schema and positioning correction, not a reason to add a database or CMS.
 
+### Step 12 — Add a note review process
+
+Publishing scales past one note only if the library stays accurate. [`scripts/review-notes.mjs`](../scripts/review-notes.mjs) reads every note's `checked` (or `updated`) date and flags `Reviewed`/`Maintained` notes past a configurable age threshold, exempting `Archived` and skipping `Draft`. It ships as `npm run review:stale`, separate from `npm run check`, because staleness is advisory, not a build gate.
+
+[`docs/REVIEW_PROCESS.md`](./REVIEW_PROCESS.md) records the triage workflow: re-verify sources, decide still-accurate versus needs-revision versus superseded, apply the version and change-history conventions, then run the normal `npm run check` → commit → push cycle. A monthly scheduled check runs the script and reports over Telegram when a note is stale; it never edits a note itself.
+
+### Step 13 — Section the library and clarify authorship
+
+The library was organized into `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. Notes are discovered recursively, but retain public URLs based on their filenames; duplicate filenames across sections are rejected. The home page groups notes by section, each section and note page credits the work as written and updated by Leslie Teo with AI assistance, and the site describes itself as a practical technical reference library for using and adopting AI safely.
+
+Leslie remains responsible for editorial judgment, source review, and publication. AI assists research, drafting, and updates; it does not replace those responsibilities.
+
 ## 6. Current publishing workflow
 
 ### Add or revise a note
 
 ```bash
 # Create or edit the canonical source
-$EDITOR notes/my-note.md
+$EDITOR notes/Governance/my-note.md
 
 # Keep it off the website while working
 # status: "Draft"
@@ -255,7 +271,7 @@ npm run check
 
 # When reviewed, change status to Reviewed or Maintained
 # Then commit and push
-git add notes/my-note.md
+git add notes/Governance/my-note.md
 git commit -m "content: publish my note"
 git push origin main
 ```
@@ -288,11 +304,11 @@ Adding a note does not require a new page component, database row, CMS action, o
 - Git history;
 - Vercel preview and production deployment.
 
-The trade-off is deliberate: this system optimizes for a single careful author and a searchable, reviewable reference corpus. If editing volume or contributors grow substantially, a CMS can be added later without abandoning the Markdown source contract.
+The trade-off is deliberate: this system optimizes for Leslie as the accountable editor, assisted by AI, and for a searchable, reviewable reference corpus. If editing volume or contributors grow substantially, a CMS can be added later without abandoning the Markdown source contract.
 
 ## 8. Operating principles worth preserving
 
-1. Markdown under `notes/` remains canonical.
+1. Markdown under section directories in `notes/` remains canonical.
 2. Draft means unpublished by the website, not confidential in the public repository.
 3. Time-sensitive claims carry a `checked` date.
 4. Stable slugs should not change casually.
@@ -301,3 +317,4 @@ The trade-off is deliberate: this system optimizes for a single careful author a
 7. Git records the editorial history; Vercel is the delivery layer.
 8. A successful build is not enough—smoke-test the live routes.
 9. Add infrastructure only when the content workflow demands it.
+10. A published note is a standing claim—review it on a schedule, not only when someone happens to reread it.

@@ -32,11 +32,12 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
     <div className="note-shell shell">
       <div className="note-utility">
         <Link href="/">← All notes</Link>
-        <div><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
+        <div><span>{note.section}</span><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
       </div>
       <div className="note-intro">
         <p className="eyebrow">Published {formatDate(note.published, "long")} · {note.checked ? `checked ${formatDate(note.checked, "long")}` : `updated ${formatDate(note.updated, "long")}`}</p>
         <p>{note.description}</p>
+        <p className="note-attribution">Written and updated by Leslie Teo with AI assistance.</p>
         <div className="note-actions">
           <a href={`/notes/${note.slug}/raw`}>View raw Markdown</a>
         </div>

@@ -2,7 +2,9 @@
 
 ## Purpose
 
-**Leslie’s Notes on AI** is Leslie’s personal reference library for understanding how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
+**Leslie’s Notes on AI** is a practical technical reference library by Leslie Teo, written and updated with AI assistance, for using and adopting AI safely. It covers how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
+
+Leslie remains accountable for editorial judgment, source review, and publication. AI assists research, drafting, and updates; it is not an independent author or source of authority.
 
 The site should answer three questions quickly:
 
@@ -72,16 +74,19 @@ This is a guide, not a template every note must imitate. A checklist should stay
 The first retrieval layer is intentionally simple:
 
 - stable note URLs
+- six library sections: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`
 - titles and one-sentence descriptions
-- `kind` and `topics`
+- `section`, `kind`, and `topics`
 - client-side metadata search
 - visible status and reading time, plus version and verification date when supplied
 - raw Markdown, RSS, and sitemap output
 
 The current notes are:
 
-- **AI Governance for Engineers** — `reference`
-- **Harnesses** — `reference`
+- **Post-Training in 2026** — `Post-Training` / `reference`
+- **Harnesses** — `Agents` / `reference`
+- **AI Governance: Five Questions for the Board** — `Governance` / `guide`
+- **AI Governance for Engineers** — `Governance` / `reference`
 
 Add dedicated topic pages, related-note links, backlinks, or a full-text index only when the note collection is large enough to show which navigation problem is real.
 
@@ -102,6 +107,7 @@ Add dedicated topic pages, related-note links, backlinks, or a full-text index o
 title: "A precise title"
 description: "One sentence defining scope and use"
 kind: "reference"
+section: "Governance"
 published: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 checked: "YYYY-MM-DD" # optional: last factual/source verification
@@ -113,7 +119,7 @@ order: 10              # optional: defaults to the end
 ---
 ```
 
-Required fields are `title`, `description`, `kind`, `published`, `updated`, `status`, and a non-empty `topics` list. `kind` must be a kebab-case value. Dates must be real ISO calendar dates.
+Required fields are `title`, `description`, `kind`, `section`, `published`, `updated`, `status`, and a non-empty `topics` list. `kind` must be a kebab-case value. `section` must be one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`, and must match the note’s parent directory. Dates must be real ISO calendar dates.
 
 Lifecycle behavior:
 
@@ -128,7 +134,7 @@ Use `checked` only when the date means something: the source-backed or time-sens
 
 ```bash
 # Add or edit a canonical note
-$EDITOR notes/my-note.md
+$EDITOR notes/Governance/my-note.md
 
 # Validate metadata, tests, types, lint, and production build
 npm run check
@@ -137,7 +143,7 @@ npm run check
 npm run dev
 
 # Publish through the connected GitHub repository
-git add notes/my-note.md
+git add notes/Governance/my-note.md
 git commit -m "content: publish my note"
 git push origin main
 ```
@@ -147,10 +153,10 @@ Vercel creates previews for pull requests and promotes successful `main` builds 
 ## Maintenance priorities
 
 1. Add notes without changing application code.
-2. Keep source dates and lifecycle status accurate.
+2. Keep source dates and lifecycle status accurate. `npm run review:stale` flags overdue notes; see [`docs/REVIEW_PROCESS.md`](docs/REVIEW_PROCESS.md) for the triage workflow and a monthly scheduled check reports staleness on Telegram.
 3. Add related-note navigation when recurring connections appear.
 4. Add full-text search when title, kind, description, and topic search becomes insufficient.
-5. Add a stale-note view when manual review dates become difficult to track.
+5. Add a dedicated stale-note view in the UI if the CLI report becomes insufficient at scale.
 6. Introduce diagrams only where they improve retrieval or understanding.
 
 The test is simple: the site should help Leslie recover a useful answer, its evidence, and its limits faster than searching his files from scratch.

@@ -26,7 +26,7 @@
 
 ## Task 2 — Migrate and publish the notes
 
-**Files:** `notes/ai-governance-for-engineers.md`, `notes/harnesses.md`
+**Files:** `notes/Governance/ai-governance-for-engineers.md`, `notes/Agents/harnesses.md`
 
 - Mark both as `kind: reference`.
 - Rename `tags` to `topics`.

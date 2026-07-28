@@ -2,6 +2,7 @@
 title: "Harnesses"
 description: "Why AI-agent performance belongs to a model–harness–environment configuration—and how to evaluate, report, and secure it."
 kind: "reference"
+section: "Agents"
 published: "2026-07-27"
 updated: "2026-07-27"
 checked: "2026-07-27"

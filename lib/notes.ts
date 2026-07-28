@@ -16,16 +16,25 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
 import type { Heading, Root } from "mdast";
+import { NOTE_SECTIONS, type NoteSection } from "@/lib/sections";
+
+export { NOTE_SECTIONS } from "@/lib/sections";
 
 const notesDirectory = path.join(process.cwd(), "notes");
 
 export type NoteStatus = "Draft" | "Reviewed" | "Maintained" | "Archived";
+
+type NoteSource = {
+  slug: string;
+  file: string;
+};
 
 export type NoteMeta = {
   slug: string;
   title: string;
   description: string;
   kind: string;
+  section: NoteSection;
   published: string;
   updated: string;
   checked?: string;
@@ -59,7 +68,7 @@ function assertDate(value: unknown, field: string, slug: string): string {
 }
 
 function parseMeta(slug: string, data: Record<string, unknown>, content: string): NoteMeta {
-  const required = ["title", "description", "kind", "status"] as const;
+  const required = ["title", "description", "kind", "section", "status"] as const;
   for (const field of required) {
     if (typeof data[field] !== "string" || !data[field].trim()) {
       throw new Error(`${slug}: missing or invalid ${field}`);
@@ -67,6 +76,9 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.kind as string)) {
     throw new Error(`${slug}: kind must be a kebab-case value`);
+  }
+  if (!NOTE_SECTIONS.includes(data.section as NoteSection)) {
+    throw new Error(`${slug}: section must be Data, Training, Post-Training, Agents, Governance, or Misc`);
   }
   if (!Array.isArray(data.topics) || !data.topics.length || data.topics.some((topic) => typeof topic !== "string" || !topic.trim())) {
     throw new Error(`${slug}: topics must be a non-empty string array`);
@@ -87,6 +99,7 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
     title: data.title as string,
     description: data.description as string,
     kind: data.kind as string,
+    section: data.section as NoteSection,
     published: assertDate(data.published, "published", slug),
     updated: assertDate(data.updated, "updated", slug),
     checked: data.checked === undefined ? undefined : assertDate(data.checked, "checked", slug),
@@ -99,29 +112,63 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
   };
 }
 
-function getAllNoteSlugs() {
-  if (!fs.existsSync(notesDirectory)) return [];
-  return fs.readdirSync(notesDirectory)
-    .filter((name) => name.endsWith(".md"))
-    .map((name) => name.replace(/\.md$/, ""))
-    .sort();
+function findMarkdownFiles(directory: string): string[] {
+  if (!fs.existsSync(directory)) return [];
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) return findMarkdownFiles(file);
+    return entry.isFile() && entry.name.endsWith(".md") ? [file] : [];
+  });
+}
+
+function getAllNoteSources(): NoteSource[] {
+  const sources = findMarkdownFiles(notesDirectory)
+    .map((file) => ({ slug: path.basename(file, ".md"), file }))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+  const slugs = new Set<string>();
+  for (const source of sources) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(source.slug)) {
+      throw new Error(`${path.relative(notesDirectory, source.file)}: filename must be a stable kebab-case slug`);
+    }
+    if (slugs.has(source.slug)) throw new Error(`${source.slug}: duplicate public slug`);
+    slugs.add(source.slug);
+  }
+  return sources;
+}
+
+function assertSectionPath(source: NoteSource, section: NoteSection) {
+  const parentDirectory = path.relative(notesDirectory, path.dirname(source.file));
+  if (parentDirectory !== section) {
+    throw new Error(`${source.slug}: section ${section} must match parent directory ${parentDirectory || "notes"}`);
+  }
+}
+
+function getNoteSourceBySlug(slug: string): NoteSource | undefined {
+  return getAllNoteSources().find((source) => source.slug === slug);
 }
 
 export function getNoteSlugs() {
-  return getAllNoteSlugs().filter((slug) => {
-    const raw = fs.readFileSync(path.join(notesDirectory, `${slug}.md`), "utf8");
-    return matter(raw).data.status !== "Draft";
+  return getAllNoteSources().flatMap((source) => {
+    const raw = fs.readFileSync(source.file, "utf8");
+    const parsed = matter(raw);
+    const meta = parseMeta(source.slug, parsed.data, parsed.content);
+    assertSectionPath(source, meta.section);
+    return meta.status === "Draft" ? [] : [source.slug];
   });
 }
 
 export function listNotes(): NoteMeta[] {
-  return getNoteSlugs()
-    .map((slug) => {
-      const raw = fs.readFileSync(path.join(notesDirectory, `${slug}.md`), "utf8");
+  return getAllNoteSources()
+    .map((source) => {
+      const raw = fs.readFileSync(source.file, "utf8");
       const parsed = matter(raw);
-      return parseMeta(slug, parsed.data, parsed.content);
+      const meta = parseMeta(source.slug, parsed.data, parsed.content);
+      assertSectionPath(source, meta.section);
+      return { meta, isDraft: parsed.data.status === "Draft" };
     })
-    .sort((a, b) => a.order - b.order || b.updated.localeCompare(a.updated) || a.title.localeCompare(b.title));
+    .filter(({ isDraft }) => !isDraft)
+    .map(({ meta }) => meta)
+    .sort((a, b) => NOTE_SECTIONS.indexOf(a.section) - NOTE_SECTIONS.indexOf(b.section) || a.order - b.order || b.updated.localeCompare(a.updated) || a.title.localeCompare(b.title));
 }
 
 export function extractToc(content: string): TocItem[] {
@@ -156,12 +203,13 @@ export async function renderMarkdown(content: string) {
 
 export async function getNoteBySlug(slug: string): Promise<Note | null> {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return null;
-  const file = path.join(notesDirectory, `${slug}.md`);
-  if (!fs.existsSync(file)) return null;
-  const raw = fs.readFileSync(file, "utf8");
+  const source = getNoteSourceBySlug(slug);
+  if (!source) return null;
+  const raw = fs.readFileSync(source.file, "utf8");
   const parsed = matter(raw);
   if (parsed.data.status === "Draft") return null;
   const meta = parseMeta(slug, parsed.data, parsed.content);
+  assertSectionPath(source, meta.section);
   return {
     ...meta,
     content: parsed.content,

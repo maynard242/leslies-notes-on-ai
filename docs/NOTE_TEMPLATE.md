@@ -1,12 +1,13 @@
 # Note Template
 
-Copy the block below into `notes/<stable-slug>.md`. The filename becomes the permanent public URL.
+Copy the block below into `notes/<section>/<stable-slug>.md`, using one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`. The filename becomes the permanent public URL.
 
 ```markdown
 ---
 title: "A precise title"
 description: "One sentence defining the note’s scope and use"
 kind: "reference"
+section: "Governance"
 published: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 checked: "YYYY-MM-DD"
@@ -44,7 +45,8 @@ Prefer primary sources for load-bearing claims. Put citations close to the claim
 
 ## Before publishing
 
-- Keep the filename stable and kebab-case.
+- Keep the filename stable and kebab-case; its parent section may change without changing the public URL.
+- Set `section` to the matching directory: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`.
 - Replace all placeholder dates and remove unresolved `TODO` or `TBD` markers.
 - Choose a reusable `kind`; do not encode the topic in both `kind` and `topics`.
 - Keep `checked` only if the source-backed claims were actually verified on that date.
