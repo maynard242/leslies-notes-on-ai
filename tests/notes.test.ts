@@ -26,6 +26,13 @@ describe("note content pipeline", () => {
       section: "Agents",
       status: "Reviewed",
     }));
+    expect(notes).toContainEqual(expect.objectContaining({
+      slug: "from-prompts-to-persistent-workflows",
+      title: "From Prompts to Persistent Workflows",
+      kind: "guide",
+      section: "Misc",
+      status: "Reviewed",
+    }));
     expect(notes.find((note) => note.slug === "ai-governance-for-engineers")?.words).toBeGreaterThan(10_000);
   });
 
@@ -36,7 +43,16 @@ describe("note content pipeline", () => {
       "harnesses",
       "ai-governance-board-note",
       "ai-governance-for-engineers",
+      "from-prompts-to-persistent-workflows",
     ]);
+  });
+
+  it("publishes the tutorial distillation as a vendor-neutral workflow guide", async () => {
+    const note = await getNoteBySlug("from-prompts-to-persistent-workflows");
+
+    expect(note?.raw).toContain("The durable skill is not clever prompting.");
+    expect(note?.raw).toContain("Product-specific descriptions, pricing, and vendor claims were intentionally not carried into this vendor-neutral note.");
+    expect(note?.html).toContain("The capability map");
   });
 
   it("keeps ten board prompts under each of the five governance questions", () => {

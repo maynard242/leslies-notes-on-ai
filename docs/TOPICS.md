@@ -19,5 +19,6 @@
 | Governance | `AI governance`, `boards`, `oversight`, `risk management`, `assurance` | `board governance`, `AI oversight` unless the distinction matters |
 | Agents | `AI agents`, `agent harnesses`, `tool use`, `evaluation`, `safety` | `agent systems`, `agentic systems` for the same concept |
 | Post-training | `post-training`, `alignment`, `fine-tuning`, `evaluation`, `safety` | `alignment training`, `post training` |
+| Cross-cutting | `AI adoption`, `workflow design` | `AI implementation`, `agent workflow` when the distinction does not matter |
 
 This is editorial guidance, not a validator enum. If a genuinely new term is needed, add it here when it first becomes reusable.
