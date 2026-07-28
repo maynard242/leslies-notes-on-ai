@@ -49,6 +49,19 @@ describe("note content pipeline", () => {
     }
   });
 
+  it("renders the governance illustrations from tracked static assets", async () => {
+    const illustrations = [
+      ["ai-governance-for-engineers", "ai-governance-control-loop-framework.webp"],
+      ["ai-governance-board-note", "five-ai-governance-board-questions.webp"],
+    ] as const;
+
+    for (const [slug, filename] of illustrations) {
+      expect(fs.existsSync(path.join(process.cwd(), "public", "illustrations", filename))).toBe(true);
+      const note = await getNoteBySlug(slug);
+      expect(note?.html).toContain(`src="/illustrations/${filename}"`);
+    }
+  });
+
   it("orders RSS by publication date rather than manual library order", async () => {
     const slug = "temporary-newest-feed-note-test";
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);

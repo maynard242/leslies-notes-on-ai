@@ -4,9 +4,9 @@ description: "An engineer-first reference for making, keeping, and proving claim
 kind: "reference"
 section: "Governance"
 published: "2026-07-27"
-updated: "2026-07-27"
+updated: "2026-07-28"
 checked: "2026-07-26"
-version: "2.0"
+version: "2.1"
 status: "Reviewed"
 topics:
   - AI governance
@@ -14,14 +14,14 @@ topics:
   - evaluation
   - safety
   - regulation
-order: 1
+order: 2
 ---
 
 # AI Governance for Engineers
 
 **An engineer-first reference for building claims, controls, and evidence**
 
-**Version 2.0 — 26 July 2026**
+**Version 2.1 — 28 July 2026**
 Regulatory and tooling facts were checked against the cited sources on 26 July 2026. This is engineering guidance, not legal advice. Law, standards, model behavior, and tool ownership change at different speeds; see Appendix D.
 
 ---
@@ -129,19 +129,9 @@ The second claim is narrower. That is why it is useful.
 
 ### 1.1 The loop
 
-```text
-        ┌──────────────────────────────────────────────────────────────┐
-        │                                                              │
-        ▼                                                              │
- [1] SPECIFY ─► [2] TRACE ─► [3] EVALUATE ─► [4] GATE ─► [5] ENFORCE
-      claims       inputs,       behavior,       release,       runtime
-                   versions      capability      access         authority
-        ▲                                                              │
-        │                                                              ▼
- [7] AUDIT  ◄────────────────────────────────────────────── [6] OBSERVE
-     evidence,                                                   behavior,
-     decision                                                    incidents
-```
+![Seven-stage AI governance control loop: specify, trace, evaluate, gate, enforce, observe, and audit; incidents, drift, and material change feed the next cycle.](/illustrations/ai-governance-control-loop-framework.webp)
+
+*Figure — The engineering control loop connects claims, controls, operational evidence, and revision. The detailed definitions and limits follow below.*
 
 - **Specify:** What is the system intended and forbidden to do? What risk is tolerated?
 - **Trace:** What code, weights, data, prompts, tools, and external services produced this system and this output?
@@ -1635,6 +1625,10 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 
 ### Change log
 
+**Version 2.1 — 28 July 2026**
+
+- Added the engineering control-loop illustration. The source-check date remains 26 July because this is a presentation change, not a source recheck.
+
 **Version 2.0 — 26 July 2026**
 
 - Preserved the make/keep/prove frame and seven-stage loop.
@@ -1654,4 +1648,4 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 
 ---
 
-*End of document. Version 2.0, 26 July 2026.*
+*End of document. Version 2.1, 28 July 2026.*
