@@ -5,7 +5,7 @@ kind: "reference"
 section: "Post-Training"
 published: "2026-07-27"
 updated: "2026-07-27"
-checked: "2026-07-27"
+checked: "2026-07-28"
 version: "1.0"
 status: "Reviewed"
 topics:
@@ -22,7 +22,7 @@ order: 3
 
 **How foundation models become assistants, reasoners, and agents — a working reference**
 
-*Leslie Teo · July 2026 · last checked 27 July 2026*
+*Leslie Teo · July 2026 · last checked 28 July 2026*
 
 ---
 
@@ -664,4 +664,5 @@ The algorithms are increasingly available. The scarce assets are a trustworthy t
 
 ## Version history
 
+- **Re-checked 28 July 2026.** Verified the Cursor Composer 1.5 disclosure (20× more RL, post-training compute exceeding base pretraining) and NVIDIA's Nemotron 3 Super RLVR details (21 environments, multi-stage curriculum) against primary and current secondary sources; both confirmed accurate. No corrections found; content unchanged.
 - **1.0 — 27 July 2026.** Reframed the original briefing around feedback sources and update rules; corrected claims about fixed pipelines, DPO, GRPO, compute, and capability creation; added reward modeling, method-selection tables, evaluation gates, agentic environments, merging, primary citations, and operational guidance.

@@ -4,9 +4,9 @@ description: "Why AI-agent performance belongs to a model–harness–environmen
 kind: "reference"
 section: "Agents"
 published: "2026-07-27"
-updated: "2026-07-27"
-checked: "2026-07-27"
-version: "1.0"
+updated: "2026-07-28"
+checked: "2026-07-28"
+version: "1.1"
 status: "Reviewed"
 topics:
   - AI agents
@@ -21,7 +21,7 @@ order: 2
 
 **The neglected layer of AI capability — a working reference**
 
-*Leslie Teo · July 2026 · last checked 27 July 2026*
+*Leslie Teo · July 2026 · last checked 28 July 2026*
 
 ---
 
@@ -247,9 +247,11 @@ OpenAI's [Codex harness-engineering case study](https://openai.com/index/harness
 
 ### 2.4 Protocols standardize interfaces, not trust
 
-Protocols are becoming part of the harness layer. As of 27 July 2026, the current [Model Context Protocol core specification](https://modelcontextprotocol.io/specification/2025-11-25) is version 2025-11-25. MCP hosts and clients negotiate protocol versions and capabilities over local stdio or Streamable HTTP. Servers may expose tools, resources, and prompts; clients may expose roots and support server requests for sampling or elicitation. Tool and resource lists can change during a session. Capability negotiation tells each side what messages are understood. It does not authorize their use.
+Protocols are becoming part of the harness layer. Through 27 July 2026, the deployed [Model Context Protocol core specification](https://modelcontextprotocol.io/specification/2025-11-25) was version 2025-11-25. MCP hosts and clients negotiate protocol versions and capabilities over local stdio or Streamable HTTP. Servers may expose tools, resources, and prompts; clients may expose roots and support server requests for sampling or elicitation. Tool and resource lists can change during a session. Capability negotiation tells each side what messages are understood. It does not authorize their use.
 
-The same version introduced experimental [MCP Tasks](https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks): remotely durable work with task IDs, states, TTLs, deferred results, polling, cancellation, and possible mid-flight input. Stopping the local model loop or closing a connection does not necessarily cancel remote work, and cancellation does not reverse effects already committed. Bind task access to the original authorization context; detect orphaned tasks; require cancellation acknowledgement; and define expiry, idempotency, compensation, and incident logging.
+**A major revision ships the same day this reference was last checked.** The MCP steering group's [2026-07-28 release candidate](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/) — locked 21 May 2026, with final publication targeted for 28 July 2026 — is described as the largest protocol revision since launch. It removes the `initialize` handshake and session-ID model in favor of a stateless architecture where any request can land on any server instance; introduces a formal Extensions framework with reverse-DNS IDs and a lifecycle policy (Active → Deprecated → Removed, with a minimum twelve-month deprecation window); reshapes Tasks and adds MCP Apps as official extensions; hardens authorization toward OAuth 2.0/OIDC alignment; and **deprecates Roots, Sampling, and Logging** as core features. Verify the live specification status before depending on an exact ship date or deprecation timeline, but treat host or client code written against 2025-11-25 session, roots, or sampling assumptions as due for a migration review now, not at the next convenient sprint.
+
+The 2025-11-25 version introduced experimental [MCP Tasks](https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks): remotely durable work with task IDs, states, TTLs, deferred results, polling, cancellation, and possible mid-flight input. Stopping the local model loop or closing a connection does not necessarily cancel remote work, and cancellation does not reverse effects already committed. Bind task access to the original authorization context; detect orphaned tasks; require cancellation acknowledgement; and define expiry, idempotency, compensation, and incident logging. Tasks becomes an officially versioned extension under 2026-07-28; re-read its scope once that revision is confirmed live.
 
 Extensions widen the boundary further. [MCP Apps](https://modelcontextprotocol.io/extensions/apps/overview) can render third-party HTML and JavaScript inside a host. Treat that as an active application surface with origin, permission, content-security, messaging, and device-access decisions—not as inert tool metadata. The [Agent2Agent protocol](https://github.com/a2aproject/A2A) similarly targets discovery and task exchange between otherwise opaque agent applications.
 
@@ -861,6 +863,13 @@ The right autonomy level is the highest one supported by evidence and containmen
 
 ---
 
+## Change history
+
+- **2026-07-28 — v1.1:** Added the 28 July 2026 MCP protocol revision — stateless architecture, Extensions framework, and the deprecation of Roots, Sampling, and Logging — to Section 2.4 and Appendix D. Re-checked the OpenAI–Hugging Face incident: still under joint investigation with no final report, so the existing hedged treatment holds unchanged.
+- **2026-07-27 — v1.0:** Initial reviewed version.
+
+---
+
 ## Appendix A — Glossary
 
 **Agent** — a system in which a model selects actions over multiple steps using environmental feedback. In practice, the operator, tools, environment, and policy matter too.
@@ -1065,7 +1074,7 @@ reproducibility:
 
 ## Appendix D — Reading list
 
-This is a selective list, current through 27 July 2026, rather than an exhaustive bibliography. Most 2026 research below is preprint-stage. The links are primary sources unless marked otherwise.
+This is a selective list, current through 28 July 2026, rather than an exhaustive bibliography. Most 2026 research below is preprint-stage. The links are primary sources unless marked otherwise.
 
 ### Start here
 
@@ -1117,6 +1126,7 @@ This is a selective list, current through 27 July 2026, rather than an exhaustiv
 ### Interface protocols
 
 - [Model Context Protocol 2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25), [security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices), and the preview [MCP Registry trust model](https://modelcontextprotocol.io/registry/about). Primary protocol documentation; experimental Tasks, extensions, and registries widen the interface but do not replace host authorization, provenance, or containment.
+- [MCP 2026-07-28 release candidate](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/) and the [2026 MCP roadmap](https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/). Primary announcement for the stateless architecture, Extensions framework, feature lifecycle policy, and the deprecation of Roots, Sampling, and Logging; confirm the live specification before relying on exact dates.
 - [Agent2Agent protocol](https://github.com/a2aproject/A2A). Primary specification repository for discovery and task exchange between agent applications; a protocol layer, not a safety or quality guarantee.
 
 ### Engineering practice

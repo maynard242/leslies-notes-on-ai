@@ -5,8 +5,8 @@ kind: "reference"
 section: "Governance"
 published: "2026-07-27"
 updated: "2026-07-28"
-checked: "2026-07-26"
-version: "2.1"
+checked: "2026-07-28"
+version: "2.2"
 status: "Reviewed"
 topics:
   - AI governance
@@ -21,8 +21,8 @@ order: 2
 
 **An engineer-first reference for building claims, controls, and evidence**
 
-**Version 2.1 — 28 July 2026**
-Regulatory and tooling facts were checked against the cited sources on 26 July 2026. This is engineering guidance, not legal advice. Law, standards, model behavior, and tool ownership change at different speeds; see Appendix D.
+**Version 2.2 — 28 July 2026**
+Regulatory and tooling facts were checked against the cited sources on 28 July 2026. This is engineering guidance, not legal advice. Law, standards, model behavior, and tool ownership change at different speeds; see Appendix D.
 
 ---
 
@@ -802,6 +802,7 @@ A rollback may stop future behavior but cannot unsend a message, unpublish conte
 Do not reduce incident duties to one universal number. Examples:
 
 - California SB 53 generally requires a frontier developer to report a covered critical safety incident to the Office of Emergency Services within **15 days** of discovery; an incident posing an imminent risk of death or serious physical injury must be disclosed within **24 hours** to an appropriate authority as required by law.
+- New York’s RAISE Act (S8828, Chapter 96 of 2026, effective 1 January 2027) requires a covered frontier developer to report a critical safety incident within **72 hours** of determination, plus a separate **24-hour** duty for imminent risk to life or safety — tighter than California’s clock, and worth checking explicitly for any system that spans both jurisdictions.
 - EU AI Act reporting varies by role and event; serious-incident duties for high-risk systems and GPAI systemic-risk obligations must be mapped to the exact facts and applicable provisions.
 - Privacy, cybersecurity, product, sector, and contract clocks may also apply to the same event.
 
@@ -1050,7 +1051,7 @@ Ask five questions:
 
 A product can have several roles and laws at once.
 
-### 5.2 European Union: verified dates as of 26 July 2026
+### 5.2 European Union: verified dates as of 28 July 2026
 
 The primary texts are [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) and the amending [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng), the Digital Omnibus on AI, dated 8 July 2026 and published in the Official Journal on 24 July 2026.
 
@@ -1078,7 +1079,7 @@ For GPAI models, duties differ between all covered GPAI providers and those with
 
 ### 5.3 United States
 
-There is no single comprehensive federal private-sector AI statute as of 26 July 2026. Federal executive action, agency authority, procurement, sector law, civil-rights law, consumer protection, privacy, intellectual property, cybersecurity, and state law form the operative patchwork.
+There is no single comprehensive federal private-sector AI statute as of 28 July 2026. Federal executive action, agency authority, procurement, sector law, civil-rights law, consumer protection, privacy, intellectual property, cybersecurity, and state law form the operative patchwork.
 
 A December 2025 [executive order](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy) directed federal work toward a national policy framework and challenges to some state laws. It did not itself erase state statutes. In March 2026 the White House published [legislative recommendations](https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf); recommendations are not enacted law. Treat preemption as statute- and issue-specific, and verify litigation and congressional action before relying on it.
 
@@ -1094,11 +1095,13 @@ California’s Transparency in Frontier Artificial Intelligence Act is codified 
 
 #### New York RAISE Act
 
-New York enacted the RAISE Act in December 2025 and amended it in 2026. The [Governor’s announcement](https://www.governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models) and legislature should be checked together for current text, definitions, dates, and alignment with California. Do not rely on a 2025 news summary after the 2026 amendment.
+New York repealed the original RAISE Act framework and replaced it with a chapter amendment, [S8828, Chapter 96 of 2026](https://www.nysenate.gov/legislation/bills/2025/S8828), signed 27 March 2026 and effective 1 January 2027. The amended Act defines a frontier model using more than `10^26` FLOPs, adds a large-frontier-developer threshold of $500 million or more in annual gross revenue (including affiliates), and requires a published frontier AI framework and safety assessment before deploying a covered model. It creates an oversight office inside the Department of Financial Services, requires large frontier developers to file quarterly internal-risk-assessment summaries, and sets civil penalties up to $1 million for a first violation and $3 million for subsequent violations. Its critical-safety-incident clock is **72 hours** after determination — tighter than California’s 15-day rule — with a separate 24-hour duty for imminent risk to life or safety. A pre-amendment summary of the December 2025 announcement is now stale; read the chapter amendment.
 
 #### Colorado
 
-Colorado’s earlier framework changed materially. [SB26-189](https://leg.colorado.gov/bills/sb26-189), signed in 2026, replaced the prior Colorado AI Act framework and sets new developer, deployer, disclosure, risk-management, and impact-assessment provisions, with core duties beginning in 2027. Engineers should map the enacted 2026 text rather than a checklist written for SB24-205.
+Colorado repealed the original Colorado AI Act (SB24-205) and replaced it with [SB26-189](https://leg.colorado.gov/bills/sb26-189), signed by Governor Polis on 14 May 2026. The replacement reframes the law around **automated decision-making technology (ADMT)** used to make a “consequential decision” — covered domains include education, employment, financial services, insurance, healthcare, government benefits, and differentiated pricing or terms that could materially limit, delay, or deny access to them — rather than the original’s broader “high-risk AI system” regime. It drops SB24-205’s risk-assessment and attorney-general notice requirements in favor of consumer-facing transparency disclosures and a right to human review after an adverse ADMT-driven decision.
+
+The effective date is 1 January 2027, but treat that date as provisional: x.AI’s federal suit against the original CAIA produced a court-ordered enforcement moratorium covering “SB24-205 or any legislation replacing or amending SB24-205,” running until 14 days after a ruling on x.AI’s preliminary injunction motion. Verify the docket before treating the 2027 date as fixed.
 
 ### 5.4 Singapore and other voluntary frameworks
 
@@ -1452,7 +1455,7 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 
 ## Appendix A — Regulatory and standards quick reference
 
-**Status checked 26 July 2026. Verify the primary text before relying on a date or scope.**
+**Status checked 28 July 2026. Verify the primary text before relying on a date or scope.**
 
 | Instrument | Type | Who or what it addresses | Engineering artifact |
 |---|---|---|---|
@@ -1460,8 +1463,8 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 | EU GPAI regime | Binding EU regulation | providers of covered GPAI models; added duties for systemic risk | model documentation, downstream information, copyright policy and training-content summary; evaluation, systemic-risk, incident and cybersecurity evidence for systemic-risk models |
 | California SB 53 | Binding state statute | defined frontier and large frontier developers | framework and transparency publications, incident reporting, employee protections, assessment records |
 | California AB 2013 | Binding state statute | defined public generative-AI systems/services released or substantially modified from 1 Jan 2022; publication duties began by 1 Jan 2026 | public training-data documentation |
-| New York RAISE Act | Binding state statute | defined frontier developers, subject to amended text | framework, transparency, incident and protection records |
-| Colorado SB26-189 | Binding state statute | defined developers/deployers and covered/high-risk systems | risk-management, impact-assessment and disclosure artifacts |
+| New York RAISE Act (S8828, Ch. 96/2026) | Binding state statute, effective 1 Jan 2027 | defined frontier and large frontier developers | frontier AI framework, safety assessments, 72-hour incident reports, quarterly internal-risk summaries |
+| Colorado SB26-189 (ADMT) | Binding state statute, effective 1 Jan 2027 pending litigation | developers/deployers of automated decision-making technology for consequential decisions | transparency disclosures, consumer notice, human-review rights |
 | NIST AI RMF / GenAI Profile | Voluntary framework | organizations managing AI risk | risk register and Govern/Map/Measure/Manage evidence |
 | ISO/IEC 42001 | Certifiable standard | organization’s AI management system | policies, roles, objectives, operational records, internal audit, corrective action |
 | ISO/IEC 23894 | Guidance standard | AI risk management | risk process and treatment records |
@@ -1483,8 +1486,10 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 - California SB 53 official text: <https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53>
 - California Business and Professions Code §22757.13: <https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22757.13.>
 - California AB 2013 official text: <https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB2013>
-- New York RAISE Act announcement: <https://www.governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models>
+- New York RAISE Act chapter amendment, S8828 (Chapter 96 of 2026): <https://www.nysenate.gov/legislation/bills/2025/S8828>
+- New York RAISE Act original December 2025 announcement (superseded by the March 2026 chapter amendment): <https://www.governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models>
 - Colorado SB26-189: <https://leg.colorado.gov/bills/sb26-189>
+- Colorado AI Act repeal and the x.AI enforcement-moratorium summary: <https://www.dwt.com/blogs/privacy--security-law-blog/2026/05/colorado-ai-act-repeal-new-transparency-law>
 - White House EO 14365 on a national AI policy framework: <https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy>
 - White House March 2026 legislative recommendations: <https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf>
 - White House EO 14409 on advanced AI innovation and security: <https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security>
@@ -1625,6 +1630,13 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 
 ### Change log
 
+**Version 2.2 — 28 July 2026**
+
+- Replaced the stale New York RAISE Act summary with the enacted chapter amendment: S8828 (Chapter 96 of 2026), signed 27 March 2026, effective 1 January 2027, `10^26` FLOP and $500M-revenue thresholds, DFS oversight office, and the 72-hour critical-incident clock.
+- Added New York's 72-hour incident clock to Section 3.6 alongside California's, since it is the tighter of the two.
+- Rewrote the Colorado summary: SB26-189 reframes the law around automated decision-making technology for consequential decisions rather than the original high-risk-system regime, and its 1 January 2027 effective date is subject to a court-ordered enforcement moratorium tied to x.AI's pending federal suit.
+- Re-verified EU Digital Omnibus timing and tooling facts; no changes found.
+
 **Version 2.1 — 28 July 2026**
 
 - Added the engineering control-loop illustration. The source-check date remains 26 July because this is a presentation change, not a source recheck.
@@ -1648,4 +1660,4 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 
 ---
 
-*End of document. Version 2.1, 28 July 2026.*
+*End of document. Version 2.2, 28 July 2026.*

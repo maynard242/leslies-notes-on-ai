@@ -6,7 +6,7 @@ section: "Governance"
 published: "2026-07-28"
 updated: "2026-07-28"
 checked: "2026-07-28"
-version: "2.3"
+version: "2.4"
 status: "Maintained"
 topics:
   - AI governance
@@ -25,7 +25,7 @@ order: 1
 
 AI is now board business. Not because the technology is new — boards have absorbed new technology before — but because three things arrived at once, and each of them points at the boardroom.
 
-The law came first. The [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), as amended by the [Digital Omnibus on AI](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng), has staged obligations for providers and deployers. California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) requires covered frontier developers to publish and maintain a frontier AI framework; New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B) requires covered developers to publish safety protocols and report specified incidents. The precise reach depends on definitions, amendments, and effective dates. The common board question is simpler: can the company show the framework it adopted, the evidence behind it, and what happened when the evidence changed?
+The law came first. The [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), as amended by the [Digital Omnibus on AI](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng), has staged obligations for providers and deployers. California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) requires covered frontier developers to publish and maintain a frontier AI framework; New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S8828) — repealed and replaced by a chapter amendment signed March 2026 — requires covered frontier developers to publish safety protocols and report a critical safety incident within 72 hours of determination. The precise reach depends on definitions, amendments, and effective dates. The common board question is simpler: can the company show the framework it adopted, the evidence behind it, and what happened when the evidence changed?
 
 Fiduciary doctrine came second. The Caremark line of Delaware cases is fact-specific, but it puts a premium on a board-level information and reporting system for mission-critical risk. In [*Marchand v. Barnhill*](https://law.justia.com/cases/delaware/supreme-court/2019/533-2018.html), the Delaware Supreme Court allowed a claim to proceed where the complaint supported an inference that no board-level monitoring or reporting system existed for the company's central food-safety risk. That does not mean every AI incident creates director liability. It does mean that where AI is material to operations, compliance, or safety, the board should be able to identify its oversight structure rather than rely on informal management reporting.
 
@@ -114,7 +114,7 @@ First, testing an AI system establishes what it *can* do — never what it *cann
 
 Second, some of these decisions do not reverse. A model released openly cannot be recalled. An agent's actions in the world cannot always be rolled back. Ordinary technology risk assumes a patch; parts of this one do not. Anything irreversible warrants board visibility before the fact, not a narrative after it.
 
-Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Reporting clocks differ by jurisdiction. For example, California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) and New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B) include incident-reporting requirements for covered frontier developers. A statutory clock is an engineering requirement wearing legal clothing: detection and escalation must run faster than the deadline, and the board should ask whether they do.
+Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Reporting clocks differ by jurisdiction. For example, California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) requires reporting within 15 days of discovery (24 hours for imminent risk), while New York's amended [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S8828) requires reporting within 72 hours of determination — both apply to covered frontier developers. A statutory clock is an engineering requirement wearing legal clothing: detection and escalation must run faster than the deadline, and the board should ask whether they do.
 
 **Ask specifically:**
 
@@ -163,13 +163,14 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 - **[EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)** — primary law, in force. Supports the discussion of staged EU obligations, documentation, and duties for providers and deployers.
 - **[Digital Omnibus on AI, Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)** — primary amending law. Check it with the consolidated AI Act text before relying on any implementation date.
 - **[California SB 53, Transparency in Frontier Artificial Intelligence Act](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53)** — primary state-law text. Supports the framework, transparency, governance, and incident-reporting examples; scope is limited by the Act’s definitions.
-- **[New York RAISE Act, S6953B/A6453B](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B)** — signed state-law text. Supports the scope, safety-protocol, and incident-reporting examples; check the text and implementing materials for operational advice.
+- **[New York RAISE Act chapter amendment, S8828 (Chapter 96 of 2026)](https://www.nysenate.gov/legislation/bills/2025/S8828)** — signed 27 March 2026, effective 1 January 2027; repeals and replaces the original RAISE Act framework. Supports the scope, safety-protocol, and 72-hour incident-reporting examples; check the text and implementing materials for operational advice.
 - **[*Marchand v. Barnhill*](https://law.justia.com/cases/delaware/supreme-court/2019/533-2018.html)** — Delaware Supreme Court opinion, hosted by a legal publisher. Illustrates the mission-critical-risk reporting and monitoring question in Caremark oversight litigation; it is not an AI-specific ruling.
 - **[NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)** and **[ISO/IEC 42001](https://www.iso.org/standard/81230.html)** — voluntary framework and management-system standard. Useful organizing references, not proof that an individual model or deployment is safe.
 - **[Singapore Model AI Governance Framework for Agentic AI](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai)** — official guidance. Supports the accountability and meaningful-human-control discussion for agentic systems; it is guidance, not generally binding law.
 
 ## Change history
 
+- **2026-07-28 — v2.4:** Replaced the stale New York RAISE Act citation (pre-amendment S6953B/A6453B) with the enacted chapter amendment, S8828 (Chapter 96 of 2026): signed 27 March 2026, effective 1 January 2027, 72-hour critical-incident clock. Confirmed no Delaware court has yet adjudicated an AI-specific Caremark oversight claim; the note's existing hedging on *Marchand* holds.
 - **2026-07-28 — v2.3:** Replaced the board-governance overview illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
 - **2026-07-28 — v2.2:** Added the board-governance illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
 - **2026-07-28 — v2.1:** Refined board prompts on accountable ownership, jurisdictional constraints, and reporting deadlines after independent governance review.
