@@ -2,6 +2,8 @@ import { NoteLibrary } from "@/components/note-library";
 import { listNotes } from "@/lib/notes";
 import { attribution } from "@/lib/site";
 
+const methodSteps = ["Frame", "Understand", "Connect", "Evaluate", "Apply", "Verify", "Revisit"];
+
 export default function Home() {
   const notes = listNotes();
   return (
@@ -13,14 +15,16 @@ export default function Home() {
             <h1>Leslie’s Notes<br />on <em>AI</em></h1>
           </div>
           <div className="hero-copy">
-            <p className="hero-lede">How AI systems work, fail, and are governed.</p>
-            <p>Practical technical references for using and adopting AI safely.</p>
+            <p className="hero-lede">Practical notes on building, using, and governing AI.</p>
+            <p>These notes start with questions I keep returning to: things I am trying to learn, decisions I face, and problems I have been mulling over. They run from model building to board governance.</p>
+            <p>The notes are deliberately opinionated. They should also show their evidence, limits, and changes.</p>
+            <p className="hero-collaboration"><strong>Made with AI agents; steered by Leslie Teo.</strong> Claude, GPT, Gemini, GLM, Kimi, SEA-LION, and others help research, draft, check, organize, and maintain the library. I set the questions, direction, and style, and remain responsible for what is published.</p>
             <p className="attribution">{attribution}</p>
             <a className="text-link" href="#notes">Browse the library <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div className="shell loop-strip" aria-label="Reference method">
-          {['Frame', 'Understand', 'Connect', 'Evaluate', 'Apply', 'Verify', 'Revisit'].map((step, index) => (
+        <div className="shell loop-strip" aria-label="How these notes are made">
+          {methodSteps.map((step, index) => (
             <span key={step}><b>{String(index + 1).padStart(2, '0')}</b>{step}</span>
           ))}
         </div>
@@ -28,13 +32,13 @@ export default function Home() {
 
       <section className="principles shell" aria-labelledby="principles-title">
         <div>
-          <p className="section-number">01 / Reference method</p>
-          <h2 id="principles-title">Built to be useful: technical, living, and maintained.</h2>
+          <p className="section-number">01 / How these notes are made</p>
+          <h2 id="principles-title">A working method, not a claim to final answers.</h2>
         </div>
         <div className="principle-grid">
-          <article><span>Find</span><h3>Lead with the answer</h3><p>Start with the question, then make the reasoning and evidence easy to recover.</p></article>
-          <article><span>Keep</span><h3>Preserve the working detail</h3><p>Keep the models, controls, examples, citations, and caveats—not just the conclusion.</p></article>
-          <article><span>Maintain</span><h3>Show what changed</h3><p>Keep versions, checked-as-of dates, sources, and known limits close to the claim.</p></article>
+          <article><span>Start</span><h3>Begin with a live question</h3><p>Start with a decision, a gap in understanding, or a problem worth thinking through—not a topic for its own sake.</p></article>
+          <article><span>Work</span><h3>Use agents, keep judgment</h3><p>Agents can research, draft, test, and maintain. They do not choose the question or replace editorial responsibility.</p></article>
+          <article><span>Revisit</span><h3>Leave an evidence trail</h3><p>Keep sources, caveats, versions, and checked-as-of dates close to the claim, then return when the evidence changes.</p></article>
         </div>
       </section>
 
