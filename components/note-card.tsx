@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate, formatKind } from "@/lib/format";
+import { formatKind, formatNoteDates } from "@/lib/format";
 import type { NoteMeta } from "@/lib/notes";
 
 export function NoteCard({ note }: { note: NoteMeta }) {
@@ -18,7 +18,7 @@ export function NoteCard({ note }: { note: NoteMeta }) {
       </ul>
       <div className="note-card-footer">
         <span>{note.minutes} min read</span>
-        <span>{note.checked ? `Checked ${formatDate(note.checked)}` : `Updated ${formatDate(note.updated)}`}</span>
+        <span>{formatNoteDates(note)}</span>
         <Link href={`/notes/${note.slug}`} aria-label={`Read ${note.title}`}>Read note <span aria-hidden="true">→</span></Link>
       </div>
     </article>

@@ -38,6 +38,7 @@ The core choices were:
 ├── components/                    Header, footer, note cards, filtering, TOC
 ├── lib/
 │   ├── format.ts                  Shared date and note-kind labels
+│   ├── library.ts                 Reader-facing library state helpers
 │   ├── notes.ts                   Discovery, validation, rendering, TOC logic
 │   ├── search.ts                  Metadata-search normalization
 │   └── site.ts                    Site identity and canonical URL handling
@@ -247,15 +248,21 @@ The static architecture did not change. This was a schema and positioning correc
 
 Publishing scales past one note only if the library stays accurate. [`scripts/review-notes.mjs`](../scripts/review-notes.mjs) reads every note's `checked` (or `updated`) date and flags `Reviewed`/`Maintained` notes past a configurable age threshold, exempting `Archived` and skipping `Draft`. It ships as `npm run review:stale`, separate from `npm run check`, because staleness is advisory, not a build gate.
 
-[`docs/REVIEW_PROCESS.md`](./REVIEW_PROCESS.md) records the triage workflow: re-verify sources, decide still-accurate versus needs-revision versus superseded, apply the version and change-history conventions, then run the normal `npm run check` → commit → push cycle. A monthly scheduled check runs the script and reports over Telegram when a note is stale; it never edits a note itself.
+[`docs/REVIEW_PROCESS.md`](./REVIEW_PROCESS.md) records the triage workflow: re-verify sources, decide still-accurate versus needs-revision versus superseded, apply the version and change-history conventions, then run the normal `npm run check` → commit → push cycle. The read-only monthly Hermes Cron job is named in that document with its owner, schedule, delivery channel, expected output, and failure path; it never edits a note itself.
 
 ### Step 13 — Section the library and clarify authorship
 
-The library was organized into `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. Notes are discovered recursively, but retain public URLs based on their filenames; duplicate filenames across sections are rejected. The home page groups notes by section, each section and note page credits the work as written and updated by Leslie Teo with AI assistance, and the site describes itself as a practical technical reference library for using and adopting AI safely.
+The library was organized into `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. Notes are discovered recursively, but retain public URLs based on their filenames; duplicate filenames across sections are rejected. The home page groups notes by section, and the shared site shell and every note page use the compact attribution *Written and updated by AI and Leslie Teo.* The site describes itself as a practical technical reference library for using and adopting AI safely.
 
 Leslie remains responsible for editorial judgment, source review, and publication. AI assists research, drafting, and updates; it does not replace those responsibilities.
 
-## 6. Current publishing workflow
+## 6. Reader cues and source practice
+
+The library later gained explicit publication, update, and source-verification dates; a count-based section index; and query-aware empty states. This keeps the six-section map visible without confusing a populated section that merely has no search match.
+
+A companion source and maintenance pass added [`docs/TOPICS.md`](./TOPICS.md), a minimum source-record convention, a consistent `## Change history` convention for substantial notes, and a named read-only monthly Hermes Cron review. The Board Governance guide was rechecked and upgraded with direct citations and a formal source record.
+
+## 7. Current publishing workflow
 
 ### Add or revise a note
 

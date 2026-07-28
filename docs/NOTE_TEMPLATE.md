@@ -38,6 +38,8 @@ Record uncertainty, boundaries, counter-evidence, and what would change the conc
 
 Prefer primary sources for load-bearing claims. Put citations close to the claims they support.
 
+- [Source title](https://example.com) — primary law, standard, paper/preprint, vendor claim, or commentary; publication/version date; what it supports.
+
 ## Change history
 
 - **YYYY-MM-DD — v1.0:** Initial reviewed version.
@@ -49,8 +51,12 @@ Prefer primary sources for load-bearing claims. Put citations close to the claim
 - Set `section` to the matching directory: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`.
 - Replace all placeholder dates and remove unresolved `TODO` or `TBD` markers.
 - Choose a reusable `kind`; do not encode the topic in both `kind` and `topics`.
+- Follow [`docs/TOPICS.md`](./TOPICS.md): prefer an existing exact term when it means the same thing, and add a new one only when it will be reusable.
+- For factual, legal, regulatory, empirical, or quantitative claims, add claim-adjacent citations and a compact `## Sources` or `## Reading list` section. Identify the source type, version/date, and what any load-bearing source supports.
 - Keep `checked` only if the source-backed claims were actually verified on that date.
+- Use `## Change history` for substantial notes. Record the initial publication and each substantive edit or genuine source re-check.
 - Keep `version` only if explicit versions help maintain the note.
 - Leave `status: Draft` until the note is ready.
 - Remember that a draft committed to this public repository is still readable on GitHub; do not include confidential material.
+- The shared note page automatically renders *Written and updated by AI and Leslie Teo.* for every public note. Do not duplicate or alter this attribution in the Markdown body.
 - Run `npm run check` before changing the status to `Reviewed` or `Maintained`.

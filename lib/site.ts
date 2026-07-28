@@ -1,7 +1,9 @@
+export const attribution = "Written and updated by AI and Leslie Teo.";
+
 export const site = {
   name: "Leslie’s Notes on AI",
   shortName: "Notes on AI",
-  description: "Practical technical references by Leslie Teo, written and updated with AI assistance, for using and adopting AI safely.",
+  description: "Practical technical references by AI and Leslie Teo for using and adopting AI safely.",
   tagline: "How AI systems work, fail, and are governed.",
 };
 

@@ -1,6 +1,6 @@
 # Leslie’s Notes on AI
 
-A Markdown-first reference library by Leslie Teo, written and updated with AI assistance, for practical technical guidance on using and adopting AI safely.
+A Markdown-first reference library by AI and Leslie Teo for practical technical guidance on using and adopting AI safely.
 
 ## Content
 
@@ -31,10 +31,12 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 2. Save the note as `notes/<section>/<stable-slug>.md`, using one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`. The filename becomes its permanent public URL.
 3. Set the required `section` metadata to the matching section name.
 4. Choose a short, reusable `kind`, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`.
-5. Add one or more `topics` used by library search.
-6. Keep `status: Draft` until the note is ready. Drafts are validated but omitted from public pages, routes, RSS, and sitemap. Because this repository is public, a committed draft remains visible on GitHub.
-7. Run `npm run check`.
-8. Set the final status to `Reviewed` or `Maintained`, then commit and push to `main`. Vercel deploys the successful build automatically.
+5. Add one or more `topics` used by library search; follow [`docs/TOPICS.md`](./docs/TOPICS.md) so aliases and capitalization stay useful.
+6. For factual, legal, regulatory, empirical, or quantitative claims, add claim-adjacent citations and a compact `## Sources` or `## Reading list` section. Use `## Change history` for substantial notes.
+7. Keep `status: Draft` until the note is ready. Drafts are validated but omitted from public pages, routes, RSS, and sitemap. Because this repository is public, a committed draft remains visible on GitHub.
+8. The shared note page automatically renders *Written and updated by AI and Leslie Teo.* Do not duplicate or alter this attribution in the Markdown body.
+9. Run `npm run check`.
+10. Set the final status to `Reviewed` or `Maintained`, then commit and push to `main`. Vercel deploys the successful build automatically.
 
 Required metadata:
 
@@ -66,7 +68,7 @@ Statuses:
 npm run review:stale
 ```
 
-Flags `Reviewed` and `Maintained` notes that haven't been checked in 90+ days (configurable with `--threshold=`). A scheduled monthly check runs this automatically and reports on Telegram — nothing is edited without a person reading the sources first. The full triage workflow is in [`docs/REVIEW_PROCESS.md`](./docs/REVIEW_PROCESS.md).
+Flags `Reviewed` and `Maintained` notes that haven't been checked in 90+ days (configurable with `--threshold=`). The read-only monthly Hermes Cron review reports to Leslie’s Argos conversation; it never edits a note. The owner, schedule, expected output, and failure path are recorded in [`docs/REVIEW_PROCESS.md`](./docs/REVIEW_PROCESS.md).
 
 ## Deployment
 

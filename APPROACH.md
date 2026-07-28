@@ -2,7 +2,7 @@
 
 ## Purpose
 
-**Leslie’s Notes on AI** is a practical technical reference library by Leslie Teo, written and updated with AI assistance, for using and adopting AI safely. It covers how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
+**Leslie’s Notes on AI** is a practical technical reference library by AI and Leslie Teo for using and adopting AI safely. It covers how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
 
 Leslie remains accountable for editorial judgment, source review, and publication. AI assists research, drafting, and updates; it is not an independent author or source of authority.
 
@@ -51,7 +51,21 @@ Useful starting values include:
 - `case-study` — a bounded example and its lessons
 - `reading-note` — findings and judgment from a source
 
-`topics` describe subject matter and drive library search. A governance reference and a safety checklist can therefore share a topic without being the same kind of note.
+`topics` describe subject matter and drive library search. A governance reference and a safety checklist can therefore share a topic without being the same kind of note. Follow the lightweight alias and capitalization guidance in [`docs/TOPICS.md`](docs/TOPICS.md); it preserves retrieval without turning topics into a rigid enum.
+
+## Sources and source material
+
+The public repository is a library of reviewed synthesis, not a raw-document archive. Keep working copies, annotations, and unvetted source material in a private research workspace. A published note should preserve the durable public links and enough context to re-check its load-bearing claims.
+
+For factual, legal, regulatory, empirical, or quantitative claims:
+
+- cite the source close to the claim when it does real argumentative work;
+- include a compact `## Sources` or `## Reading list` section for substantial notes;
+- say whether a load-bearing source is primary law, a standard, a paper/preprint, a vendor claim, or commentary;
+- record its relevant version or publication date and what it supports;
+- distinguish a useful framework from proof that a particular system is safe.
+
+This is a prose convention, not a reference database.
 
 ## Note anatomy
 
@@ -153,7 +167,7 @@ Vercel creates previews for pull requests and promotes successful `main` builds 
 ## Maintenance priorities
 
 1. Add notes without changing application code.
-2. Keep source dates and lifecycle status accurate. `npm run review:stale` flags overdue notes; see [`docs/REVIEW_PROCESS.md`](docs/REVIEW_PROCESS.md) for the triage workflow and a monthly scheduled check reports staleness on Telegram.
+2. Keep source dates and lifecycle status accurate. `npm run review:stale` flags overdue notes; see [`docs/REVIEW_PROCESS.md`](docs/REVIEW_PROCESS.md) for the triage workflow and the named read-only monthly Hermes Cron review.
 3. Add related-note navigation when recurring connections appear.
 4. Add full-text search when title, kind, description, and topic search becomes insufficient.
 5. Add a dedicated stale-note view in the UI if the CLI report becomes insufficient at scale.

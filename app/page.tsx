@@ -1,5 +1,6 @@
 import { NoteLibrary } from "@/components/note-library";
 import { listNotes } from "@/lib/notes";
+import { attribution } from "@/lib/site";
 
 export default function Home() {
   const notes = listNotes();
@@ -13,7 +14,8 @@ export default function Home() {
           </div>
           <div className="hero-copy">
             <p className="hero-lede">How AI systems work, fail, and are governed.</p>
-            <p>Practical technical references for using and adopting AI safely—written and updated by Leslie Teo with AI assistance.</p>
+            <p>Practical technical references for using and adopting AI safely.</p>
+            <p className="attribution">{attribution}</p>
             <a className="text-link" href="#notes">Browse the library <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -27,7 +29,7 @@ export default function Home() {
       <section className="principles shell" aria-labelledby="principles-title">
         <div>
           <p className="section-number">01 / Reference method</p>
-          <h2 id="principles-title">Built to be useful when I return.</h2>
+          <h2 id="principles-title">Built to be useful: technical, living, and maintained.</h2>
         </div>
         <div className="principle-grid">
           <article><span>Find</span><h3>Lead with the answer</h3><p>Start with the question, then make the reasoning and evidence easy to recover.</p></article>

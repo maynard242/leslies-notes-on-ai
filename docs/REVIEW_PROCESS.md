@@ -2,9 +2,15 @@
 
 A reference library is only useful if its claims are still true. This document defines how notes get checked and updated after they are first published.
 
-## Cadence
+## Scheduled review operation
 
-A scheduled check runs monthly and messages Leslie on Telegram when any note is stale. It only reports; it never edits a note. Reviews otherwise happen on demand — run the check yourself, or act immediately when you know something in a note has changed (a new regulation, a retracted paper, a superseding benchmark).
+- **Owner:** Leslie Teo decides whether a flagged note changes; Argo operates the read-only check.
+- **Scheduler:** Hermes Cron job **“Leslie’s Notes on AI monthly stale review”** in the Argos profile.
+- **Schedule and destination:** 09:00 on the first day of each month (Singapore time), delivered to Leslie’s configured Argos conversation.
+- **Expected output:** report date, threshold, stale notes with their section and review age, or a clear `none stale` result. It never edits, commits, or publishes.
+- **Failure path:** Hermes reports a non-zero job failure to the delivery channel. If the scheduled report does not arrive, run `npm run review:stale -- --json` manually and inspect the Hermes Cron job before treating the library as reviewed.
+
+Reviews otherwise happen on demand—run the check yourself, or act immediately when you know something in a note has changed (a new regulation, a retracted paper, a superseding benchmark).
 
 ## Running the check
 
@@ -68,4 +74,4 @@ A re-check with no content change still gets a line, so the history shows the no
 
 ## What this deliberately does not do
 
-No automatic editing, no AI-generated rewrites applied without Leslie’s review, no CMS workflow. The script only tells you what to look at. AI may assist research, drafting, and updates, but Leslie still reads the sources and decides what the note should say—that is the point of a maintained reference library.
+No automatic editing, no AI-generated rewrites applied without Leslie’s review, no CMS workflow. The script only tells you what to look at. Every public note automatically renders *Written and updated by AI and Leslie Teo.* AI may assist research, drafting, and updates, but Leslie still reads the sources and decides what the note should say—that is the point of a maintained reference library.

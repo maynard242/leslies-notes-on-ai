@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -105,7 +106,7 @@ order: 999
   });
 
   it("keeps draft notes out of public discovery and direct reads", async () => {
-    const slug = "temporary-draft-test";
+    const slug = `temporary-draft-test-${randomUUID()}`;
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Temporary draft"
@@ -129,7 +130,7 @@ topics: [test]
   });
 
   it("supports a general note without optional checked or version fields", async () => {
-    const slug = "temporary-general-note-test";
+    const slug = `temporary-general-note-test-${randomUUID()}`;
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "General note"
@@ -191,7 +192,7 @@ topics: [test]
   });
 
   it("rejects impossible calendar dates", () => {
-    const slug = "temporary-invalid-date-test";
+    const slug = `temporary-invalid-date-test-${randomUUID()}`;
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Invalid date"
@@ -214,7 +215,7 @@ topics: [test]
   });
 
   it("rejects duplicate public slugs across sections", () => {
-    const slug = "temporary-duplicate-slug-test";
+    const slug = `temporary-duplicate-slug-test-${randomUUID()}`;
     const files = ["Data", "Misc"].map((section) => path.join(process.cwd(), "notes", section, `${slug}.md`));
     for (const [index, file] of files.entries()) {
       fs.writeFileSync(file, `---
@@ -232,14 +233,14 @@ topics: [test]
 `);
     }
     try {
-      expect(() => listNotes()).toThrow("temporary-duplicate-slug-test: duplicate public slug");
+      expect(() => listNotes()).toThrow(`${slug}: duplicate public slug`);
     } finally {
       for (const file of files) fs.rmSync(file, { force: true });
     }
   });
 
   it("requires a note's section to match its parent directory", () => {
-    const slug = "temporary-mismatched-section-test";
+    const slug = `temporary-mismatched-section-test-${randomUUID()}`;
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Mismatched section"
@@ -262,7 +263,7 @@ topics: [test]
   });
 
   it("rejects notes with a section outside the reference taxonomy", () => {
-    const slug = "temporary-invalid-section-test";
+    const slug = `temporary-invalid-section-test-${randomUUID()}`;
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Invalid section"

@@ -5,9 +5,9 @@ kind: "guide"
 section: "Governance"
 published: "2026-07-28"
 updated: "2026-07-28"
-checked: "2026-07-26"
-version: "1.0"
-status: "Reviewed"
+checked: "2026-07-28"
+version: "1.1"
+status: "Maintained"
 topics:
   - AI governance
   - boards
@@ -25,15 +25,15 @@ order: 1
 
 AI is now board business. Not because the technology is new — boards have absorbed new technology before — but because three things arrived at once, and each of them points at the boardroom.
 
-The law came first. The EU's AI regime is in force for general-purpose models, with content-marking duties from December 2026 and the full high-risk framework from December 2027. California's frontier AI law took effect in January; New York follows in January 2027. The design is the same everywhere: none of these statutes asks whether your AI is safe. They ask whether you can produce the framework describing how you decided it was, and whether you told anyone when it wasn't. That is a question about records. Records are a board matter.
+The law came first. The [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), as amended by the [Digital Omnibus on AI](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng), has staged obligations for providers and deployers. California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) requires covered frontier developers to publish and maintain a frontier AI framework; New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B) requires covered developers to publish safety protocols and report specified incidents. The precise reach depends on definitions, amendments, and effective dates. The common board question is simpler: can the company show the framework it adopted, the evidence behind it, and what happened when the evidence changed?
 
-Fiduciary doctrine came second. Under the Caremark line of cases — Delaware's standard, and the reference point for oversight liability well beyond it — directors must make a good-faith effort to build information systems for the company's material risks, and must act on the red flags those systems raise. The bar rises where a risk is mission-critical. Legal commentary through 2026 converges on a blunt conclusion: where AI is central to operations, compliance, or safety, the board needs an express oversight structure, not management's discretionary reporting. The exposure is for the board that never asked. It is personal, and it is not exculpable.
+Fiduciary doctrine came second. The Caremark line of Delaware cases is fact-specific, but it puts a premium on a board-level information and reporting system for mission-critical risk. In [*Marchand v. Barnhill*](https://law.justia.com/cases/delaware/supreme-court/2019/533-2018.html), the Delaware Supreme Court allowed a claim to proceed where the complaint supported an inference that no board-level monitoring or reporting system existed for the company's central food-safety risk. That does not mean every AI incident creates director liability. It does mean that where AI is material to operations, compliance, or safety, the board should be able to identify its oversight structure rather than rely on informal management reporting.
 
-The technology came third, and it changed character. Earlier enterprise software executed decisions people had made. Current systems make decisions — about customers, credit, hiring, content — and, through autonomous agents, increasingly act in the company's name. Directors' surveys this year rank AI as the risk boards feel least equipped to oversee. The gap between what is deployed and what is overseen is the risk.
+The technology came third, and it changed character. Earlier enterprise software largely executed decisions people had made. Current systems can shape decisions about customers, credit, hiring, and content—and, through autonomous agents, increasingly act in a company's name. The gap between what is deployed and what is overseen is the risk.
 
 One frame organizes everything that follows. An organization using AI must be able to do three things: **make** claims about what its systems will and will not do, **keep** those claims in operation, and **prove** them to someone with no reason to take its word — a regulator, a counterparty, a court. Management owns the first two. The board's job is to confirm all three exist and connect. Most organizations make claims fluently, keep them unevenly, and cannot prove them at all. The law is aimed at the third.
 
-Five questions test the three verbs. A board that asks them, understands the answers, and minutes the exchange has done its duty. A board that cannot get crisp answers has found its work plan.
+Five questions test the three verbs. Asking them, understanding the answers, and recording the exchange creates a practical oversight record; it does not by itself establish satisfaction of any fiduciary, statutory, or regulatory duty. A board that cannot get crisp answers has found its work plan.
 
 ---
 
@@ -57,13 +57,13 @@ One demand belongs in the reporting structure from the start: AI risk is not one
 
 This is the appetite question, and it belongs to the board, not the CIO. Which decisions may be automated, and which require a human accountable by name. Which uses the company will not pursue at any margin. What error rate is tolerable where.
 
-Singapore's Model AI Governance Framework — extended in January 2026 to cover autonomous agents, the first framework anywhere to do so — puts the principle plainly: however capable the system, humans remain accountable. The board's contribution is deciding which humans, for what, in advance. An appetite statement written after the incident is a press release.
+Singapore's [Model AI Governance Framework for Agentic AI](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai) applies the familiar principle to agents: humans remain accountable, and meaningful human control and oversight belong in the lifecycle. The board's contribution is deciding which humans, for what, in advance. An appetite statement written after the incident is a press release.
 
 The economist's version of the same question: automation is a trade, not a gift. Every decision handed to a system saves cost and transfers a risk the company used to hold in a person's judgment. Price both sides before agreeing to the trade.
 
 ## 4. How would we know if it went wrong?
 
-For material systems, management's assertions deserve the treatment financial assertions get: defined testing before deployment, monitoring in operation, incident thresholds with reporting clocks, periodic independent review.
+For material systems, management's assertions deserve the treatment financial assertions get: defined testing before deployment, monitoring in operation, incident thresholds with reporting clocks, periodic independent review. The [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) and [ISO/IEC 42001](https://www.iso.org/standard/81230.html) are useful organizing references; neither certifies that a particular system is safe.
 
 Two facts from the technical side belong in every director's head, because they change what assurance can honestly say.
 
@@ -71,7 +71,7 @@ First, testing an AI system establishes what it *can* do — never what it *cann
 
 Second, some of these decisions do not reverse. A model released openly cannot be recalled. An agent's actions in the world cannot always be rolled back. Ordinary technology risk assumes a patch; parts of this one do not. Anything irreversible warrants board visibility before the fact, not a narrative after it.
 
-Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Statutory clocks now run to fifteen days in some jurisdictions. A fifteen-day clock is an engineering requirement wearing legal clothing — detection and escalation must run faster than the deadline, and the board should ask whether they do.
+Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Reporting clocks differ by jurisdiction. For example, California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) and New York's [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B) include incident-reporting requirements for covered frontier developers. A statutory clock is an engineering requirement wearing legal clothing: detection and escalation must run faster than the deadline, and the board should ask whether they do.
 
 ## 5. What could we prove?
 
@@ -87,4 +87,19 @@ The companies that come through the next few years well will not be the ones wit
 
 ---
 
-*Prepared July 2026; regulatory references current as of 26 July 2026 and moving — reverify quarterly. Reference points: NIST AI RMF; ISO/IEC 42001; EU AI Act as amended by the Digital Omnibus on AI (July 2026); California SB 53; New York RAISE Act; Singapore Model AI Governance Framework and MGF for Agentic AI (2026); OECD AI Principles; WEF AI Governance Alliance; Delaware oversight doctrine (Caremark, Stone, Marchand and successors).*
+## Sources and verification
+
+Regulatory and source references were checked on 28 July 2026. This is a practical board guide, not legal advice; map obligations to the company’s jurisdictions, role, model, and use cases.
+
+- **[EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)** — primary law, in force. Supports the discussion of staged EU obligations, documentation, and duties for providers and deployers.
+- **[Digital Omnibus on AI, Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)** — primary amending law. Check it with the consolidated AI Act text before relying on any implementation date.
+- **[California SB 53, Transparency in Frontier Artificial Intelligence Act](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53)** — primary state-law text. Supports the framework, transparency, governance, and incident-reporting examples; scope is limited by the Act’s definitions.
+- **[New York RAISE Act, S6953B/A6453B](https://www.nysenate.gov/legislation/bills/2025/S6953/amendment/B)** — signed state-law text. Supports the scope, safety-protocol, and incident-reporting examples; check the text and implementing materials for operational advice.
+- **[*Marchand v. Barnhill*](https://law.justia.com/cases/delaware/supreme-court/2019/533-2018.html)** — Delaware Supreme Court opinion, hosted by a legal publisher. Illustrates the mission-critical-risk reporting and monitoring question in Caremark oversight litigation; it is not an AI-specific ruling.
+- **[NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)** and **[ISO/IEC 42001](https://www.iso.org/standard/81230.html)** — voluntary framework and management-system standard. Useful organizing references, not proof that an individual model or deployment is safe.
+- **[Singapore Model AI Governance Framework for Agentic AI](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai)** — official guidance. Supports the accountability and meaningful-human-control discussion for agentic systems; it is guidance, not generally binding law.
+
+## Change history
+
+- **2026-07-28 — v1.1:** Rechecked regulatory and framework sources; added direct claim-adjacent citations, a formal source record, and clarified the legal limits of the guide.
+- **2026-07-28 — v1.0:** Initial reviewed version.

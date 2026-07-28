@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NoteToc } from "@/components/note-toc";
-import { formatDate, formatKind } from "@/lib/format";
+import { formatKind, formatNoteDates } from "@/lib/format";
 import { getNoteBySlug, getNoteSlugs } from "@/lib/notes";
+import { attribution } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -35,9 +36,9 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
         <div><span>{note.section}</span><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
       </div>
       <div className="note-intro">
-        <p className="eyebrow">Published {formatDate(note.published, "long")} · {note.checked ? `checked ${formatDate(note.checked, "long")}` : `updated ${formatDate(note.updated, "long")}`}</p>
+        <p className="eyebrow">{formatNoteDates(note, "long", true)}</p>
         <p>{note.description}</p>
-        <p className="note-attribution">Written and updated by Leslie Teo with AI assistance.</p>
+        <p className="note-attribution attribution">{attribution}</p>
         <div className="note-actions">
           <a href={`/notes/${note.slug}/raw`}>View raw Markdown</a>
         </div>
