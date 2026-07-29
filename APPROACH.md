@@ -2,7 +2,7 @@
 
 ## Purpose
 
-**Leslie’s Notes on AI** is a practical technical reference library by AI and Leslie Teo for using and adopting AI safely. It covers how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
+**Leslie’s Notes on AI** is a practical technical reference library by Leslie Teo for using and adopting AI safely. It covers how AI systems work, fail, and are governed. It is public because stable links and open sources are useful, but it is designed first for retrieval, maintenance, and reuse—not publishing cadence or audience growth.
 
 Leslie remains accountable for editorial judgment, source review, and publication. AI assists research, drafting, and updates; it is not an independent author or source of authority.
 
@@ -95,12 +95,16 @@ The first retrieval layer is intentionally simple:
 - visible status and reading time, plus version and verification date when supplied
 - raw Markdown, RSS, and sitemap output
 
-The current notes are:
+The current published notes are:
 
+- **Multilingual Tokenizers: Designing the Model's Text Interface** — `Training` / `reference`
+- **Continued Pretraining and Mid-Training** — `Training` / `reference`
+- **Evaluating Multilingual and Cultural Capability** — `Training` / `reference`
 - **Post-Training in 2026** — `Post-Training` / `reference`
 - **Harnesses** — `Agents` / `reference`
 - **AI Governance: Five Questions for the Board** — `Governance` / `guide`
 - **AI Governance for Engineers** — `Governance` / `reference`
+- **From Prompts to Persistent Workflows** — `Misc` / `guide`
 
 Add dedicated topic pages, related-note links, backlinks, or a full-text index only when the note collection is large enough to show which navigation problem is real.
 
@@ -109,7 +113,7 @@ Add dedicated topic pages, related-note links, backlinks, or a full-text index o
 - Next.js App Router and TypeScript
 - Build-time Markdown discovery from `notes/`
 - `gray-matter` front matter
-- Unified/Remark/Rehype Markdown rendering and sanitization
+- Unified/Remark/Rehype Markdown rendering and sanitization, including KaTeX math rendering (`remark-math`/`rehype-katex`) for notes with inline or display LaTeX
 - Static note pages, raw-source routes, RSS, sitemap, robots, and metadata search
 - GitHub version history and Vercel deployment
 - No database or CMS
