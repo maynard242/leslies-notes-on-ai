@@ -4,9 +4,9 @@ description: "A practical board guide to oversight of material AI risk: inventor
 kind: "guide"
 section: "Governance"
 published: "2026-07-28"
-updated: "2026-07-28"
-checked: "2026-07-28"
-version: "2.4"
+updated: "2026-07-29"
+checked: "2026-07-29"
+version: "3.0"
 status: "Maintained"
 topics:
   - AI governance
@@ -49,6 +49,8 @@ Every serious framework in the world starts here, and for the same reason financ
 
 Understand what the answer tells you. A management team that produces the inventory in a week has been governing. A team that needs a quarter has been deploying.
 
+> **Concepts to know:** *Shadow AI* — unsanctioned tools staff adopt outside procurement, invisible to any inventory that only counts approved systems. *Embedded AI* — AI features shipped inside vendor or SaaS products the company didn't build and may not know are there. *Agentic AI* — systems that take actions — spend, send, sign — rather than only produce text or a recommendation. *Materiality* — the cut that separates uses worth board attention from routine ones: customer-facing, regulated, safety-critical, or public-commitment-bearing.
+
 **Ask specifically:**
 
 1. Does the inventory include AI embedded in vendor and SaaS products, not just systems built in-house?
@@ -70,6 +72,8 @@ Write the allocation into committee charters. Put AI on the agenda at a stated c
 
 One demand belongs in the reporting structure from the start: AI risk is not one thing. Systems malfunction — bias, fabrication, quiet degradation. People misuse them — deliberately, adaptively. And systems working exactly as designed can produce harm in aggregate — to the workforce, the market, the franchise. Three failure types, three sets of controls, usually three different owners. A management report that blends them has not been thought through, and the board should say so.
 
+> **Concepts to know:** *Three lines of defense* — the standard structure separating those who build or operate a system, those who set policy and monitor it independently, and internal audit; the model behind "can risk escalate independent of the builder." *Model risk management (MRM)* — lifecycle ownership, validation, and monitoring assigned to a system independent of who built it, a discipline borrowed from banking regulation. *Escalation authority* — whether a named owner can actually stop a deployment, not merely comment on one. *Board minutes as evidence* — in oversight litigation, what the board is shown to have asked, and when, is often the only surviving proof that oversight occurred.
+
 **Ask specifically:**
 
 1. Name the executive who owns AI risk end to end. Can they say no to a deployment, or only advise?
@@ -90,6 +94,8 @@ This is the appetite question, and it belongs to the board, not the CIO. Which d
 Singapore's [Model AI Governance Framework for Agentic AI](https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai) applies the familiar principle to agents: humans remain accountable, and meaningful human control and oversight belong in the lifecycle. The board's contribution is deciding which humans, for what, in advance. An appetite statement written after the incident is a press release.
 
 The economist's version of the same question: automation is a trade, not a gift. Every decision handed to a system saves cost and transfers a risk the company used to hold in a person's judgment. Price both sides before agreeing to the trade.
+
+> **Concepts to know:** *Risk appetite* — the board-set boundary on what the company will and will not automate, and at what error tolerance, fixed in advance rather than inferred from what already got built. *Human-in-the-loop / human-on-the-loop / human-out-of-the-loop* — the spectrum from a person approving every action, to a person who can intervene but need not, to no person in the decision at all; the technical version of "assists a decision" versus "replaces one." *Autonomy ceiling* — the explicit limit on what an agent may do unsupervised: spend, contract, speak for the company. *Contestability* — a person's ability to seek human review of an automated decision that affects them, increasingly a legal requirement for credit, employment, and insurance decisions, not just good practice.
 
 **Ask specifically:**
 
@@ -116,6 +122,8 @@ Second, some of these decisions do not reverse. A model released openly cannot b
 
 Then the operational half: what incidents occurred last year, how were they detected, and who decided whether to report them externally? Reporting clocks differ by jurisdiction. For example, California's [SB 53](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53) requires reporting within 15 days of discovery (24 hours for imminent risk), while New York's amended [RAISE Act](https://www.nysenate.gov/legislation/bills/2025/S8828) requires reporting within 72 hours of determination — both apply to covered frontier developers. A statutory clock is an engineering requirement wearing legal clothing: detection and escalation must run faster than the deadline, and the board should ask whether they do.
 
+> **Concepts to know:** *Red-teaming* — deliberately trying to break a system before deployment, distinct from ordinary testing that only checks intended behavior. *Evals* — structured tests scored against defined pass criteria; what "what did testing check, against what pass criteria" is really asking to see. *Model drift* — a deployed system's behavior quietly changing as the world, the inputs, or an updated backend model shift underneath it, with nothing retrained or redeployed on the company's side. *Hallucination (or confabulation)* — fluent, confident output that is factually wrong or invented; the archetypal malfunction a monitoring regime has to catch. *Kill switch* — a mechanism to halt a system immediately that has actually been exercised, not merely one that exists in a diagram.
+
 **Ask specifically:**
 
 1. What did pre-deployment testing check, against what pass criteria?
@@ -134,6 +142,8 @@ Then the operational half: what incidents occurred last year, how were they dete
 The closing question, and the one that compresses the other four. If a regulator, a plaintiff, or a major customer asked this company to evidence its AI governance tomorrow — the inventory, the ownership, the appetite statement, the test results, the incident record — what would we hand over, and how long would it take?
 
 If the answer is "a well-organized file, within days," the board's task is maintenance. Anything else, and the gaps name themselves. This question needs no technical literacy at all, which is why it is the one every director can press to the end.
+
+> **Concepts to know:** *Model card (or system card)* — a standardized document describing a model's intended use, training data, evaluation results, and known limits; what a vendor should be able to hand over as test results, not an assurance letter. *Audit trail / provenance* — a traceable record of who approved, changed, or deployed a system, and when — the backbone behind "can it trace who approved a given deployment." *Assurance versus attestation* — the difference between someone independently verifying a claim and someone merely asserting it happened; the gap this whole section is built to expose.
 
 **Ask specifically:**
 
@@ -170,6 +180,7 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 
 ## Change history
 
+- **2026-07-29 — v3.0:** Added a "Concepts to know" block under each of the five sections — shadow AI, embedded AI, agentic AI, and materiality (§1); three lines of defense, model risk management, escalation authority, and board minutes as evidence (§2); risk appetite, human-in/on/out-of-the-loop, autonomy ceiling, and contestability (§3); red-teaming, evals, model drift, hallucination, and kill switch (§4); model cards, audit trail/provenance, and assurance versus attestation (§5) — so a non-technical director has the term behind each question, not just the question.
 - **2026-07-28 — v2.4:** Replaced the stale New York RAISE Act citation (pre-amendment S6953B/A6453B) with the enacted chapter amendment, S8828 (Chapter 96 of 2026): signed 27 March 2026, effective 1 January 2027, 72-hour critical-incident clock. Confirmed no Delaware court has yet adjudicated an AI-specific Caremark oversight claim; the note's existing hedging on *Marchand* holds.
 - **2026-07-28 — v2.3:** Replaced the board-governance overview illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
 - **2026-07-28 — v2.2:** Added the board-governance illustration. The source-check date remains unchanged because this is a presentation change, not a source recheck.
