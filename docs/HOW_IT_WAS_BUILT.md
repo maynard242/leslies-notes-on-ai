@@ -297,7 +297,7 @@ curl -I https://leslies-notes-on-ai.vercel.app/sitemap.xml
 
 For a substantive layout change, also inspect the desktop and mobile render rather than relying on HTTP status alone.
 
-## 7. Why this approach scales
+## 8. Why this approach scales
 
 Adding a note does not require a new page component, database row, CMS action, or deployment script. A valid Markdown file automatically participates in:
 
@@ -313,7 +313,15 @@ Adding a note does not require a new page component, database row, CMS action, o
 
 The trade-off is deliberate: this system optimizes for Leslie as the accountable editor, assisted by AI, and for a searchable, reviewable reference corpus. If editing volume or contributors grow substantially, a CMS can be added later without abandoning the Markdown source contract.
 
-## 8. Operating principles worth preserving
+## 9. Math rendering
+
+The Training-section notes on continued pretraining, tokenization, and evaluation introduced inline and display LaTeX (`$...$` and `$$...$$`) for the first time. The rendering pipeline had no math support, so the first review found it was already a live defect: the published [`Harnesses`](../notes/Agents/harnesses.md) note's reliability model had been rendering as literal, unrendered LaTeX source in production.
+
+The fix added `remark-math` and `rehype-katex` to [`lib/notes.ts`](../lib/notes.ts)'s render chain, between `remark-rehype` and `rehype-sanitize`. KaTeX's HTML output uses MathML tags, positioned `<span>`s with inline `style`, and glyph `<svg>`/`<path>` elements that the existing GitHub-style sanitize schema doesn't allow, so the schema was extended with a dedicated `katexSchema` (built from `rehype-sanitize`'s `defaultSchema`) rather than disabling sanitization for math content. `app/layout.tsx` imports `katex/dist/katex.min.css` globally so the fonts and glyph positioning ship on every page.
+
+Verification compared byte-for-byte KaTeX output before and after the extended sanitize schema (identical, aside from continuing to strip an injected `<script>` and a `javascript:` link), then confirmed in a local dev build that the previously-broken `harnesses` note now renders `.katex`/`.katex-display` markup with no literal `$$` left in the page. Regression tests in [`tests/notes.test.ts`](../tests/notes.test.ts) cover both the rendering and the continued sanitization of unsafe content.
+
+## 10. Operating principles worth preserving
 
 1. Markdown under section directories in `notes/` remains canonical.
 2. Draft means unpublished by the website, not confidential in the public repository.

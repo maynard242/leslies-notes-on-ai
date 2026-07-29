@@ -7,10 +7,12 @@ import GithubSlugger from "github-slugger";
 import { toString } from "mdast-util-to-string";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSanitize from "rehype-sanitize";
+import rehypeKatex from "rehype-katex";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
@@ -21,6 +23,28 @@ import { NOTE_SECTIONS, type NoteSection } from "@/lib/sections";
 export { NOTE_SECTIONS } from "@/lib/sections";
 
 const notesDirectory = path.join(process.cwd(), "notes");
+
+// rehype-katex's output (MathML plus positioned spans and glyph SVGs) needs tags and
+// attributes the default GitHub-style sanitize schema doesn't know about.
+const katexSchema = structuredClone(defaultSchema);
+katexSchema.tagNames = [
+  ...(katexSchema.tagNames ?? []),
+  "math", "semantics", "mrow", "mi", "mo", "mn", "ms", "mtext", "mspace",
+  "mpadded", "mphantom", "mfrac", "mroot", "msqrt", "msub", "msup", "msubsup",
+  "mmultiscripts", "mover", "munder", "munderover", "mtable", "mtr", "mtd",
+  "menclose", "mstyle", "maction", "annotation", "annotation-xml",
+  "svg", "path", "line", "g",
+];
+katexSchema.attributes = {
+  ...katexSchema.attributes,
+  "*": [...(katexSchema.attributes?.["*"] ?? []), "className"],
+  span: ["className", "style", "ariaHidden"],
+  div: [...(katexSchema.attributes?.div ?? []), "className", "style"],
+  math: ["xmlns", "display"],
+  annotation: ["encoding"],
+  svg: ["xmlns", "width", "height", "viewBox", "preserveAspectRatio", "style", "className"],
+  path: ["d", "fill", "style", "className"],
+};
 
 export type NoteStatus = "Draft" | "Reviewed" | "Maintained" | "Archived";
 
@@ -188,8 +212,10 @@ export async function renderMarkdown(content: string) {
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeSanitize)
+    .use(rehypeKatex)
+    .use(rehypeSanitize, katexSchema)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
       behavior: "append",
