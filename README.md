@@ -1,6 +1,6 @@
 # Leslie’s Notes on AI
 
-A Markdown-first reference library by AI and Leslie Teo for practical technical guidance on using and adopting AI safely.
+A Markdown-first reference library by Leslie Teo for practical technical guidance on using and adopting AI safely.
 
 ## Content
 

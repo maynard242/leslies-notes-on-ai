@@ -53,8 +53,7 @@
   .hero-copy .hero-lede { color: var(--ink); font-family: Georgia, serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
   .hero-copy .hero-collaboration { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.55; }
   .hero-copy .hero-collaboration strong { color: var(--ink); }
-  .hero-copy .attribution, .footer-inner .attribution, .note-section-heading .attribution, .note-intro > .note-attribution { margin-top: 16px; color: var(--ink-soft); font-family: Inter, ui-sans-serif, sans-serif; font-size: 12px; font-style: italic; font-weight: 600; line-height: 1.45; }
-  .hero-copy .attribution { margin-bottom: 0; }
+  .note-intro > .note-attribution { margin-top: 16px; color: var(--ink-soft); font-family: Inter, ui-sans-serif, sans-serif; font-size: 12px; font-style: italic; font-weight: 600; line-height: 1.45; }
   .text-link { display: inline-flex; gap: 12px; align-items: center; margin-top: 16px; color: var(--ink); font-size: 14px; font-weight: 750; text-decoration: none; border-bottom: 1px solid var(--ink); }
   .loop-strip { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: clamp(70px, 10vw, 130px); border: 1px solid var(--ink); border-bottom: 0; }
   .loop-strip span { display: grid; gap: 32px; min-height: 116px; padding: 16px; border-right: 1px solid var(--ink); font-size: clamp(11px, 1vw, 14px); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }

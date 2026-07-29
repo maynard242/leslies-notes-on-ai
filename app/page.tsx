@@ -1,6 +1,5 @@
 import { NoteLibrary } from "@/components/note-library";
 import { listNotes } from "@/lib/notes";
-import { attribution } from "@/lib/site";
 
 const methodSteps = ["Frame", "Understand", "Connect", "Evaluate", "Apply", "Verify", "Revisit"];
 
@@ -19,7 +18,6 @@ export default function Home() {
             <p>These notes start with questions I keep returning to: things I am trying to learn, decisions I face, and problems I have been mulling over. They run from model building to board governance.</p>
             <p>The notes are deliberately opinionated. They should also show their evidence, limits, and changes.</p>
             <p className="hero-collaboration"><strong>Made with AI agents; steered by Leslie Teo.</strong> Claude, GPT, Gemini, GLM, Kimi, SEA-LION, and others help research, draft, check, organize, and maintain the library. I set the questions, direction, and style, and remain responsible for what is published.</p>
-            <p className="attribution">{attribution}</p>
             <a className="text-link" href="#notes">Browse the library <span aria-hidden="true">↓</span></a>
           </div>
         </div>

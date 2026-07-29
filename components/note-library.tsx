@@ -6,7 +6,6 @@ import { NOTE_SECTIONS } from "@/lib/sections";
 import type { NoteMeta } from "@/lib/notes";
 import { getSectionDisplayState, sectionEmptyMessage } from "@/lib/library";
 import { matchesNoteQuery } from "@/lib/search";
-import { attribution } from "@/lib/site";
 
 export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
   const [query, setQuery] = useState("");
@@ -49,7 +48,6 @@ export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
               <section className="note-section" key={section} aria-labelledby={`section-${section}`}>
                 <div className="note-section-heading">
                   <h3 id={`section-${section}`}>{section}</h3>
-                  <p className="attribution">{attribution}</p>
                 </div>
                 {state === "has-notes" ? (
                   <div className="note-grid">{sectionNotes.map((note) => <NoteCard key={note.slug} note={note} />)}</div>
