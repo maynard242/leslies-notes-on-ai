@@ -39,6 +39,9 @@ describe("note content pipeline", () => {
   it("uses the established section taxonomy and keeps public slugs stable after files move", () => {
     expect(NOTE_SECTIONS).toEqual(["Data", "Training", "Post-Training", "Agents", "Governance", "Misc"]);
     expect(listNotes().map((note) => note.slug)).toEqual([
+      "multilingual-tokenizers",
+      "continued-pretraining-mid-training",
+      "sea-helm-multilingual-cultural-evaluation",
       "post-training-brief",
       "harnesses",
       "ai-governance-board-note",
@@ -135,6 +138,31 @@ order: 999
     expect(html).toContain("<table>");
     expect(html).not.toContain("<script>");
     expect(html).not.toContain("javascript:");
+  });
+
+  it("renders inline and block math as KaTeX and still sanitizes unsafe content", async () => {
+    const html = await renderMarkdown(`Inline $x^2 + y^2 = z^2$ math.
+
+$$
+\\sqrt{a^2 + b^2} = c
+$$
+
+<script>alert(1)</script>
+
+[unsafe](javascript:alert(2))`);
+    expect(html).toContain('<span class="katex">');
+    expect(html).toContain('<span class="katex-display">');
+    expect(html).toContain("<math");
+    expect(html).toContain('<annotation encoding="application/x-tex">');
+    expect(html).not.toContain("$$");
+    expect(html).not.toContain("<script>");
+    expect(html).not.toContain("javascript:");
+  });
+
+  it("renders the harness reliability model's math instead of leaving it as literal LaTeX", async () => {
+    const note = await getNoteBySlug("harnesses");
+    expect(note?.html).toContain('<span class="katex-display">');
+    expect(note?.html).not.toContain("<p>$$");
   });
 
   it("returns raw Markdown and generated HTML for a note", async () => {
