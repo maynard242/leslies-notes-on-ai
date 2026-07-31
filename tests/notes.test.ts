@@ -46,6 +46,7 @@ describe("note content pipeline", () => {
       "harnesses",
       "ai-governance-board-note",
       "ai-governance-for-engineers",
+      "when-the-model-has-skin-in-the-game",
       "from-prompts-to-persistent-workflows",
     ]);
   });
