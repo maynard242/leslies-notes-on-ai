@@ -4,9 +4,9 @@ description: "Why AI-agent performance belongs to a model–harness–environmen
 kind: "reference"
 section: "Agents"
 published: "2026-07-27"
-updated: "2026-07-28"
+updated: "2026-07-31"
 checked: "2026-07-28"
-version: "1.1"
+version: "1.2"
 status: "Reviewed"
 topics:
   - AI agents
@@ -406,6 +406,8 @@ Verification should match the task:
 - human review where correctness is partly judgment or consequences are high.
 
 Prefer checks that are independent of the generator. An LLM judging its own output can help, but it shares blind spots and may rationalize errors. Deterministic checks are not always available; independence is a gradient, not a switch.
+
+A small vendor-documented example shows the pattern end to end. Weights & Biases describes a multi-agent financial-research system — planner, search, writer, and domain-analyst agents — closed by a separate Verification Agent that checks the compiled report for internal consistency, proper sourcing, and unsupported claims. Depending on outcome, it passes the report, passes it with flagged improvements, or fails it and routes the planner to involve a human ([Weights & Biases, 2026](https://wandb.ai/site/ebook/a-primer-on-building-successful-ai-agents/)). It is a vendor case study on a small workflow, not a benchmarked result, but it is a concrete instance of the actor–verifier pattern in the table above: the verifier is a distinct role from the writer, and failure escalates rather than silently retrying or shipping.
 
 ### 4.6 Make recovery bounded and informative
 
@@ -865,6 +867,7 @@ The right autonomy level is the highest one supported by evidence and containmen
 
 ## Change history
 
+- **2026-07-31 — v1.2:** Added a Weights & Biases financial-research-agent example to Section 4.5 as a small, concrete illustration of the actor–verifier pattern (dedicated Verification Agent, escalate-to-human on failure).
 - **2026-07-28 — v1.1:** Added the 28 July 2026 MCP protocol revision — stateless architecture, Extensions framework, and the deprecation of Roots, Sampling, and Logging — to Section 2.4 and Appendix D. Re-checked the OpenAI–Hugging Face incident: still under joint investigation with no final report, so the existing hedged treatment holds unchanged.
 - **2026-07-27 — v1.0:** Initial reviewed version.
 

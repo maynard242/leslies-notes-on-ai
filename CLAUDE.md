@@ -8,6 +8,18 @@ A Markdown-first personal reference library (Next.js App Router + TypeScript), n
 
 The editorial model (purpose, reference loop, note anatomy) lives in [`APPROACH.md`](./APPROACH.md). The implementation history and full build sequence live in [`docs/HOW_IT_WAS_BUILT.md`](./docs/HOW_IT_WAS_BUILT.md). Read those before making structural changes rather than re-deriving decisions already recorded there.
 
+## Content model at a glance
+
+Full detail is in `APPROACH.md`; this is the on-ramp so you don't need to open it just to add or edit a note.
+
+- **Six sections**, closed and positional: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Misc`. A note's `section` front-matter field must match its parent directory exactly.
+- **`kind`** is an open kebab-case vocabulary describing how the note is used (`reference`, `guide`, `explainer`, `checklist`, `case-study`, `reading-note`), not its subject.
+- **`topics`** are open retrieval terms; follow the existing vocabulary in [`docs/TOPICS.md`](./docs/TOPICS.md) instead of inventing near-duplicates.
+- **Required front matter:** `title`, `description`, `kind`, `section`, `published`, `updated`, `status`, non-empty `topics`. **Optional:** `checked` (only when source-backed claims were actually re-verified), `version` (only on notes that already carry one), `order`.
+- **Status lifecycle:** `Draft` (excluded from the public site/RSS/sitemap, but still committed to a public GitHub repo — never confidential) → `Reviewed` → `Maintained` (published, expected to keep being reviewed) → `Archived` (kept public, visibly superseded/old).
+- Start a new note from [`docs/NOTE_TEMPLATE.md`](./docs/NOTE_TEMPLATE.md). For a stale published note, follow the triage workflow in [`docs/REVIEW_PROCESS.md`](./docs/REVIEW_PROCESS.md) (still-accurate / needs-revision / superseded) rather than editing ad hoc.
+- Current published notes (8): `multilingual-tokenizers`, `continued-pretraining-mid-training`, `sea-helm-multilingual-cultural-evaluation` (all `Training`); `post-training-brief` (`Post-Training`); `harnesses` (`Agents`); `ai-governance-board-note`, `ai-governance-for-engineers` (both `Governance`); `from-prompts-to-persistent-workflows` (`Misc`). Don't hardcode this list elsewhere — `notes/` on disk and `APPROACH.md`'s own list are the sources of truth; this line is a snapshot, not a contract.
+
 ## Commands
 
 ```bash
@@ -26,6 +38,13 @@ npm run review:stale       # staleness report; --threshold=N and --json supporte
 ```
 
 Run `npm run check` before flipping any note's `status` to `Reviewed` or `Maintained`, and before pushing code changes to `main` (Vercel builds `main` directly to production; PRs get previews).
+
+## Deployment
+
+- **Production:** https://leslies-notes-on-ai.vercel.app — GitHub repo [`maynard242/leslies-notes-on-ai`](https://github.com/maynard242/leslies-notes-on-ai), Vercel project `leslies-notes-on-ai` (`.vercel/project.json` has the linked `projectId`/`orgId`).
+- **Deploy model:** push to `main` → production build; open a PR → preview deployment. No manual deploy step, no staging environment beyond PR previews.
+- **No database, no runtime secrets.** The only environment-sensitive piece is `getSiteUrl()` in `lib/site.ts`: it reads `NEXT_PUBLIC_SITE_URL` first, falls back to Vercel's `VERCEL_PROJECT_PRODUCTION_URL`/`VERCEL_URL`, and **throws on purpose** if neither is set while running under Vercel (`VERCEL=1`). That guard exists to stop RSS/sitemap from silently emitting a wrong canonical URL — do not add a fallback that swallows it.
+- After a substantive layout or routing change, smoke-check the live routes rather than trusting a green build alone: `/`, a note page, `/feed.xml`, `/sitemap.xml`, `/robots.txt`. See `docs/HOW_IT_WAS_BUILT.md` §7 for the exact commands.
 
 ## Content pipeline architecture
 

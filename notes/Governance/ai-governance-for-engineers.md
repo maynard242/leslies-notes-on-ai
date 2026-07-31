@@ -4,9 +4,9 @@ description: "An engineer-first reference for making, keeping, and proving claim
 kind: "reference"
 section: "Governance"
 published: "2026-07-27"
-updated: "2026-07-28"
+updated: "2026-07-31"
 checked: "2026-07-28"
-version: "2.2"
+version: "2.3"
 status: "Reviewed"
 topics:
   - AI governance
@@ -21,7 +21,7 @@ order: 2
 
 **An engineer-first reference for building claims, controls, and evidence**
 
-**Version 2.2 — 28 July 2026**
+**Version 2.3 — 31 July 2026**
 Regulatory and tooling facts were checked against the cited sources on 28 July 2026. This is engineering guidance, not legal advice. Law, standards, model behavior, and tool ownership change at different speeds; see Appendix D.
 
 ---
@@ -709,6 +709,8 @@ Approval is meaningful only if the reviewer has:
 - a reversible or compensable action path.
 
 Test reviewer behavior. Measure overrides, missed errors, time per decision, appeal outcomes, and automation bias.
+
+A minimal version of this control is a dedicated verifier role rather than a human reviewer. Weights & Biases documents a financial-research agent in which a separate Verification Agent checks a compiled report for internal consistency, sourcing, and unsupported claims before it reaches the user, and can fail the report and route the planner to a human rather than shipping it ([Weights & Biases, 2026](https://wandb.ai/site/ebook/a-primer-on-building-successful-ai-agents/)). That is a vendor illustration on a small workflow, not evidence of a validated control, but it is a concrete instance of two rules stated above: the checker is a distinct role from the generator, and failure escalates instead of silently retrying.
 
 #### Acceptance criteria
 
@@ -1629,6 +1631,10 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 7. Keep an archived source or citation record for load-bearing release decisions.
 
 ### Change log
+
+**Version 2.3 — 31 July 2026**
+
+- Added a Weights & Biases financial-research-agent example to the human-approval section of 3.5 as a concrete illustration of a dedicated verifier role that escalates to a human on failure, rather than a human reviewer per se. No regulatory or tooling facts re-verified; source-check date unchanged.
 
 **Version 2.2 — 28 July 2026**
 
