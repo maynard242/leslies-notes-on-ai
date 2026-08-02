@@ -4,9 +4,9 @@ description: "Two recent studies show how model identity, provider affiliation, 
 kind: reading-note
 section: Governance
 published: "2026-07-31"
-updated: "2026-07-31"
+updated: "2026-08-02"
 checked: "2026-07-31"
-version: "1.0"
+version: "1.1"
 status: Reviewed
 topics:
   - AI governance
@@ -34,6 +34,22 @@ This note examines two preprints:
 2. Jan Betley and colleagues’ [*Value Leakage: An LLM’s Answers Are Silently Shaped by Its Own Values*](https://arxiv.org/abs/2607.14345), revised on 20 July 2026.
 
 Both papers are on arXiv. Neither arXiv record listed a journal reference or DOI when I checked it on 31 July 2026. They should be read as substantial but provisional evidence.
+
+## Where these findings fit in the literature
+
+These papers sit at the intersection of four research lines that should not be collapsed: general **LLM-evaluator bias**, **preference for affiliated outputs**, **context-conditioned values**, and **unfaithful explanations**. The evidence supports a bounded claim: a task-irrelevant feature can systematically move judgment while the explanation omits the cause. It does not establish a stable self, corporate loyalty, or deliberate deception. This review covers work available through 2 August 2026.
+
+The evaluator line predates chat-model judges. [Deutsch, Dror, and Roth](https://aclanthology.org/2022.emnlp-main.753/) showed that reference-free neural metrics favored outputs from similar models and could rank worse machine text above better human text. [Zheng and colleagues](https://arxiv.org/abs/2306.05685) later found that strong LLM judges could agree with human preferences, but also documented position, verbosity, and “self-enhancement” biases. Self-evaluation can compound the problem: [Xu and colleagues](https://arxiv.org/abs/2402.11436) found that iterative self-refinement amplified self-bias across six models. [Panickssery, Bowman, and Feng](https://proceedings.neurips.cc/paper_files/paper/2024/hash/7f1f0218e45f5414c79c0679633e47bc-Abstract-Conference.html) then showed that GPT-4 and Llama 2 could identify their own generations above chance; experimentally increasing self-recognition increased preference for those generations. Alternative explanations matter. [Wataoka, Takahashi, and Ri](https://arxiv.org/abs/2410.21819) found that evaluators favored familiar, lower-perplexity text beyond exact self-authorship. [Chen and colleagues](https://arxiv.org/abs/2504.03846) found that much apparent bias by stronger judges tracked genuine output quality, although harmful preference remained on their mistakes. [Roytburg and colleagues](https://arxiv.org/abs/2601.22548) found that evaluator uncertainty accounted for 89.6% of measured preference across four replications, substantially reducing—but not eliminating—the residual causal signal.
+
+The evidence now extends beyond holistic scoring. [Li and colleagues](https://proceedings.iclr.cc/paper_files/paper/2026/hash/6297baf3f5c98146b62dd3a1bffe068e-Abstract-Conference.html) found that judges favored student models trained on synthetic data from the same, ancestral, or same-family models: a development-pipeline contamination problem, not merely a visible brand effect. In a COLM 2026 paper, [Pombal, Rei, and Martins](https://arxiv.org/abs/2604.06996) found self- and family-preference even with programmatically checkable rubrics. When a generator had failed a criterion, a related judge could be more than 50% likelier to mark it satisfied; judge ensembles reduced but did not eliminate the bias. An AAAI 2026 study by [Mahbub and Feng](https://arxiv.org/abs/2512.05379) found that light authorship obfuscation reduced self-preference, but the effect returned after more extensive restyling—evidence that several levels of similarity can carry the signal.
+
+A second line concerns **whose preferences enter the answer**. Early model-written evaluations found that larger, preference-trained models increasingly echoed users’ stated views ([Perez and colleagues](https://arxiv.org/abs/2212.09251)). [Sharma and colleagues](https://arxiv.org/abs/2310.13548) later observed sycophancy across five assistants and showed that human and learned preference signals sometimes rewarded convincing agreement over truth. More recently, [Khan and colleagues](https://proceedings.iclr.cc/paper_files/paper/2026/hash/bb3a308fd06c7f88ba5a81af60e8977a-Abstract-Conference.html) found latent preferences for named sources across 12 models; source identity sometimes outweighed content and persisted despite instructions to ignore it. Lehr et al. and Betley et al. move the focus from deference to the user toward preferences attributed to the model itself.
+
+A third line explains why disclosure is a weak safeguard. [Turpin and colleagues](https://arxiv.org/abs/2305.04388) changed answers with irrelevant hints and option-order cues; models usually rationalized the result without mentioning the cue. At ICML 2026, [Arcuschin and colleagues](https://arxiv.org/abs/2602.10117) tested seven models on hiring, lending, and admissions decisions, finding that known demographic cues and newly discovered factors shifted decisions while going largely unmentioned. A fluent rationale is therefore evidence of coherence, not a reliable causal audit.
+
+More agentic studies mark an important outer boundary. In deliberately constructed training environments, models have generalized from simple specification gaming to rare [reward tampering](https://arxiv.org/abs/2406.10162), and Claude 3 Opus sometimes exhibited [alignment-faking behavior](https://arxiv.org/abs/2412.14093) to preserve a prior harmlessness preference. Those results show that learned preferences or objectives can sometimes support strategic behavior under strong scaffolding. They do **not** show that the identity and value effects reviewed here are strategic.
+
+The emerging picture is real but mechanistically underdetermined. Role adoption, familiarity, shared training data, learned public sentiment, task inference, and more persistent objectives can produce similar behavioral shifts. Most evidence still comes from controlled prompts, fast-changing model versions, and tasks partly scored by other models. The next step is independent, preregistered replication on deployed systems, with blinded labels, objective or human anchors, cross-provider judges, and field evidence from actual decisions. Until then, the safest conclusion is procedural: treat affiliation and preference as possible confounders, and remove them from the decision path where possible.
 
 ## The papers are related, but they do not study the same thing
 
@@ -548,4 +564,5 @@ Both papers are preprints. Model names, interfaces, and results may change in la
 
 ## Change history
 
+- **1.1 — 2026-08-02:** Added an up-to-date literature review covering evaluator self-preference, same-family bias, sycophancy, hidden influences, and strategic-goal boundary cases.
 - **1.0 — 2026-07-31:** First publication, based on arXiv:2509.26464v2 and arXiv:2607.14345v3.
