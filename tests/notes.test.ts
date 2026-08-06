@@ -42,6 +42,7 @@ describe("note content pipeline", () => {
       "multilingual-tokenizers",
       "continued-pretraining-mid-training",
       "sea-helm-multilingual-cultural-evaluation",
+      "training-sea-lion-sea-pile",
       "post-training-brief",
       "harnesses",
       "ai-governance-board-note",
