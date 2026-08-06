@@ -39,10 +39,10 @@ describe("note content pipeline", () => {
   it("uses the established section taxonomy and keeps public slugs stable after files move", () => {
     expect(NOTE_SECTIONS).toEqual(["Data", "Training", "Post-Training", "Agents", "Governance", "Misc"]);
     expect(listNotes().map((note) => note.slug)).toEqual([
+      "training-sea-lion-sea-pile",
       "multilingual-tokenizers",
       "continued-pretraining-mid-training",
       "sea-helm-multilingual-cultural-evaluation",
-      "training-sea-lion-sea-pile",
       "post-training-brief",
       "harnesses",
       "ai-governance-board-note",

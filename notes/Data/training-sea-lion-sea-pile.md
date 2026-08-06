@@ -2,7 +2,7 @@
 title: "SEA-Pile and the Training of SEA-LION"
 description: "How SEA-LION moved from scratch pretraining to continued pretraining and distillation, and what SEA-Pile reveals about regional training data."
 kind: "reference"
-section: "Training"
+section: "Data"
 topics:
   - "SEA-LION"
   - "SEA-Pile"
@@ -14,7 +14,7 @@ updated: "2026-08-05"
 checked: "2026-08-05"
 version: "1.0"
 status: "Reviewed"
-order: 4
+order: 1
 ---
 
 # SEA-Pile and the Training of SEA-LION
