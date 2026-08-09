@@ -4,7 +4,7 @@ A Markdown-first reference library by Leslie Teo for practical technical guidanc
 
 ## Content
 
-Canonical notes live in [`notes/`](./notes), organized under `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. Save each note as `notes/<section>/<stable-slug>.md`; its filename remains its permanent public URL. The website discovers Markdown files recursively at build time, validates their front matter, and publishes those stable URLs.
+Canonical notes live in [`notes/`](./notes), organized under `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. The site displays `Governance` as **Strategy & Governance** while keeping `Governance` as the stable source-directory and front-matter value. Save each note as `notes/<section>/<stable-slug>.md`; its filename remains its permanent public URL. The website discovers Markdown files recursively at build time, validates their front matter, and publishes those stable URLs.
 
 The reference and editorial approach is recorded in [`APPROACH.md`](./APPROACH.md). The implementation decisions, build sequence, hardening work, deployment, and current publishing workflow are recorded in [`docs/HOW_IT_WAS_BUILT.md`](./docs/HOW_IT_WAS_BUILT.md).
 

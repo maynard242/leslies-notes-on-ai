@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -11,6 +12,7 @@ export function SiteHeader() {
         <nav aria-label="Primary navigation">
           <Link href="/#notes">Notes</Link>
           <Link href="/feed.xml">RSS</Link>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

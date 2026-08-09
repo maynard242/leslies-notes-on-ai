@@ -1,5 +1,6 @@
 import { NoteLibrary } from "@/components/note-library";
 import { listNotes } from "@/lib/notes";
+import { site } from "@/lib/site";
 
 const methodSteps = ["Frame", "Understand", "Connect", "Evaluate", "Apply", "Verify", "Revisit"];
 
@@ -14,8 +15,8 @@ export default function Home() {
             <h1>Leslie’s Notes<br />on <em>AI</em></h1>
           </div>
           <div className="hero-copy">
-            <p className="hero-lede">Practical notes on building, using, and governing AI.</p>
-            <p>These notes start with questions I keep returning to: things I am trying to learn, decisions I face, and problems I have been mulling over. They run from model building to board governance.</p>
+            <p className="hero-lede">{site.tagline}</p>
+            <p>These notes start with questions I keep returning to: things I am trying to learn, decisions I face, and problems I have been mulling over. They run from data and model building to adoption, strategy, and board governance.</p>
             <p>The notes are deliberately opinionated. They should also show their evidence, limits, and changes.</p>
             <p className="hero-collaboration"><strong>Made with AI agents; steered by Leslie Teo.</strong> Claude, GPT, Gemini, GLM, Kimi, SEA-LION, and others help research, draft, check, organize, and maintain the library. I set the questions, direction, and style, and remain responsible for what is published.</p>
             <a className="text-link" href="#notes">Browse the library <span aria-hidden="true">↓</span></a>
@@ -44,7 +45,7 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading">
             <div><p className="section-number">02 / Library</p><h2 id="notes-title">Reference notes</h2></div>
-            <p>Practical technical references for using and adopting AI safely. Search by title, kind, or topic.</p>
+            <p>Practical references for building and using AI—and for making sound strategic and governance choices. Search by title, kind, or topic.</p>
           </div>
           <NoteLibrary notes={notes} />
         </div>

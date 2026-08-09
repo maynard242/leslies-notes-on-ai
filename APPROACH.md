@@ -88,7 +88,7 @@ This is a guide, not a template every note must imitate. A checklist should stay
 The first retrieval layer is intentionally simple:
 
 - stable note URLs
-- six library sections: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`
+- six library sections: `Data`, `Training`, `Post-Training`, `Agents`, **Strategy & Governance** (`Governance` in source metadata), and `Misc`
 - titles and one-sentence descriptions
 - `section`, `kind`, and `topics`
 - client-side metadata search

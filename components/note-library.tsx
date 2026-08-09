@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { NoteCard } from "@/components/note-card";
-import { NOTE_SECTIONS } from "@/lib/sections";
+import { getSectionLabel, NOTE_SECTIONS } from "@/lib/sections";
 import type { NoteMeta } from "@/lib/notes";
 import { getSectionDisplayState, sectionEmptyMessage } from "@/lib/library";
 import { matchesNoteQuery } from "@/lib/search";
@@ -24,13 +24,13 @@ export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
       {hasNoMatches ? (
         <div className="section-index" aria-label="Library section counts">
           {NOTE_SECTIONS.map((section) => (
-            <span key={section}>{section} ({notes.filter((note) => note.section === section).length})</span>
+            <span key={section}>{getSectionLabel(section)} ({notes.filter((note) => note.section === section).length})</span>
           ))}
         </div>
       ) : (
         <nav className="section-index" aria-label="Library sections">
           {NOTE_SECTIONS.map((section) => (
-            <a href={`#section-${section}`} key={section}>{section} ({notes.filter((note) => note.section === section).length})</a>
+            <a href={`#section-${section}`} key={section}>{getSectionLabel(section)} ({notes.filter((note) => note.section === section).length})</a>
           ))}
         </nav>
       )}
@@ -47,7 +47,7 @@ export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
             return (
               <section className="note-section" key={section} aria-labelledby={`section-${section}`}>
                 <div className="note-section-heading">
-                  <h3 id={`section-${section}`}>{section}</h3>
+                  <h3 id={`section-${section}`}>{getSectionLabel(section)}</h3>
                 </div>
                 {state === "has-notes" ? (
                   <div className="note-grid">{sectionNotes.map((note) => <NoteCard key={note.slug} note={note} />)}</div>

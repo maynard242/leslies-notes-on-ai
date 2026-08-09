@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { formatNoteDates } from "@/lib/format";
 import { getSectionDisplayState, sectionEmptyMessage } from "@/lib/library";
 import type { NoteMeta } from "@/lib/notes";
+import { getSectionLabel } from "@/lib/sections";
 
 const notes = [
   {
@@ -22,6 +23,11 @@ const notes = [
 ] satisfies NoteMeta[];
 
 describe("library reader cues", () => {
+  it("presents Governance as Strategy & Governance without changing the canonical section", () => {
+    expect(getSectionLabel("Governance")).toBe("Strategy & Governance");
+    expect(getSectionLabel("Training")).toBe("Training");
+  });
+
   it("keeps updated and source-verification dates distinct", () => {
     expect(formatNoteDates(notes[0])).toBe("Updated Jul 28, 2026 · Sources checked Jul 26, 2026");
     expect(formatNoteDates(notes[0], "long", true)).toBe("Published July 28, 2026 · Updated July 28, 2026 · Sources checked July 26, 2026");

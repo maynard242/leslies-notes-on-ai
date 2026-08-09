@@ -12,7 +12,7 @@ The editorial model (purpose, reference loop, note anatomy) lives in [`APPROACH.
 
 Full detail is in `APPROACH.md`; this is the on-ramp so you don't need to open it just to add or edit a note.
 
-- **Six sections**, closed and positional: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Misc`. A note's `section` front-matter field must match its parent directory exactly.
+- **Six sections**, closed and positional: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Misc`. The canonical `Governance` section is displayed to readers as **Strategy & Governance**. A note's `section` front-matter field must match its parent directory exactly.
 - **`kind`** is an open kebab-case vocabulary describing how the note is used (`reference`, `guide`, `explainer`, `checklist`, `case-study`, `reading-note`), not its subject.
 - **`topics`** are open retrieval terms; follow the existing vocabulary in [`docs/TOPICS.md`](./docs/TOPICS.md) instead of inventing near-duplicates.
 - **Required front matter:** `title`, `description`, `kind`, `section`, `published`, `updated`, `status`, non-empty `topics`. **Optional:** `checked` (only when source-backed claims were actually re-verified), `version` (only on notes that already carry one), `order`.

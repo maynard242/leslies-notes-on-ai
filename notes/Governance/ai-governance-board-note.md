@@ -4,9 +4,9 @@ description: "A practical board guide to oversight of material AI risk: inventor
 kind: "guide"
 section: "Governance"
 published: "2026-07-28"
-updated: "2026-07-29"
+updated: "2026-08-09"
 checked: "2026-07-29"
-version: "3.2"
+version: "3.4"
 status: "Maintained"
 topics:
   - AI governance
@@ -20,6 +20,8 @@ order: 1
 # AI Governance: Five Questions for the Board
 
 **Board note — July 2026**
+
+> **Companion note:** [AI for Boards: Strategy, Value, and Governance](/notes/ai-for-boards) sets out the broader board agenda: where AI can create value, what capabilities that requires, and how management can turn experiments into strategy. This note focuses on control and assurance.
 
 ---
 
@@ -160,9 +162,9 @@ If the answer is "a well-organized file, within days," the board's task is maint
 
 ---
 
-The temptation is to file AI governance under compliance and paper it, or under technology and delegate it. It is neither. It is the oldest discipline the board has — informed oversight of a material risk — applied to a technology that documents neglect faster than any before it.
+The temptation is to file the control-and-assurance side of AI governance under compliance and paper it, or under technology and delegate it. It is neither. It is informed oversight of material risk, joined to the board's wider responsibility for strategy and long-term value.
 
-The companies that come through the next few years well will not be the ones with the best models. They will be the ones whose boards can prove what they claimed.
+The companies best placed to sustain trust and scale AI will not rely on claims alone. Their boards will expect evidence for what management says the systems do, how they fail, and who is accountable.
 
 ---
 
@@ -180,6 +182,8 @@ Regulatory and source references were checked on 28 July 2026. This is a practic
 
 ## Change history
 
+- **2026-08-09 — v3.4:** Clarified that this note covers the control-and-assurance side of a broader strategy-and-governance agenda, and calibrated its closing claim.
+- **2026-08-09 — v3.3:** Linked this control-and-assurance guide to the broader companion note on AI strategy, value creation, and governance. The regulatory source-check date is unchanged.
 - **2026-07-29 — v3.2:** Added two more technical concepts to each section's "Concepts to know" block: multimodal AI and automated decision-making (§1); model lifecycle and vendor/fourth-party risk (§2); confidence score/calibration and function calling (§3); observability and out-of-distribution input (§4); open weights versus API access and reproducibility (§5).
 - **2026-07-29 — v3.1:** Rebalanced each "Concepts to know" block toward technical AI/LLM vocabulary and away from general corporate-governance terms directors already know. Replaced materiality, three lines of defense, escalation authority, board minutes as evidence, risk appetite, contestability, audit trail/provenance, and assurance-versus-attestation with foundation model, fine-tuning/RAG/prompting, model versioning, training versus inference, foundation-model dependency, guardrails, temperature/sampling, context window, prompt injection, jailbreak, training data provenance, system/inference logs, and the benchmark-to-production gap.
 - **2026-07-29 — v3.0:** Added a "Concepts to know" block under each of the five sections — shadow AI, embedded AI, agentic AI, and materiality (§1); three lines of defense, model risk management, escalation authority, and board minutes as evidence (§2); risk appetite, human-in/on/out-of-the-loop, autonomy ceiling, and contestability (§3); red-teaming, evals, model drift, hallucination, and kill switch (§4); model cards, audit trail/provenance, and assurance versus attestation (§5) — so a non-technical director has the term behind each question, not just the question.
