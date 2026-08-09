@@ -58,7 +58,7 @@ This is a reference, not a document to read linearly before doing any work. Choo
 
 | Need | Go first | Produce |
 |---|---|---|
-| Release a system | [§7.3 release checklist](#73-release-checklist), then [§8.1](#81-claimcontrolevidence-matrix) | release dossier and explicit decision |
+| Release a system | [§7.3 release checklist](#73-release-checklist), then [§8.1 claim matrix](#81-claimcontrolevidence-matrix) and [§8.4 release decision record](#84-release-decision-and-risk-acceptance-record) | release dossier and explicit decision |
 | Design a new system | [§7.2 implementation sequence](#72-baseline-implementation-sequence-for-a-t2-production-llm-system), then [§1.2 system record](#12-the-precondition-inventory-and-classification), [§2 threat model](#part-2--failure-and-threat-model), and [§3 control loop](#part-3--the-seven-stage-governance-loop) | boundary, claims, controls, and evidence plan |
 | Add an agent or write-capable tool | [§2.5](#25-agent-specific-threat-model), [§3.5](#35-enforce--runtime-controls), [§4.6](#46-security-beyond-prompts) | authority model, approval/recovery path, adversarial tests |
 | Respond to an incident | [§3.6](#36-observe--monitoring-and-incident-response), then [§8.5](#85-incident-record) | contained event, reporting decision, corrective actions |
@@ -186,7 +186,7 @@ data_classes: [customer_identity, support_history]
 consequential_effects: [external_message, account_advice]
 human_decision: required_before_send
 fallback: manual_support_queue
-risk_tier: T2-operational
+risk_tier: T2
 applicable_requirements: [privacy, consumer-protection, contracts]
 ```
 
