@@ -28,7 +28,7 @@ Regulatory and tooling facts were checked against the cited sources on 9 August 
 
 ## Executive summary
 
-AI governance is not a policy document. It is the control system that lets a team:
+AI governance is the umbrella for decision rights, accountability, policy, controls, and evidence—not merely a policy document. Its engineering control system should let a team:
 
 1. **make a bounded claim** about an AI system;
 2. **keep that claim true enough** in deployment; and
@@ -59,7 +59,7 @@ This is a reference, not a document to read linearly before doing any work. Choo
 | Need | Go first | Produce |
 |---|---|---|
 | Release a system | [§7.3 release checklist](#73-release-checklist), then [§8.1](#81-claimcontrolevidence-matrix) | release dossier and explicit decision |
-| Design a new system | [§1.2 system record](#12-the-precondition-inventory-and-classification), [§2 threat model](#part-2--failure-and-threat-model), [§3 control loop](#part-3--the-seven-stage-governance-loop) | boundary, claims, controls, and evidence plan |
+| Design a new system | [§7.2 implementation sequence](#72-baseline-implementation-sequence-for-a-t2-production-llm-system), then [§1.2 system record](#12-the-precondition-inventory-and-classification), [§2 threat model](#part-2--failure-and-threat-model), and [§3 control loop](#part-3--the-seven-stage-governance-loop) | boundary, claims, controls, and evidence plan |
 | Add an agent or write-capable tool | [§2.5](#25-agent-specific-threat-model), [§3.5](#35-enforce--runtime-controls), [§4.6](#46-security-beyond-prompts) | authority model, approval/recovery path, adversarial tests |
 | Respond to an incident | [§3.6](#36-observe--monitoring-and-incident-response), then [§8.5](#85-incident-record) | contained event, reporting decision, corrective actions |
 | Buy or renew a vendor service | [§4.4](#44-procurement-and-third-party-models), [§6.2](#62-tool-due-diligence), then [§8.6](#86-vendor-evidence-questions) | scoped evidence, contract requirements, exit plan |
@@ -729,7 +729,7 @@ Approval is meaningful only if the reviewer has:
 
 Test reviewer behavior. Measure overrides, missed errors, time per decision, appeal outcomes, and automation bias.
 
-A separate automated verifier can catch routine inconsistencies before human review, especially when it uses deterministic checks and independent evidence. But another model is still fallible and may share the generator’s blind spots. It can route failures to a person; it does not satisfy a human-approval requirement by itself.
+Use a separate automated verifier for deterministic consistency checks and comparisons against authoritative source data before human review. Treat model-based checking as another fallible measurement: calibrate it, retain the evidence inspected, and route defined failures to a person. It does not satisfy a human-approval requirement by itself.
 
 #### Acceptance criteria
 
@@ -1131,7 +1131,7 @@ New York repealed the original RAISE Act framework and replaced it with a chapte
 
 Colorado repealed the original Colorado AI Act (SB24-205) and replaced it with [SB26-189](https://leg.colorado.gov/bills/sb26-189), signed by Governor Polis on 14 May 2026. The replacement reframes the law around **automated decision-making technology (ADMT)** used to make a “consequential decision.” Covered domains include education, employment, financial and lending services, insurance, healthcare, essential government services or benefits, and the lease or purchase of residential real estate in Colorado. Differentiated price, cost-sharing, compensation, or other material terms count when reasonably likely to materially limit, delay, deny, or fundamentally alter access or opportunity in a covered domain. The law replaces SB24-205’s risk-assessment and attorney-general notice framework with developer documentation, three-year developer/deployer records, pre-use notice, a 30-day post-adverse-outcome disclosure, and correction plus meaningful human review or reconsideration to the extent commercially reasonable.
 
-The statutory effective date is 1 January 2027. Enforcement is currently stayed: an [April 2026 federal-court order](https://www.troutmanprivacy.com/wp-content/uploads/sites/941/2026/04/US_DIS_COD_1_26cv1515_d8891528e364_MINUTE_ORDER_The_parties_Motion_ECF_No_22_is_GRANT.pdf) bars initiation of enforcement, including investigation, for alleged violations of SB24-205 or replacement/amending legislation occurring through 14 days after a ruling on x.AI’s preliminary-injunction motion. That motion is procedurally tied to final adoption of implementing rules; Colorado’s [official rulemaking page](https://coag.gov/ai/) still described pre-rulemaking rather than final rules on 9 August 2026. The order does not adjudicate SB26-189’s validity. Verify both the stay and rulemaking status before a release decision.
+The Act’s general effective date is 1 January 2027; specified provisions took effect on passage. Enforcement is currently stayed: an [April 2026 federal-court order](https://www.troutmanprivacy.com/wp-content/uploads/sites/941/2026/04/US_DIS_COD_1_26cv1515_d8891528e364_MINUTE_ORDER_The_parties_Motion_ECF_No_22_is_GRANT.pdf) bars initiation of enforcement, including investigation, for alleged violations of SB24-205 or replacement/amending legislation occurring through 14 days after a ruling on x.AI’s preliminary-injunction motion. That motion is procedurally tied to final adoption of implementing rules; Colorado’s [official rulemaking page](https://coag.gov/ai/) still described pre-rulemaking rather than final rules on 9 August 2026. The case remained pending and litigation deadlines were stayed; the order does not adjudicate SB26-189’s validity. Verify the full docket and rulemaking status before a release decision.
 
 ### 5.4 Singapore and other voluntary frameworks
 
@@ -1152,7 +1152,8 @@ Singapore’s IMDA/PDPC model governance frameworks are influential voluntary gu
 | [ISO/IEC 5259 series](https://www.iso.org/standard/81088.html) | Data-quality series | data quality concepts and process | lawful or representative data automatically |
 | [ISO/IEC 27001](https://www.iso.org/isoiec-27001-information-security.html) | Certifiable ISMS | information-security management | AI behavioral safety |
 | [C2PA 2.4](https://spec.c2pa.org/specifications/specifications/2.4/) | Technical specification | signed media provenance | universal AI-content detection |
-| [OWASP LLM/Agentic Top 10 2026](https://genai.owasp.org/) | Community taxonomy | threat-model prompts, tools, memory, and agent workflows | exhaustive or certified coverage |
+| [OWASP Top 10 for Large Language Model Applications 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) | Community taxonomy | threat-model LLM application inputs, outputs, data, supply chain, and agency | exhaustive or certified coverage |
+| [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | Community taxonomy | threat-model goals, tools, identity, memory, inter-agent communication, and cascading failure | exhaustive or certified coverage |
 | [MITRE ATLAS](https://atlas.mitre.org/) | Threat knowledge base | map AI attack techniques, mitigations, and case studies | compliance or complete test coverage |
 | [MLCommons AILuminate](https://mlcommons.org/ailuminate/) | Benchmark effort | comparable safety evaluation under its method | application-level safety |
 
@@ -1228,7 +1229,7 @@ A dashboard that triggers no decision is observability, not governance. A classi
 - **Arize Phoenix:** self-hostable and source-available under Elastic License 2.0; do not describe ELv2 as an OSI-approved open-source license.
 - **Langfuse:** acquired by ClickHouse in January 2026; the self-hostable repository uses mixed licensing, so inspect the license of the components you deploy.
 - **AI-BOM formats:** CycloneDX 1.7.1 includes AI/ML-BOM capabilities, while SPDX 3.0.1 includes AI and Dataset profiles. They overlap but are not interchangeable proof that a manifest is complete.
-- **C2PA:** version 2.4 was the current published technical specification on the verification date. A valid manifest proves claims in a signed provenance chain, not that the media is truthful or necessarily AI-generated.
+- **C2PA:** version 2.4 was the current published technical specification on the verification date. A valid manifest can verify the signer or credential, signature, content binding, and integrity of signed provenance assertions. It does not prove those assertions are true or that the media is AI-generated.
 - **OpenTelemetry GenAI conventions:** the active GenAI semantic-conventions repository covers model, agent, tool, evaluation, and MCP signals. The conventions are evolving; pin the schema used and apply minimization, access, and retention controls before recording prompts, outputs, tool arguments, or retrieved content.
 
 These facts justify quarterly maintenance of tool tables.
@@ -1246,10 +1247,10 @@ Use local names, but vary control strength by consequence:
 | **T0 — experiment** | synthetic-data notebook with no real users or sensitive data | sandbox, no production credentials, basic provenance |
 | **T1 — assistive** | internal drafting with human ownership and no automatic external effect | spec, provider/data review, quality eval, logging proportionate to privacy, feedback |
 | **T2 — operational** | customer-facing assistant or internal workflow automation | full seven-stage loop, security tests, monitoring, incident runbook, staged release |
-| **T3 — consequential or write-capable** | employment, credit, health, benefits, critical operations, write-capable agent | independent review, impact assessment, subgroup/human-factors testing, strict authorization, appeal/reversal, rehearsed incident response, legal mapping |
+| **T3 — consequential or elevated-authority** | employment, credit, health, benefits, critical operations, or an agent with broad, high-impact, or difficult-to-reverse write, spend, communication, or state-change authority | independent review, impact assessment, subgroup/human-factors testing, strict authorization, appeal/reversal, rehearsed incident response, legal mapping |
 | **T4 — frontier/critical** | frontier training, dangerous capability, critical infrastructure, broad autonomous authority | capability-threshold framework, strong weight security, external evaluation, board/executive risk decision, regulator/institute engagement as applicable |
 
-Tier on the highest plausible consequence and authority, not the most common happy path. Autonomy is not a tier by itself: a read-only agent may remain T1 or T2, while authority to write, spend, communicate externally, or change state requires agent controls and may raise the tier.
+Tier on the highest plausible consequence and authority, not the most common happy path. Autonomy is not a tier by itself: a read-only agent may remain T1 or T2. Bounded write authority may remain T2 when consequences are limited and approval and recovery controls are strong; consequential or broad authority belongs in T3.
 
 ### 7.2 Baseline implementation sequence for a T2 production LLM system
 
@@ -1509,7 +1510,7 @@ Classifier performance depends on model, language, context, threshold, and attac
 
 ### 9.3 Provenance is not detection
 
-A valid signed manifest can show origin and edit history within its trust chain. Missing provenance does not prove human origin. Statistical watermark detection has error and robustness limits. Open-weight users may alter the sampler.
+A valid signed manifest can show signed assertions about origin and edit history within its trust chain. It does not establish that those assertions are true. Missing provenance does not prove human origin. Statistical watermark detection has error and robustness limits. Open-weight users may alter the sampler.
 
 ### 9.4 Compute is an imperfect proxy
 
@@ -1540,8 +1541,9 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 | California SB 53 | Binding state statute | defined frontier and large frontier developers | framework and transparency publications, incident reporting, employee protections, assessment records |
 | California AB 2013 | Binding state statute | defined public generative-AI systems/services released or substantially modified from 1 Jan 2022; publication duties began by 1 Jan 2026 | public training-data documentation |
 | New York RAISE Act (S8828, Ch. 96/2026) | Binding state statute, effective 1 Jan 2027 | defined frontier and large frontier developers operating wholly or partly in New York | frontier AI framework, safety assessments, 72-hour incident reports, three-month or agreed-schedule internal-risk summaries |
-| Colorado SB26-189 (ADMT) | Binding state statute, effective 1 Jan 2027; enforcement currently stayed by court order | developers/deployers of automated decision-making technology for consequential decisions | documentation, three-year records, consumer notices/disclosures, correction and human review/reconsideration |
-| NIST AI RMF 1.0 / GenAI Profile | Voluntary framework and profile; AI RMF revision underway | organizations managing AI risk | risk register and Govern/Map/Measure/Manage evidence |
+| Colorado SB26-189 (ADMT) | Binding state statute, generally effective 1 Jan 2027 with specified provisions effective on passage; enforcement currently stayed by court order | developers/deployers of automated decision-making technology for consequential decisions | documentation, three-year records, consumer notices/disclosures, correction and human review/reconsideration |
+| NIST AI RMF 1.0 | Voluntary framework; revision underway | organizations managing AI risk | risk register and Govern/Map/Measure/Manage evidence |
+| NIST AI 600-1 GenAI Profile | Voluntary profile | organizations managing generative-AI risk | GenAI-specific risk and action mapping |
 | NIST SP 800-218A | Voluntary secure-development community profile | producers and acquirers of generative AI and dual-use foundation-model systems | AI-adapted SSDF practices and evidence |
 | ISO/IEC 42001 | Certifiable standard | organization’s AI management system | policies, roles, objectives, operational records, internal audit, corrective action |
 | ISO/IEC 23894 | Guidance standard | AI risk management | risk process and treatment records |
@@ -1549,7 +1551,8 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 | ISO/IEC 42006 | Standard for certification bodies | bodies auditing and certifying AI management systems | certification-body competence and consistency evidence, not AI-product safety certification |
 | ISO/IEC 5259 series | Standard series | data quality for analytics and ML | data-quality model, measures, management and process records |
 | C2PA 2.4 | Technical specification | media provenance | signed manifest and verification chain |
-| OWASP LLM/Agentic Top 10 2026 | Community taxonomy | application and agent security | threat-model and test coverage |
+| OWASP Top 10 for Large Language Model Applications 2026 | Community taxonomy | LLM application security | threat-model and test coverage |
+| OWASP Top 10 for Agentic Applications 2026 | Community taxonomy | agentic-system security | threat-model and test coverage |
 | MITRE ATLAS | Threat knowledge base | attacks on AI systems and agents | technique, mitigation, and case-study map |
 
 ---
@@ -1575,7 +1578,9 @@ Evidence does not choose the acceptable trade-off. The release decision must sti
 - New York RAISE Act chapter amendment, S8828 (Chapter 96 of 2026): <https://www.nysenate.gov/legislation/bills/2025/S8828>
 - New York RAISE Act original December 2025 announcement (superseded by the March 2026 chapter amendment): <https://www.governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models>
 - Colorado SB26-189: <https://leg.colorado.gov/bills/sb26-189>
+- Colorado SB26-189 session law, Chapter 131: <https://leg.colorado.gov/laws/session-laws/SB26-189/131/download>
 - x.AI v. Weiser enforcement-moratorium order, D. Colo. ECF No. 24: <https://www.troutmanprivacy.com/wp-content/uploads/sites/941/2026/04/US_DIS_COD_1_26cv1515_d8891528e364_MINUTE_ORDER_The_parties_Motion_ECF_No_22_is_GRANT.pdf>
+- x.AI v. Weiser public docket: <https://www.courtlistener.com/docket/73171074/x-ai-llc-v-weiser/>
 - Colorado Attorney General AI rulemaking page: <https://coag.gov/ai/>
 - U.S. Department of Justice complaint in x.AI v. Weiser: <https://www.justice.gov/crt/media/1437846/dl>
 - Colorado AI Act repeal and replacement summary: <https://www.dwt.com/blogs/privacy--security-law-blog/2026/05/colorado-ai-act-repeal-new-transparency-law>
@@ -1737,6 +1742,7 @@ Preprints are research evidence, not settled fact. Check publication status, ver
 - Corrected New York’s revenue threshold, reporting schedule, territorial reach, and incident trigger; corrected Colorado’s scope and artifacts; and separated Colorado’s statutory effective date from the court-ordered enforcement stay.
 - Added the NIST AI RMF revision status, NIST SP 800-218A, OWASP 2026 taxonomies, MITRE ATLAS v2026.07 agent-tool threats, and OpenTelemetry GenAI conventions.
 - Strengthened agent identity, delegated authorization, transaction-intent, MCP, and deny-by-default guidance.
+- Narrowed C2PA claims, reconciled governance/control and T2/T3 vocabulary, exposed the implementation sequence in the start map, and split combined NIST and OWASP entries into exact publications.
 - Rechecked current legal and tooling sources, replaced the obsolete C2PA landing page with the current 2.4 specification, and corrected the stale end-of-document version marker.
 
 **Version 2.3 — 31 July 2026**
