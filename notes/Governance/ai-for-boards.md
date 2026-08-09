@@ -6,7 +6,7 @@ section: "Governance"
 published: "2026-08-09"
 updated: "2026-08-09"
 checked: "2026-08-09"
-version: "1.0"
+version: "1.1"
 status: "Reviewed"
 topics:
   - AI governance
@@ -28,13 +28,13 @@ An organization will struggle to scale AI responsibly if it does not know which 
 
 The board's larger responsibility is long-term value. Its AI task is therefore not to choose between strategy and risk. It is to determine **where the technology can materially improve or threaten how the company creates and captures value, and what conditions must hold to pursue that opportunity**. Strategy points to where the company should go. Risk management determines which paths are viable and how far the company can proceed with confidence.
 
-Recent board guidance reflects this wider mandate.
+Recent board guidance makes this wider mandate clear. The World Economic Forum's toolkit devotes seven modules to strategy oversight, alongside five on ethics, governance, risk, audit, and board responsibilities.[1]
 
-The World Economic Forum's board toolkit says seven modules focus on strategy oversight; five other topics cover ethics, governance, risk, audit, and board responsibilities.[1]
+Newer frameworks connect AI to strategy, capital allocation, operating-model change, talent, risk, and technology competence.[2][3][4]
 
-More recent frameworks put strategic value creation first and combine it with capital allocation, operating-model change, talent, risk, and technology competency.[2][3][4]
+Deloitte's roadmap likewise places AI within strategy, performance, talent, and governance.[5]
 
-A separate board roadmap likewise places AI within strategy, performance, talent, and governance.[5]
+In Singapore, SID's 2026 guide, complemented by a GNDI report hosted on SID's site, places the same task in a local governance context.[6][7]
 
 AI governance therefore has two inseparable jobs:
 
@@ -135,7 +135,11 @@ Advantage is more likely to come from the assets around the model:
 - the ability to switch models or vendors without rebuilding everything; and
 - partnerships that add capability without surrendering strategic control.
 
+Capability lives in the boardroom as well as the business. The board does not need to become a technical team. It does need enough literacy, access to independent expertise, and clarity on committee ownership to challenge management intelligently.[7]
+
 Some of these assets take time to build and produce little immediate revenue. Boards therefore need to distinguish an unproductive technology expense from a foundational investment that creates future options. Recent principles name data, infrastructure, talent, change management, partnerships, and M&A as foundational investments.[2] Other board frameworks ask boards to examine architecture, data readiness, vendor dependence, and the build-buy-partner decision as strategic capital-allocation questions.[3][4]
+
+SID's director guidance asks whether the board and enterprise have the skills to oversee AI, whether directors need continuing education, and whether ownership is clear across the board and its committees.[7] The practical test is whether those arrangements improve the quality and speed of decisions—not how many people have attended an AI briefing.
 
 The central question is not “Which model are we using?” It is “What are we becoming unusually capable of doing?”
 
@@ -157,6 +161,8 @@ The alternative is not freedom. It is delay, rework, fragmented buying, quiet mi
 
 Governance should therefore be proportionate. A drafting assistant using approved public material does not need the same review as an agent that can transfer money or a system that influences hiring. A single heavy process for every use creates bottlenecks. No process creates unmanaged exposure. The board should expect management to build a fast path for bounded uses and stronger challenge for higher-risk or high-consequence ones.[4]
 
+Trust is part of this infrastructure. Management needs a credible answer for employees, customers, regulators, and partners about how the company uses AI, who is accountable, and what happens when it fails. The board should also ask whether approved policies match actual work, including unsanctioned “shadow AI.”[7]
+
 This is the connection between the two sides of the board's mandate. Strategy identifies where AI may create value. Risk management establishes the conditions under which the company can pursue that value with confidence.
 
 ## 7. Measure outcomes and learning
@@ -168,6 +174,7 @@ The board needs a scorecard that joins value, capability, and risk. Counting mod
 | **Is AI creating value?** | Revenue, retention, margin, cost-to-serve, cycle time, quality, customer experience |
 | **Is it changing the business?** | Priority workflows redesigned, products changed, decisions improved, use cases operating at scale |
 | **Are capabilities improving?** | Reusable data assets, critical roles filled, employee proficiency, adoption in target workflows, vendor optionality |
+| **Can the board govern it credibly?** | Director literacy, access to independent expertise, clear committee remit, quality of challenge and escalation |
 | **Are we learning?** | Assumptions tested, pilots stopped or scaled, time from experiment to decision, lessons reused across business units |
 | **Can value be sustained responsibly?** | High-consequence systems independently tested, incidents and drift detected, remediation time, employee and customer trust |
 
@@ -181,9 +188,9 @@ A board does not need to manage AI programs. It does need crisp answers to five 
 
 1. **Where could AI materially improve or threaten how this company creates value?**
 2. **Which opportunities will we lead, keep pace with, wait on, or leave—and why?**
-3. **What capabilities must we own or build, and what can we buy or rent?**
+3. **What must the company—and the board—learn, build, own, or retain?**
 4. **How will products, workflows, decision rights, and the workforce have to change?**
-5. **What evidence would show that we are creating value responsibly enough to scale?**
+5. **What evidence would show that we are creating value, keeping trust, and scaling responsibly?**
 
 These five strategic questions do not replace oversight of inventory, accountability, boundaries, monitoring, incidents, and assurance. They explain why those controls exist. The detailed companion guide, [AI Governance: Five Questions for the Board](/notes/ai-governance-board-note), provides five assurance questions for that work.
 
@@ -209,12 +216,17 @@ The NACD guide is a 2025 practitioner resource for directors; it supports the po
 
 The PwC report is dated August 2026 and supports operating-model redesign, risk tiering, and reporting practices.[4] The Deloitte roadmap, published in February 2025 and modified in January 2026, covers strategy, risk, governance, performance, talent, and culture.[5] Both are advisory frameworks rather than outcome evidence.
 
+The Singapore Institute of Directors' 2026 guide is a practical resource published with the Infocomm Media Development Authority, Microsoft, and OpenAI; it frames board oversight as both strategic and responsible.[6] SID's Global Network of Director Institutes report adds survey-informed questions about board capability, stakeholder trust, policy, enterprise-risk integration, and shadow AI.[7] These are governance resources, not evidence that a particular board design causes superior business outcomes.
+
 [1] https://www3.weforum.org/docs/WEF_Empowering-AI-Leadership_Oversight-Toolkit.pdf — Empowering AI Leadership: An Oversight Toolkit for Boards of Directors
 [2] https://assets.kpmg.com/content/dam/kpmgsites/be/pdf/ai-governance-principles-for-boards-report.pdf — AI Governance Principles for Boards
 [3] https://www.nacdonline.org/all-governance/governance-resources/governance-research/director-faqs-and-essentials/implementing-ai-governance — Director Essentials: Implementing AI Governance
 [4] https://www.pwc.com/us/en/services/governance-insights-center/library/assets/pwc-board-oversight-of-ai-transformation.pdf — Board oversight of AI transformation
 [5] https://www.deloitte.com/us/en/programs/center-for-board-effectiveness/articles/board-of-directors-governance-framework-artificial-intelligence.html — Strategic AI governance roadmap
+[6] https://www.sid.org.sg/Web/Resources/AI_Guide_for_Boards_in_Singapore.aspx — AI Guide for Boards in Singapore
+[7] https://www.sid.org.sg/common/Uploaded%20files/Resources/GNDI-Governingintheageofdisruption-AI.pdf — Governing in the age of disruption: Artificial intelligence
 
 ## Change history
 
 - **2026-08-09 — v1.0:** Initial source-backed publication.
+- **2026-08-09 — v1.1:** Tightened the argument and added SID's Singapore board-governance lens on director capability, trust, and shadow AI.
