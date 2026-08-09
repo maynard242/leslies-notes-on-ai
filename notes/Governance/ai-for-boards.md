@@ -7,7 +7,7 @@ published: "2026-08-09"
 updated: "2026-08-09"
 checked: "2026-08-09"
 version: "1.0"
-status: "Draft"
+status: "Reviewed"
 topics:
   - AI governance
   - boards
@@ -217,4 +217,4 @@ The PwC report is dated August 2026 and supports operating-model redesign, risk 
 
 ## Change history
 
-- **2026-08-09 — v1.0:** Initial source-backed draft.
+- **2026-08-09 — v1.0:** Initial source-backed publication.

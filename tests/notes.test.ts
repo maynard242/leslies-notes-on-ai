@@ -45,6 +45,7 @@ describe("note content pipeline", () => {
       "sea-helm-multilingual-cultural-evaluation",
       "post-training-brief",
       "harnesses",
+      "ai-for-boards",
       "ai-governance-board-note",
       "ai-governance-for-engineers",
       "when-the-model-has-skin-in-the-game",
