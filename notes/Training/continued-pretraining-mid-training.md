@@ -1,17 +1,18 @@
 ---
 title: "Continued Pretraining and Mid-Training"
-description: "How to continue pretraining a model for regional capability without discarding the capabilities that already work."
+description: "How to adapt a pretrained model for regional capability, preserve what works, and distinguish batch CPT from deployment-time continual learning."
 kind: "reference"
 section: "Training"
 topics:
   - "continued pretraining"
   - "mid-training"
+  - "continual learning"
   - "SEA-LION"
   - "multilingual models"
 published: "2026-07-29"
-updated: "2026-07-29"
-checked: "2026-07-29"
-version: "1.0"
+updated: "2026-08-10"
+checked: "2026-08-10"
+version: "1.1"
 status: "Reviewed"
 order: 2
 ---
@@ -26,7 +27,7 @@ That sounds simple: load a checkpoint and keep predicting the next token. Operat
 
 SEA-LION is a useful case study because its development spans both strategies: training from scratch and adapting strong open models through CPT. The lesson is not that CPT always wins. It is that the build-versus-adapt decision should be made with evidence, not prestige.
 
-> **Short version:** baseline the exact checkpoint and define the release gates before training. Continued pretraining is controlled distribution shift; the central engineering problem is balancing adaptation and retention.
+> **Short version:** baseline the exact checkpoint and define the release gates before training. Continued pretraining is controlled distribution shift; the central engineering problem is balancing adaptation and retention. Do not confuse a bounded CPT phase with deployment-time continual learning, where the model keeps changing from experience after release.
 
 ## 1. Terms that are often mixed together
 
@@ -38,7 +39,7 @@ The architecture, tokenizer, parameters, and optimizer begin without a pretraine
 
 ### Continued or continual pretraining
 
-Training resumes from an existing pretrained model using the same or a closely related self-supervised objective. “Continued” often describes one additional phase. “Continual” suggests a sequence of updates as new data arrives. In practice, the terms are frequently used interchangeably.
+Training resumes from an existing pretrained model using the same or a closely related self-supervised objective. “Continued” often describes one additional phase. “Continual pretraining” suggests a sequence of such updates as new data arrives. The two terms are frequently used interchangeably, but neither should automatically be read as deployment-time continual learning.
 
 ### Domain-adaptive pretraining
 
@@ -48,12 +49,19 @@ The new corpus is drawn from a target domain such as biomedicine, law, finance, 
 
 “Mid-training” is a looser industry term. It usually means a substantial phase between broad base pretraining and final post-training. The objective may still be next-token prediction, but the data can be more structured: long-context documents, code, mathematics, multilingual corpora, question-answer traces, tool formats, or synthetic curricula. Some teams also use the term for annealing or capability-acquisition phases near the end of pretraining.
 
+### Continual learning after deployment
+
+In the stronger sense, continual learning means that deployed experience becomes training signal and the model's weights or adapters keep changing over time. This is not simply a longer CPT run. The update objective might be self-supervised learning, supervised learning, reinforcement learning, or a combination, and updates may be global, organization-specific, or user-specific.
+
+External memory is different. Files, retrieval systems, and session summaries can preserve explicit facts and procedures without changing the model. Weight updates may be needed for some tacit skills, but how much economically useful learning requires full-weight updates rather than retrieval, tools, or adapters remains an open empirical question.
+
 The important boundary is not the name. It is the objective and data:
 
 - **Pretraining or mid-training** changes the model through large-scale self-supervised or structured-token learning.
 - **Supervised fine-tuning (SFT)** teaches responses from prompt-response examples.
 - **Preference optimization** changes which response the model favors.
 - **Reinforcement learning** optimizes behavior against rewards.
+- **Deployment-time continual learning** repeatedly updates the model from experience and therefore turns evaluation, data consent, security, and rollback into continuous operating requirements.
 
 These stages interact, but they are not substitutes. CPT can improve a model’s command of Khmer text. It does not by itself teach the model to answer helpfully in Khmer. AI Singapore's [SEA-LION-ModernBERT](https://huggingface.co/aisingapore/SEA-LION-ModernBERT-600M) encoder line gives a concrete instance of mid-training as its own stage: the card describes pretraining from scratch on 2 trillion tokens, then an explicit mid-training phase on a further 1 trillion tokens, before any task fine-tuning. This note otherwise focuses on CPT because it is the clearest large-scale adaptation method in the rest of SEA-LION's history; broader mid-training may also use structured synthetic curricula, long-context adaptation, or capability-specific annealing.
 
@@ -312,7 +320,24 @@ This is an important strategic point. Once strong multilingual base capability e
 
 That is not an oversight; it is a trade-off worth naming rather than glossing over. Redoing post-training from a base model is itself expensive, and an instruction-tuned checkpoint's existing behavior is worth protecting if it can be. SEA-LION v3's SimPO-and-merging step shows the buy-back directly: it folds the original instruction-tuned checkpoints back into the CPT'd model, restoring behavior a base-only recipe would otherwise have to rebuild from nothing. The honest version of Section 3.1's advice is not "always start from base." It is: know which behavior CPT puts at risk, and have a concrete plan — merging, replay, or full post-training — to restore it before you start.
 
-## 9. A practical CPT runbook
+## 9. From batch CPT to deployment-time continual learning
+
+The runbook in this note assumes a bounded training phase followed by a versioned release. In [*8 Predictions for the Era of Continual Learning*](https://www.dwarkesh.com/p/era-of-continual-learning), Dwarkesh Patel sketches a different regime: useful work performed after deployment becomes training data, model variants improve from their own experience, and the boundary between training and deployment starts to disappear.
+
+That is a useful extension to the CPT frame, but it is a forecast rather than a demonstrated recipe. The saxophone analogy in the piece makes the intuition vivid — notes passed between novices do not substitute for practice embodied in a learner — without proving which AI capabilities must be stored in weights. The practical question is comparative: for each capability, do full-weight updates outperform retrieval, explicit memory, tool improvement, or parameter-efficient adapters enough to justify their added risk and cost?
+
+If deployment becomes part of training, several operating assumptions change:
+
+- **Evaluation becomes recurring.** A one-time gate before release is insufficient for a moving model. Every promoted update needs a model ID, immutable test results, canary deployment, regression thresholds, and a rollback path.
+- **Experience needs provenance and consent.** The training ledger must record which sessions may be learned from, whose data they contain, how long they may be retained, and whether improvements can be pooled across users or organizations.
+- **Prompt injection becomes data poisoning.** A malicious interaction that only affects one session is different from one that can alter future weights. Candidate training traces need quarantine, filtering, adversarial testing, and bounded promotion.
+- **Alignment must survive repeated updates.** Safety and behavioral evaluations must cover the update process, not only a frozen checkpoint. A model that passes today can regress after tomorrow's learning batch.
+- **Forks create migration and lock-in problems.** A company-specific adapter or weight fork may accumulate valuable experience, but the operator must be able to audit it, export what is portable, and migrate or distil it when the underlying base model changes.
+- **Economics may favor scale.** Patel argues that experience-trained models could create switching costs and that efficient batching may favor large organizations or widely shared weight variants. Those are plausible second-order effects, not yet established outcomes.
+
+The conservative bridge from today's CPT to that future is not uncontrolled online learning. It is frequent but bounded updates: keep the deployed model fixed during an interval, quarantine new experience, train a candidate offline, run the full gate, then promote or reject a versioned checkpoint. This preserves the core lesson of CPT — adaptation must be balanced against retention — while adding provenance, security, and reversibility.
+
+## 10. A practical CPT runbook
 
 ### Phase 0: define the hypothesis
 
@@ -377,7 +402,7 @@ Use an explicit decay or annealing phase. Select several candidate checkpoints. 
 
 Publish the base revision, corpus mixture, token budget, learning-rate schedule, hardware, precision, tokenizer choice, benchmark settings, and known limitations. Without these, the release is not a reproducible technical contribution.
 
-## 10. Failure modes and responses
+## 11. Failure modes and responses
 
 | Failure | Likely cause | Response |
 |---|---|---|
@@ -390,7 +415,7 @@ Publish the base revision, corpus mixture, token budget, learning-rate schedule,
 | Training is unstable | LR transition, precision, bad batches, distributed faults | Quarantine data, inspect gradients, resume from known checkpoint, reduce peak rate |
 | CPT improves base but chat worsens | Started from instruct model or lost alignment | Begin from base where possible; repeat post-training |
 
-## 11. Recommended default
+## 12. Recommended default
 
 For a regional model today, first choose the best deployable open base, not the largest available model. Measure its language loss, token efficiency, and SEA-HELM profile. Then build a commercially defensible regional corpus and use short proxy runs to map the adaptation-retention frontier.
 
@@ -411,7 +436,9 @@ The strongest reason to build CPT capability is not ownership of one checkpoint.
 - Liu, Y. et al. (2024), [*OFA: A Framework of Initializing Unseen Subword Embeddings for Efficient Large-scale Multilingual Continued Pretraining*](https://arxiv.org/abs/2311.08849) — method for initializing new multilingual embeddings.
 - Ng, R. et al. (2025), [*SEA-LION: Southeast Asian Languages in One Network*](https://arxiv.org/abs/2504.05747) — primary report for SEA-LION v3 data, schedule, tokenizer, and post-training choices.
 - AI Singapore, [SEA-LION repository at the reviewed commit](https://github.com/aisingapore/sealion/tree/d75f7923db666f266e4dd95b49161a2a1a9a0e5c), [SEA-LION v1 3B](https://huggingface.co/aisingapore/SEA-LION-v1-3B), [Llama-SEA-LION v2 8B](https://huggingface.co/aisingapore/Llama-SEA-LION-v2-8B), [Gemma-SEA-LION v3 9B](https://huggingface.co/aisingapore/Gemma-SEA-LION-v3-9B), [Gemma-SEA-LION v4 27B](https://huggingface.co/aisingapore/Gemma-SEA-LION-v4-27B), [Qwen-SEA-LION v4 32B IT](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4-32B-IT), [Apertus-SEA-LION v4 8B IT](https://huggingface.co/aisingapore/Apertus-SEA-LION-v4-8B-IT), [Qwen-SEA-LION v4.5 27B IT](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4.5-27B-IT), [Gemma-SEA-LION v4.5 E2B IT](https://huggingface.co/aisingapore/Gemma-SEA-LION-v4.5-E2B-IT), [Qwen-SEA-LION v4.5 27B IT SpecDecoder](https://huggingface.co/aisingapore/Qwen-SEA-LION-v4.5-27B-IT-SpecDecoder), and [SEA-LION-ModernBERT 600M](https://huggingface.co/aisingapore/SEA-LION-ModernBERT-600M) model cards — checked 2026-07-29 for release-specific claims.
+- Patel, D. (2026), [*8 Predictions for the Era of Continual Learning*](https://www.dwarkesh.com/p/era-of-continual-learning) — strategic forecast about deployment-time learning, evaluation cadence, alignment, lock-in, and inference economics; used here as a hypothesis source, not an empirical training study.
 
 ## Change history
 
+- **2026-08-10 — v1.1:** Distinguished deployment-time continual learning from CPT and added operating implications from Patel's *8 Predictions for the Era of Continual Learning*.
 - **2026-07-29 — v1.0:** Initial reviewed version, checked against current public sources.
