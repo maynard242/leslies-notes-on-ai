@@ -2,6 +2,9 @@
   "name": "leslies-notes-on-ai",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:content && next build",
@@ -16,9 +19,9 @@
   "dependencies": {
     "github-slugger": "latest",
     "gray-matter": "latest",
-    "katex": "latest",
+    "katex": "^0.18.4",
     "mdast-util-to-string": "latest",
-    "next": "latest",
+    "next": "^16.3.1",
     "react": "latest",
     "react-dom": "latest",
     "reading-time": "latest",
@@ -36,17 +39,22 @@
     "unist-util-visit": "latest"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "eslint": "latest",
-    "eslint-config-next": "latest",
-    "typescript": "latest",
+    "eslint-config-next": "^16.3.1",
+    "typescript": "6.0.3",
     "vitest": "latest"
   },
   "overrides": {
-    "minimatch": "10.2.5",
-    "brace-expansion": "5.0.8",
+    "minimatch": "10.2.6",
+    "brace-expansion": "5.0.9",
+    "js-yaml": "4.3.1",
+    "gray-matter": {
+      "js-yaml": "3.15.1"
+    },
+    "nanoid": "3.3.18",
     "postcss": "8.5.23",
     "sharp": "0.35.3"
   }
