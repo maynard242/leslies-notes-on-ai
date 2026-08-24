@@ -33,6 +33,13 @@ describe("note content pipeline", () => {
       section: "Misc",
       status: "Reviewed",
     }));
+    expect(notes).toContainEqual(expect.objectContaining({
+      slug: "herdr-agent-workflows",
+      title: "Herdr: Beginner-to-Advanced Agent Workflows",
+      kind: "guide",
+      section: "Misc",
+      status: "Reviewed",
+    }));
     expect(notes.find((note) => note.slug === "ai-governance-for-engineers")?.words).toBeGreaterThan(10_000);
   });
 
@@ -50,6 +57,7 @@ describe("note content pipeline", () => {
       "ai-governance-for-engineers",
       "when-the-model-has-skin-in-the-game",
       "from-prompts-to-persistent-workflows",
+      "herdr-agent-workflows",
     ]);
   });
 

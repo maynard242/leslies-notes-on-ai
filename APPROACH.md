@@ -105,6 +105,7 @@ The current published notes are:
 - **AI Governance: Five Questions for the Board** — `Governance` / `guide`
 - **AI Governance for Engineers** — `Governance` / `reference`
 - **From Prompts to Persistent Workflows** — `Misc` / `guide`
+- **Herdr: Beginner-to-Advanced Agent Workflows** — `Misc` / `guide`
 
 Add dedicated topic pages, related-note links, backlinks, or a full-text index only when the note collection is large enough to show which navigation problem is real.
 
