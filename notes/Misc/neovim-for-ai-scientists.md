@@ -7,7 +7,7 @@ status: "Reviewed"
 published: "2026-08-24"
 updated: "2026-08-24"
 checked: "2026-08-24"
-version: "1.0"
+version: "1.1"
 topics:
   - AI adoption
   - AI agents
@@ -36,6 +36,21 @@ The useful loop is edit, search, run, diagnose, review.
 5. Inspect the changed diff yourself, especially after a coding agent worked on it.
 
 Keep configuration in version control. Prefer a small `init.lua`, language-server settings that name their external dependency, and a documented bootstrap path. Avoid a plugin inventory as a research workflow. A configuration is useful when another machine can recreate the editing behavior you depend on.
+
+## Ten commands to anchor the loop
+
+These commands are built-in starting points. Use `:help {topic}` inside Neovim for the installed reference, then consult the [Neovim documentation](https://neovim.io/doc/user/) when behavior depends on the version in use.
+
+1. `:edit {file}`: Open a file for focused work. Confirm the path and repository before editing.
+2. `:write`: Save deliberate edits. Saving records a change; it does not validate the change.
+3. `:grep {pattern}`: Use configured external search and populate quickfix. It depends on `grepprg`, so inspect that setting before assuming which tool or paths it searches. [Quickfix](https://neovim.io/doc/user/quickfix.html)
+4. `:copen`: Show the current quickfix results. The list may contain stale results from an earlier command.
+5. `:cnext`: Move to the next quickfix result. Read the surrounding code, not only the matching line.
+6. `:cprev`: Move to the prior quickfix result. It navigates the same current list.
+7. `:make`: Run the configured build or test command and parse output through quickfix. It depends on `makeprg` and `errorformat`; parsed output is not proof that the command covered the intended case. [Quickfix](https://neovim.io/doc/user/quickfix.html)
+8. `:terminal`: Run a short interactive command or agent CLI. It is not a persistent-job supervisor. [Terminal](https://neovim.io/doc/user/terminal.html)
+9. `:LspInfo`: Inspect attached LSP client and server state. It reports setup state, not code correctness. [LSP](https://neovim.io/doc/user/lsp.html)
+10. `:checkhealth`: Diagnose Neovim prerequisites and configuration. It diagnoses the editor environment, not research validity. [Health](https://neovim.io/doc/user/health.html)
 
 ## Search and quickfix
 
@@ -87,4 +102,5 @@ A coding agent can propose edits. It cannot supply the human decision about scop
 
 ## Change history
 
+- 2026-08-24, v1.1: Added ten built-in commands for the edit, search, run, diagnose, and review loop.
 - 2026-08-24, v1.0: Initial reviewed candidate.

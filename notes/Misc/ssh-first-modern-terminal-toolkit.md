@@ -7,7 +7,7 @@ status: "Reviewed"
 published: "2026-08-24"
 updated: "2026-08-24"
 checked: "2026-08-24"
-version: "1.0"
+version: "1.1"
 topics:
   - AI adoption
   - AI agents
@@ -37,6 +37,10 @@ Verify a new host key through an independent channel before accepting it. `Stric
 
 Use `ProxyJump` when a bastion is the intended network path. Leave agent forwarding off unless a specific remote workflow requires it and its consequences are understood. Forwarded credentials enlarge the trust boundary.
 
+## Choose an editor and workspace
+
+Cursor, VS Code, Neovim, or another editor can be the review surface. The control boundary is elsewhere: SSH host identity, repository state, explicit commands, and human review. Cursor remains an optional vendor-coupled editor and agent, not a universal default.
+
 ## Explicit forwarding
 
 A forward is a host and port mapping, not magic. Bind local research dashboards to loopback and fail early if the mapping cannot be established:
@@ -51,7 +55,13 @@ ssh -N \
 
 This exposes a remote Jupyter service on local `127.0.0.1:8888` and TensorBoard on local `127.0.0.1:6006`, if those services are listening on the remote loopback addresses. It does not publish them to the network, start them, authenticate them, or prove that they are safe.
 
-Connection liveness is not process persistence. A working SSH connection says nothing about whether a remote experiment will survive a disconnect, crash, or reboot. Use tmux for generic remote terminal persistence, or an appropriate scheduler or supervisor for managed compute. Refer to Herdr only when agent-aware lifecycle visibility is the actual need. tmux can survive client detachment. It does not survive a host reboot. [tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
+Connection liveness is not process persistence. SSH keepalives only detect connections. Herdr is a persistent terminal workspace whose server owns real pane processes and gives agent-aware lifecycle visibility. Start it in the project you intend to inspect:
+
+```sh
+cd ~/project && herdr
+```
+
+Detaching and reattaching preserves live processes, but a full Herdr server restart does not preserve arbitrary processes. It restores layout and may conditionally resume supported native agent sessions. Neither Herdr nor SSH survives a host reboot. Herdr is appropriate when remote jobs, logs, tests, or coding agents need coordinated terminal visibility. Use a scheduler or supervisor for managed compute. Do not use `herdr server stop` as a reset because it ends the session's pane processes. [Herdr concepts](https://herdr.dev/docs/concepts/), [agents](https://herdr.dev/docs/agents/), and [session state](https://herdr.dev/docs/session-state/)
 
 ## Durable command core
 
@@ -114,7 +124,7 @@ Before relying on a new local or remote environment, record:
 1. Hostname, operating system, SSH host identity, and repository commit.
 2. Python version, lockfile state, relevant CUDA or driver information, and hardware.
 3. Model revision, data version or checksum, command line, and output location.
-4. Whether work runs in tmux, a scheduler, a supervisor, or an interactive shell.
+4. Whether work runs in Herdr, a scheduler, a supervisor, or an interactive shell.
 5. Port forwards, exposed listeners, credentials in use, and their owner.
 6. The human approval boundary for agent edits, transfers, destructive commands, and external actions.
 
@@ -124,7 +134,9 @@ This is enough to make the next decision inspectable without pretending that eve
 
 - [OpenSSH client configuration](https://man.openbsd.org/ssh_config): trust, identities, forwarding, and ProxyJump.
 - [ssh-keyscan](https://man.openbsd.org/ssh-keyscan): discovery only, not host-key authentication.
-- [tmux getting started](https://github.com/tmux/tmux/wiki/Getting-Started): detached terminal persistence.
+- [Herdr concepts](https://herdr.dev/docs/concepts/): server-owned panes and detach semantics.
+- [Herdr agents](https://herdr.dev/docs/agents/): agent-aware lifecycle visibility.
+- [Herdr session state](https://herdr.dev/docs/session-state/): detach, restart, and conditional native restore.
 - [rsync manual](https://download.samba.org/pub/rsync/rsync.1): transfer syntax and deletion caveats.
 - [uv project sync](https://docs.astral.sh/uv/concepts/projects/sync/): project environment synchronization.
 - [Hugging Face downloads](https://huggingface.co/docs/huggingface_hub/guides/download): revision selection and dry runs.
@@ -132,4 +144,5 @@ This is enough to make the next decision inspectable without pretending that eve
 
 ## Change history
 
+- 2026-08-24, v1.1: Added bounded Herdr persistence and lifecycle guidance.
 - 2026-08-24, v1.0: Initial reviewed candidate.
