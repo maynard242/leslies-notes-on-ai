@@ -40,6 +40,20 @@ describe("note content pipeline", () => {
       section: "Misc",
       status: "Reviewed",
     }));
+    expect(notes).toContainEqual(expect.objectContaining({
+      slug: "neovim-for-ai-scientists",
+      title: "Neovim for AI Scientists",
+      kind: "guide",
+      section: "Misc",
+      status: "Reviewed",
+    }));
+    expect(notes).toContainEqual(expect.objectContaining({
+      slug: "ssh-first-modern-terminal-toolkit",
+      title: "SSH First: A Modern Terminal Toolkit for AI Work",
+      kind: "guide",
+      section: "Misc",
+      status: "Reviewed",
+    }));
     expect(notes.find((note) => note.slug === "ai-governance-for-engineers")?.words).toBeGreaterThan(10_000);
   });
 
@@ -58,6 +72,8 @@ describe("note content pipeline", () => {
       "when-the-model-has-skin-in-the-game",
       "from-prompts-to-persistent-workflows",
       "herdr-agent-workflows",
+      "neovim-for-ai-scientists",
+      "ssh-first-modern-terminal-toolkit",
     ]);
   });
 
