@@ -19,9 +19,9 @@ A living list, updated weekly by Les's research pipeline and culled by hand. Gro
 
 ## AI and Jobs
 
-- [Page updated: FutureTech](https://futuretech.mit.edu) (, 2026)
+- [The Pulse Beneath the Job Title: Monthly Readings of Requirements and Tasks from 750 Million Chinese Job Ads](https://arxiv.org/abs/2608.26924v1) (Qin Chen, Ying Fang, Xiangyu Wang, 2026)
 - [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1) (Julia Romberg, Tobias Gummer, Gabriella Lapesa, 2026)
 
-## AI Macro and Policy
+## AI Adoption
 
-- [Page updated: Artificial Intelligence Articles | Chicago Booth Review](https://www.chicagobooth.edu/review/artificial-intelligence) (, 2026)
+- [FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare](https://arxiv.org/abs/2608.23643v1) (Jacob Idoko, Siddhartha Paudel, Mariana Bento, 2026)
