@@ -102,7 +102,7 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
     throw new Error(`${slug}: kind must be a kebab-case value`);
   }
   if (!NOTE_SECTIONS.includes(data.section as NoteSection)) {
-    throw new Error(`${slug}: section must be Data, Training, Post-Training, Agents, Governance, or Misc`);
+    throw new Error(`${slug}: section must be Data, Training, Post-Training, Agents, Governance, Economics, or Misc`);
   }
   if (!Array.isArray(data.topics) || !data.topics.length || data.topics.some((topic) => typeof topic !== "string" || !topic.trim())) {
     throw new Error(`${slug}: topics must be a non-empty string array`);

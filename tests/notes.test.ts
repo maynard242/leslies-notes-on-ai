@@ -58,7 +58,7 @@ describe("note content pipeline", () => {
   });
 
   it("uses the established section taxonomy and keeps public slugs stable after files move", () => {
-    expect(NOTE_SECTIONS).toEqual(["Data", "Training", "Post-Training", "Agents", "Governance", "Misc"]);
+    expect(NOTE_SECTIONS).toEqual(["Data", "Training", "Post-Training", "Agents", "Governance", "Economics", "Misc"]);
     expect(listNotes().map((note) => note.slug)).toEqual([
       "training-sea-lion-sea-pile",
       "multilingual-tokenizers",
@@ -373,7 +373,7 @@ topics: [test]
 # Invalid section
 `);
     try {
-      expect(() => listNotes()).toThrow("section must be Data, Training, Post-Training, Agents, Governance, or Misc");
+      expect(() => listNotes()).toThrow("section must be Data, Training, Post-Training, Agents, Governance, Economics, or Misc");
     } finally {
       fs.rmSync(file, { force: true });
     }

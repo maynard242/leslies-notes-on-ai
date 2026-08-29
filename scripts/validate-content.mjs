@@ -6,7 +6,7 @@ import { unified } from "unified";
 import { visit } from "unist-util-visit";
 
 const directory = path.join(process.cwd(), "notes");
-const sections = ["Data", "Training", "Post-Training", "Agents", "Governance", "Misc"];
+const sections = ["Data", "Training", "Post-Training", "Agents", "Governance", "Economics", "Misc"];
 
 function findMarkdownFiles(currentDirectory) {
   if (!fs.existsSync(currentDirectory)) return [];
@@ -40,7 +40,7 @@ for (const file of files) {
     if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value) || !parsedDate || Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== value) throw new Error(`${relativeFile}: invalid ${field}`);
   }
   if (typeof data.kind !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.kind)) throw new Error(`${relativeFile}: kind must be kebab-case`);
-  if (!sections.includes(data.section)) throw new Error(`${relativeFile}: section must be Data, Training, Post-Training, Agents, Governance, or Misc`);
+  if (!sections.includes(data.section)) throw new Error(`${relativeFile}: section must be Data, Training, Post-Training, Agents, Governance, Economics, or Misc`);
   if (path.dirname(relativeFile) !== data.section) throw new Error(`${relativeFile}: section must match its parent directory`);
   if (!Array.isArray(data.topics) || !data.topics.length || data.topics.some((topic) => typeof topic !== "string" || !topic.trim())) throw new Error(`${relativeFile}: topics must be a non-empty string array`);
   if (!["Draft", "Reviewed", "Maintained", "Archived"].includes(data.status)) throw new Error(`${relativeFile}: invalid status`);

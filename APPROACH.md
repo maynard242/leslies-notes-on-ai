@@ -88,7 +88,7 @@ This is a guide, not a template every note must imitate. A checklist should stay
 The first retrieval layer is intentionally simple:
 
 - stable note URLs
-- six library sections: `Data`, `Training`, `Post-Training`, `Agents`, **Strategy & Governance** (`Governance` in source metadata), and `Misc`
+- seven library sections: `Data`, `Training`, `Post-Training`, `Agents`, **Strategy & Governance** (`Governance` in source metadata), **Economics & Social** (`Economics` in source metadata), and `Misc`
 - titles and one-sentence descriptions
 - `section`, `kind`, and `topics`
 - client-side metadata search
@@ -140,7 +140,7 @@ order: 10              # optional: defaults to the end
 ---
 ```
 
-Required fields are `title`, `description`, `kind`, `section`, `published`, `updated`, `status`, and a non-empty `topics` list. `kind` must be a kebab-case value. `section` must be one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`, and must match the note’s parent directory. Dates must be real ISO calendar dates.
+Required fields are `title`, `description`, `kind`, `section`, `published`, `updated`, `status`, and a non-empty `topics` list. `kind` must be a kebab-case value. `section` must be one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Economics`, or `Misc`, and must match the note’s parent directory. Dates must be real ISO calendar dates.
 
 Lifecycle behavior:
 
