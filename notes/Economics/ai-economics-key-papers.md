@@ -17,14 +17,11 @@ topics:
 
 A living list, updated weekly by Les's research pipeline and culled by hand. Grouped by theme; newest first within each.
 
-## AI and Productivity
+## AI and Jobs
 
 - [Page updated: FutureTech](https://futuretech.mit.edu) (, 2026)
+- [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1) (Julia Romberg, Tobias Gummer, Gabriella Lapesa, 2026)
 
 ## AI Macro and Policy
 
 - [Page updated: Artificial Intelligence Articles | Chicago Booth Review](https://www.chicagobooth.edu/review/artificial-intelligence) (, 2026)
-
-## Other
-
-- [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1)
