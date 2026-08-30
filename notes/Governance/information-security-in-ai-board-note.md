@@ -1,5 +1,5 @@
 ---
-title: "Information Security That Enables Safe AI Use"
+title: "Sharing, Convenience, and Safety in the Age of AI"
 description: "A board framework for sharing information quickly while controlling data, systems, and AI agents that act on the organization’s behalf."
 kind: "guide"
 section: "Governance"
@@ -16,7 +16,7 @@ topics:
 order: 3
 ---
 
-# Information Security That Enables Safe AI Use
+# Sharing, Convenience, and Safety in the Age of AI
 
 **A board and senior-management guide, August 2026**
 
@@ -157,7 +157,7 @@ The board's job is not to choose between security and speed. It is to insist tha
 
 ## Change history
 
-- **2026-08-30 - v2.1:** Added transaction-bound approvals, authenticated delegation chains, fail-closed egress, memory provenance and promotion gates, AI supply-chain discipline, and recovery that compensates for completed external effects. Clarified the conservative Five Eyes position, breach triggers, and source versioning.
+- **2026-08-30 - v2.1:** Retitled to "Sharing, Convenience, and Safety in the Age of AI." Added transaction-bound approvals, authenticated delegation chains, fail-closed egress, memory provenance and promotion gates, AI supply-chain discipline, and recovery that compensates for completed external effects. Clarified the conservative Five Eyes position, breach triggers, and source versioning.
 - **2026-08-30 - v2.0:** Rebuilt as a shorter board framework around safe sharing, secure design, zero trust, and verification. Added agent-specific controls for untrusted context, delegated authority, bounded tool use, memory, evidence, and recovery. Updated the AI-security source base with 2026 CISA, MITRE ATLAS, and OWASP guidance.
 - **2026-08-30 - v1.1:** Retitled to "Balancing Knowledge Sharing, Convenience, and Security" and reframed trust and verification across people, systems, data flows, and consequential actions.
 - **2026-08-29 - v1.0:** Initial reviewed version.
