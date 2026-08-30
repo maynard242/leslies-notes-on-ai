@@ -1,11 +1,11 @@
 ---
-title: "Balancing Knowledge Sharing, Convenience, and Security"
-description: "How boards and senior management can balance knowledge sharing, convenience, and security when AI accelerates both work and attack."
+title: "Information Security That Enables Safe AI Use"
+description: "A board framework for sharing information quickly while controlling data, systems, and AI agents that act on the organization’s behalf."
 kind: "guide"
 section: "Governance"
 published: "2026-08-29"
 updated: "2026-08-30"
-version: "1.1"
+version: "2.0"
 status: "Reviewed"
 topics:
   - information security
@@ -16,185 +16,146 @@ topics:
 order: 3
 ---
 
-# Balancing Knowledge Sharing, Convenience, and Security
+# Information Security That Enables Safe AI Use
 
-**Some thoughts for board and senior management — August 2026**
+**A board and senior-management guide, August 2026**
 
-> **Companion note:** [AI Governance: Five Questions for the Board](/notes/ai-governance-board-note) covers oversight of AI systems themselves. This note covers the information they touch: how data should move, how it leaks, and what the board must decide.
+> **Companion note:** [AI Governance: Five Questions for the Board](/notes/ai-governance-board-note) covers oversight of AI systems themselves. This note covers the information, identities, systems, and actions those systems can touch.
 
----
+**Thesis:** Security should enable safe speed, not maximum restriction. Trust people to work and report mistakes early. Verify the systems, data flows, identities, and consequential actions around them. Friction should rise with the sensitivity of the information and the consequence of the action, not for every document, email, call, or AI query.
 
-**Thesis:** Security should enable safe speed, not maximum restriction. Build a culture of trust, but verify. Trust the team to work and to report mistakes early. Verification is not a judgment about people, and it is not confined to systems: it applies to the whole setup (identities, systems, data flows, high-consequence human decisions, and AI claims) in proportion to harm. Friction should rise with sensitivity and consequence, not for every document, email, call, or AI query.
+AI does not replace the foundations of information security. It makes familiar failures faster, cheaper, and easier to scale. It improves reconnaissance, impersonation, phishing, vulnerability discovery, and basic malware generation. It also gives ordinary software a new ability to read, decide, and act across systems. The control problem is therefore larger than model quality. It is about the authority that surrounds the model.[13]
 
-Trust and verification are not opposites, and they do not split neatly between people and machines. Culture is how the team works: hire good people, equip them, expect early reporting, and treat mistakes as lessons. Verification is how the organization keeps itself honest, and it covers everything: systems and data flows continuously, and human actions at the points of consequence, such as a payment, a bulk export, or an unusual request. Confirming a changed bank account through a second channel is not distrust of a colleague. It is the discipline that lets trust scale.
+## 1. What the board must decide
 
-AI does not chiefly create a wholly new category of risk. It compresses the cost and time needed to run familiar attack steps at scale: reconnaissance, tailored phishing and impersonation, vulnerability research, basic malware generation, and finding value in stolen data. The UK National Cyber Security Centre (NCSC) assesses that AI will increase the frequency and intensity of cyber threats and spread intrusion capability more widely.[10]
+Management runs the security program. The board should make five decisions that management cannot settle alone.
 
-## 1. Decisions reserved for the board
+1. **Risk appetite.** Approve what the organization accepts and what it refuses. It may accept broad AI-assisted drafting on internal routine material. It should not accept unreviewed external sending by agents, unencrypted crown-jewel data, or one person controlling a material payment.
+2. **Crown jewels.** Approve the short list of data, services, and business processes whose loss, alteration, or unavailability would cause serious harm. Name an executive owner for each.
+3. **Authority boundaries.** Decide which actions are never autonomous and which require a specific human approval: external sending, publication, payments, deletion, permission changes, bulk export, commitments to customers or partners, and decisions affecting people.
+4. **Escalation and investment.** Set the events that reach the board and how quickly: a material breach, ransomware, regulator contact, a material AI-system failure, or an agent acting outside its approved scope. Fund the controls needed to stay within the appetite, with clear trade-offs rather than an inherited line item.
+5. **Accountability.** Confirm one executive accountable for information security, the board committee responsible for oversight, and a reporting cadence. Anchor the program in established frameworks, including NIST Cybersecurity Framework 2.0, NIST AI Risk Management Framework, and ISO/IEC 42001, so assurance can be tested rather than asserted.[2][3][15]
 
-Most of this note is management's work. Five decisions are not.
+A board need not design the controls. It must be able to ask whether they work, whether the safe route is usable, and whether management can stop and explain a consequential action.
 
-1. **Risk appetite.** Approve a short statement of what the organization accepts and refuses. For example: we accept the residual risk of fast internal sharing and broad AI-assisted drafting; we do not accept unreviewed external sending by AI agents, unencrypted crown-jewel data, or single-person control over payments. Without an approved appetite, management calibrates friction alone and the board learns its own tolerance only after an incident.
+## 2. Build a culture that reports early
 
-2. **Crown jewels.** Approve the short list of data and systems whose loss would cause severe harm, and the named executive owner of each.
+A security program fails when people hide small mistakes until they become large ones. Staff should be able to report a mistaken recipient, suspicious request, lost device, misdirected file, or unsafe AI output without automatic blame. Early reporting contains harm and produces useful lessons.[1]
 
-3. **Escalation thresholds.** Decide in advance which events reach the board and how fast: confirmed breach of regulated or crown-jewel data, ransomware, regulator contact, or an AI agent acting materially outside its scope.
+Culture does not replace controls. People are busy and attackers are persistent. Training, clear reporting, and prompt feedback must sit beside secure defaults, access limits, and monitoring. The test is simple: can people do ordinary work quickly through an approved path, and can they ask for help before a small error becomes an incident?
 
-4. **Investment.** Approve the security budget as an explicit trade-off (see section 10), not a line item that survives by inertia.
+Treat security as a service to the organization. If the approved way to share, search, or draft is unusable, staff will find another way. Workarounds are not merely a disciplinary problem. They are evidence that the control has missed the job it was meant to support.
 
-5. **Accountability.** Confirm a single accountable executive for information security, the board committee that owns oversight, and a reporting cadence (quarterly reporting, with immediate escalation per the thresholds above). Confirm that at least one director can interrogate management's answers, or commission the education to make it so. Anchor the program in recognized frameworks, such as the US National Institute of Standards and Technology's Cybersecurity Framework (NIST CSF 2.0), the NIST AI risk profile, and ISO/IEC 42001 (the international standard for AI management systems), so assurance can be benchmarked rather than asserted.[5][6][13]
+## 3. Make safe sharing the normal route
 
-## 2. Build a trusting and learning culture
+An AI inventory begins with a data inventory. Before connecting an AI tool to documents, email, source code, finance workflows, or customer systems, management must know where sensitive information lives and who owns it. An AI connector amplifies whatever access mess already exists.
 
-A board should expect staff to see security as part of good work, not as an obstacle placed in their way. The practical test is whether someone can report a mistaken recipient, suspicious prompt, lost device, or misdirected file early, without fear of automatic blame. Early reporting contains harm and creates useful lessons.[1][2]
+Use four simple defaults:
 
-That does not mean culture can replace technical controls. People are busy, attackers are persistent, and ordinary work contains errors. Training, trusted reporting, and prompt feedback should sit beside secure defaults, access limits, and monitoring. The aim is a workforce that can move quickly, learn from what goes wrong, and ask for help before a small error becomes an incident.
+- **Public or release-approved material** is genuinely open.
+- **Routine internal material** is broadly findable and shareable in approved tools.
+- **Restricted or sensitive material** needs a clear purpose, named recipient, and approved channel.
+- **Crown-jewel or regulated material** needs a named owner, phishing-resistant authentication, time-limited access, and dual control for consequential external, bulk, or agent actions.[6]
 
-## 3. Make it easy to share information safely
+For every material AI tool or connector, management should answer five questions: What information can it see? Where can that information go? Who owns the decision to use it? Who can change its permissions? How long are its inputs, outputs, and logs kept?
 
-The secure route must also be the usable route. For every material AI tool, management should be able to answer five plain questions: What information can it see? Where can that information go? Who owns the decision to use it? Who can change its permissions? How long are its inputs, outputs, and logs kept?
+The same questions apply to everyday channels. Email, messaging, meetings, files, APIs, and AI tools all move information. For ordinary work, keep the approved route fast. For sensitive material, use managed workspaces or named-recipient links rather than attachments or anonymous public links. Confirm unusual requests for money, access, sensitive data, or changed bank accounts through a known second channel. A convincing voice or message is not proof of identity.
 
-In practice, this means keeping an inventory, naming an owner, limiting access, setting retention, and being able to switch the tool off or remove its access. Prompts and system instructions can guide a model, but they are not an access-control boundary. Secure defaults, clear labels, narrow AI connectors, and confirmation at consequential boundaries should be built into the workflow.[3][7]
+The board should also expect management to monitor the routes data actually takes. Common failures include a wrong or personal address, personal storage, unmanaged messaging, misconfigured shares, compromised accounts using legitimate channels, connectors with excessive access, and sensitive material pasted into public AI tools. The answer is not to block every route. It is to provide an approved route for each real task, then notice when ordinary channels begin behaving unusually.[7]
 
-One prerequisite is easy to skip. An AI inventory presumes a data inventory: the organization must know where its sensitive data lives before connecting tools that can read it. AI connectors amplify whatever access mess already exists. If the data estate is not mapped, map it first.
+## 4. Secure AI by design, not by warning label
 
-Use four simple defaults. Public or release-approved material is genuinely open. Internal routine material is broadly findable and shareable in approved tools. Restricted or sensitive material needs a clear purpose, named recipient, and approved secure channel. Crown-jewel or regulated material needs a named executive owner, phishing-resistant authentication (passkeys or hardware security keys, not codes sent by text, which AI-assisted phishing defeats), just-in-time access, and dual control for consequential external, bulk, or agent actions.[14]
+A prompt can guide a model. It cannot enforce authorization. An enterprise AI label does not prove that retention, training use, isolation, access, or incident terms are appropriate. The control must sit in the surrounding system: the identity, the data policy, the API, the destination, and the approval point.[4][10]
 
-## 4. Five common channels
+Require secure defaults before a material AI system is deployed. Use approved data sources, narrow connectors, least-privilege access, clear retention rules, and protected logs. Build in a way to remove access or switch the system off. Test after a material change to the model, prompt, retrieval source, connector, tool, or deployment path.[14]
 
-Information does not move only through email. The board should require practical rules for the five channels staff and systems use every day; simple best practices for each follow.[9]
+For a material new AI system, threat-model the actual data flow and action flow. Ask what an attacker could impersonate, alter, disclose, disrupt, or use to gain greater privilege. This is not a board exercise in technical vocabulary. It is how management checks that a useful system has not become an uncontrolled route to information or authority.
 
-1. **Email.** Keep ordinary low-risk external mail fast. Flag unfamiliar external recipients. Ask the sender to check the attachment and send only what the recipient needs. Block automatic external forwarding by default. For sensitive material, use a secure link or managed workspace rather than an attachment that cannot be withdrawn.[8]
+## 5. Make zero trust the default
 
-2. **Messaging, meetings, and phone.** Chat attachments, screen sharing, meeting recordings, and spoken instructions are all forms of sharing. Use approved channels when the discussion or record matters to the business. For an unusual request involving money, access, sensitive data, or a changed bank account, confirm through a known second channel. A convincing voice or message is not proof of identity.
+Zero trust is not distrust of employees. It is the discipline that network location, seniority, and account ownership do not by themselves justify access. Grant only the access needed for a defined task, for a defined time, and remove it promptly when the task ends.[5]
 
-3. **Files and collaboration workspaces.** Let staff find and share routine internal information in approved workspaces. For sensitive material, use named-recipient links or managed partner workspaces, with an owner and an expiry date. Do not rely on anonymous public links. Sharing must be easier through the approved workspace than by downloading a file and sending it elsewhere.
+This is more important when AI is involved. A model can combine permissions that were granted separately to read a document store, search a repository, create a ticket, and send a message. The question is not whether the system sounds capable. It is what it can read, change, send, publish, delete, or pay for without another decision point.
 
-4. **APIs and software connectors.** A connection from one application to another (an application programming interface, or API) is also external sharing, even when no employee presses Send. Use approved integrations, narrow permissions, and read-only access by default. Know what the other service retains, whether it can pass information on, and how to revoke its access quickly. Give every material connector an owner.
+The useful design is staged autonomy. Start with read-only retrieval and drafting. Move to bounded internal actions after testing. Treat external or irreversible actions as a separate class. A higher-risk system needs more than a stronger instruction. It needs narrower permissions, stronger authentication, confirmed destinations, rate and value limits, and human authority at the point of action.
 
-5. **AI tools and agents.** Public AI tools should receive public information only. Enterprise tools are not automatically safe: confirm their retention, training, isolation, access, and incident terms. An agent may read or draft within a defined scope. External sending, publication, payments, deletion, permission changes, and bulk export need explicit human authority at the point of action.[9]
+## 6. Control AI agents at the point of action
 
-These rules are not a reason to stop sharing. They are a way to give people a safe route for each common task. NCSC guidance on data exfiltration similarly emphasizes balancing business delivery with prevention, monitoring, and audit.[9]
+An AI agent is not just a model that writes text. It is a model connected to information, tools, credentials, and sometimes other agents. Its risk comes from the combination. The important question is not whether the model can be told to behave well. It is what the surrounding system will allow it to do when it is wrong, manipulated, or faced with hostile content.
 
-## 5. How information actually leaves
+**Treat untrusted content as data, not instructions.** An agent can read instructions hidden in an email, web page, document, support ticket, tool response, or retrieved file. Those instructions may try to redirect the agent, expose data, or trigger a tool. This is direct or indirect prompt injection. It cannot be solved by a stronger system prompt alone. Every consequential tool call should be checked against the approved task, the requesting identity, the data involved, and the destination.[9][10][11]
 
-The channels above describe how work should flow. The board should also see the routes by which data actually leaves organizations, whether by mistake, by a compromised account, or by intent. This list draws on the MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) catalogue and NCSC insider guidance.[9][15]
+**Give the agent a bounded identity.** Default to read-only access. Give each agent or agent function its own credentials, with only the tools and data needed for one defined task. Do not give a drafting agent the authority of a finance approver, administrator, or data-export service. An agent should not inherit a person's broad account permissions merely because it acts for that person.[8]
 
-1. Email to a wrong or personal address, the most common accidental route.
-2. Uploads to personal cloud storage or file-transfer sites.
-3. Unmanaged messaging apps carrying business attachments.
-4. A compromised account exporting data through normal, approved channels.
-5. Malware on a compromised device sending data to attacker infrastructure.
-6. Misconfigured shares and anyone-with-the-link access left open.
-7. Software connectors and APIs that retain data or pass it onward.
-8. Sensitive material pasted into public AI tools, or an agent that combines broad read access with the ability to send externally.
-9. Removable media, printing, and photographs of screens.
-10. Departing or malicious insiders downloading in bulk before exit.
+**Control tools, connectors, and delegation.** Before an agent can search a file store, send an email, create a ticket, call an external service, change a record, execute code, or invoke another agent, management should be able to name the owner, permitted purpose, data scope, and removal path. External tools, retrieval sources, and connectors are routes through which instructions, data, and authority travel. If one agent asks another to act, the second agent must receive a bounded task and must not gain broader permissions through the handoff. The organization should be able to reconstruct who requested the action, who took it, what information was passed, and which control allowed it.[8][9][11]
 
-The pattern that matters: most of these are legitimate channels misused, not exotic hacking. Blocking channels outright pushes work underground; the defensible posture is approved routes for each task, plus monitoring that notices when a legitimate channel starts behaving illegitimately. That is the case for the next section.
+**Bound execution.** Limit where an agent can send information, which systems it can reach, how much it can export, how long it can run, and how much it can spend or change. Use approved destinations for material data. Require specific, informed, recorded human approval for external sending, publication, payments, deletion, permission changes, bulk export, commitments, and decisions affecting people. A vague warning and a reflexive click are not meaningful oversight.
 
-## 6. Make monitoring dynamic
+**Protect working context and memory.** Retrieved documents, long-term memory, prompts, tool descriptions, and logs can be altered or polluted. Do not assume that information already inside an agent's context is trustworthy. Keep sensitive information out of shared memory where possible; separate memory by task and user; control who can write to it; and review unexpected changes to prompts, tool definitions, and agent instructions. Persistent context needs the same ownership and access discipline as any other information store.[4][9][11]
 
-Fixed policies are necessary, but not sufficient. Risk changes with the data involved, its destination, the device, the identity, recent behavior, and the time of day. A routine file sent from a managed device to an established colleague may need little friction. The same file sent to an unfamiliar address after an unusual sign-in may need a pause.
+**Keep evidence and rehearse the stop path.** Logs should show what the agent read, which tool it called, what it attempted to send or change, which identity and permission it used, what control allowed or blocked it, and who approved it. Protect those logs because they may contain sensitive information. Management must be able to disable the agent, revoke its credentials, disconnect its tools, quarantine questionable memory, preserve evidence, and notify affected system owners without waiting for a vendor or engineering team to improvise. Test the recovery path after material changes and in an agent-specific incident exercise.[4][8]
 
-Use AI defensively to bring together signals from email, identity systems, endpoints, file sharing, APIs, and agent activity. It can identify suspicious combinations and prioritize human investigation. As risk rises, the response should be proportionate: a warning, confirmation, temporary hold, human review, revocation, or containment. AI may help triage and explain. It must not independently decide high-consequence blocks, staff discipline, payments, or major access changes.
+## 7. Detect changing risk and learn from it
 
-Monitoring should also measure the workarounds. Network and device telemetry can show how much traffic flows to consumer AI tools, personal email, and unsanctioned storage. That baseline is the honest indicator of whether the approved paths are usable, and whether they are winning.
+Fixed policies are necessary but not sufficient. Risk changes with the data, destination, device, identity, recent behavior, and time. A routine file sent from a managed device to an established colleague may need little friction. The same file sent to an unfamiliar address after an unusual sign-in may need a pause.
 
-Monitoring is not an annual compliance cycle. Test controls, learn from incidents and near misses, and update policies when evidence shows that a route is too weak or too hard to use. This is how defense can become more dynamic as attacks do.[6][10]
+Use monitoring to bring together signals from identity, endpoints, email, file sharing, APIs, and agent activity. It can identify suspicious combinations and help humans prioritize investigation. As risk rises, the response should be proportionate: a warning, confirmation, temporary hold, human review, revocation, or containment. AI may help triage and explain. It should not independently decide staff discipline, material access changes, payments, or other high-consequence outcomes.
 
-## 7. Make zero trust the default (it is not a statement about the team)
+Monitor workarounds as seriously as alerts. Measure traffic to consumer AI tools, personal email, and unsanctioned storage; stale access; exception turnaround; false positives; and time from anomaly to human decision. Those measures show whether the secure route is working in real life.
 
-Zero trust is neither distrust of employees nor a product purchase. It is a discipline: network location, seniority, and account ownership do not by themselves justify access. Grant bounded access for a task, for a defined time, with least privilege and prompt revocation when the need ends.[4][5]
+## 8. Treat third parties as part of the system
 
-This matters especially for AI. An agent with access to a document store, source repository, finance workflow, or customer system may combine permissions that were granted separately. The question is not whether the agent sounds capable. It is what it can read, change, send, publish, delete, or pay for without another decision point.
+Much of the risk arrives through vendors, model providers, tool servers, retrieval sources, and identity services. Before a material third party connects to company data or authority, assess its security and the contract terms for retention, training use, onward sharing, breach notification, audit, and exit.
 
-The same principle helps staff. A time-limited grant for a defined task is easier to understand, approve, review, and remove than broad permanent access that nobody revisits.
+For agents, extend this review to every external component: model, tool, connector, memory store, prompt or skill package, and downstream agent. Keep an inventory and owner. Use trusted sources, review material updates, and prove that access can be revoked. Concentration in a cloud provider, model provider, identity service, or agent platform is a resilience decision, not a procurement detail.[4][8]
 
-## 8. Third parties and the AI supply chain
+## 9. Prepare for the bad day
 
-Much of the risk now arrives through vendors rather than the front door. Before a material vendor or AI service connects to company data, management should assess its security, and the contract should fix retention, use for training, breach notification timelines, audit rights, and exit. Concentration deserves board attention: dependence on a single cloud, model provider, or identity service is a resilience decision, not a procurement detail. For AI specifically, ask where the model and its training data come from, and confirm that any vendor's access can be revoked as quickly as an employee's.[3][7]
+Detection without recovery is half a program. The board should confirm that four capabilities exist and are exercised.
 
-## 9. Trust, but verify the whole setup
+**Incident response.** Maintain named roles, including legal counsel, communications, security, and business owners, with authority to disconnect systems and revoke access. Run a tabletop exercise at least annually. Include executives and the board in one scenario. Add an AI-agent scenario that tests prompt injection, inappropriate tool use, evidence preservation, containment, and recovery.
 
-Verification should follow consequence, wherever the consequence sits: a system, a data flow, a human decision, or an AI action. High-consequence AI outputs and actions need human review or another independent control. High-consequence human actions need the same discipline (a second channel, a second person, or dual control), and applying it is not surveillance of the people involved. Test after a material change to a model, data source, prompt, connector, or deployment path. Protect logs, which may contain sensitive content and the record of how an action occurred. Rehearse revocation and incident response before an urgent case makes improvisation attractive.[6]
+**Disclosure readiness.** Under Singapore's Personal Data Protection Act, an organization must assess a suspected breach within 30 calendar days. A breach assessed as notifiable must be reported to the Personal Data Protection Commission as soon as practicable and no later than three calendar days, with affected individuals notified where required. Sector regulators can impose shorter clocks.[12] Know in advance who decides, on what evidence, and with which counsel.
 
-One counterpoint matters. DMARC (Domain-based Message Authentication, Reporting and Conformance), TLS (Transport Layer Security), and data-loss-prevention tools are useful controls, but none proves a message is safe. An enterprise AI label does not prove appropriate data use. A human click does not prove that a decision was sound. Controls reduce risk. They do not erase judgment.
+**Recovery.** Maintain offline or immutable backups of crown-jewel data. Test restoration and set recovery-time objectives for systems the business cannot operate without. For agents, include rollback or replacement of compromised prompts, tool definitions, memory, configuration, and credentials.
 
-## 10. Prepare for the bad day
-
-Detection without recovery is half a program. The board should confirm four things exist and are exercised, not merely documented.
-
-**An incident response plan with named roles**, including legal counsel, communications, and the decision rights to disconnect systems or revoke access. Run a tabletop exercise at least annually, and include executives and the board in one scenario, because the hardest decisions in a real incident (pay or refuse ransom, disclose or wait, disconnect or observe) are theirs.
-
-**Disclosure readiness.** Under Singapore's Personal Data Protection Act (PDPA), an organization must assess a suspected breach within 30 calendar days; a breach assessed as notifiable must be reported to the Personal Data Protection Commission (PDPC) as soon as practicable and no later than three calendar days, with affected individuals also notified where required. Sector regulators can impose shorter clocks.[16][17] The assessment itself takes preparation: know in advance who decides, on what evidence, and with which counsel. Boards are judged on disclosure handling at least as harshly as on the breach itself.
-
-**Recovery.** Maintain offline or immutable backups of crown-jewel data, test restoration on a schedule, and set recovery-time objectives for the systems the business cannot operate without. Ransomware turns these from IT hygiene into a solvency question.
-
-**Insurance clarity.** Know what the cyber policy covers and excludes, what it requires during an incident (many policies void coverage if their notification and forensics terms are ignored), and whether AI-related events are within scope.
-
-Underneath all of this sit the unglamorous foundations: patched and current systems, phishing-resistant authentication, tested backups, and access removed promptly when people leave. The NCSC expects AI to accelerate exploitation of unpatched systems; the basics are the first casualty of treating security as an annual exercise.[10][14]
-
-## 11. What this costs
-
-Security spending competes with everything else the organization could do, and the board should see it framed that way. Management's investment case should show three numbers side by side: the cost of the proposed controls, a defensible estimate of the loss exposure they reduce, and the speed dividend of safe defaults (time not lost to workarounds, approvals, and cleanup). The board should also ask what was deferred to fund it, and what was declined. A security budget that never states its opportunity cost is not being governed; it is being tolerated.
+**Foundations.** Patch systems, use phishing-resistant authentication, protect secrets, and remove access promptly when people or agents no longer need it. AI may change the speed of attacks. It does not make these controls optional.[6][13]
 
 ## Questions the board should ask management
 
-Each answer should come with a target range and a trend, not a snapshot. A metric without a threshold is an anecdote.
+Each answer should include a target range and trend, not a snapshot. A metric without a threshold is an anecdote.
 
-1. **Safe sharing by default:** Can staff share ordinary internal information quickly through approved tools, while protections rise clearly for sensitive data and high-consequence actions? Management should demonstrate use of approved channels, external near misses, exception turnaround, and whether routine work remains fast.
-
-2. **Known and bounded AI use:** Can management show which AI tools and agents are connected to information or systems, what each can see and do, who owns it, and how access is removed? The board should expect a current inventory, named owners, access reviews, retention settings, and evidence that revocation works.
-
-3. **Human authority at the edge:** Which actions remain human decisions, particularly external sending, publication, payments, deletion, permission changes, bulk export, and decisions affecting people? Management should show the approval boundary for each action and the share of high-risk actions reviewed before execution.
-
-4. **Dynamic detection and response:** Can management detect changing risk across channels, get a human to a high-risk case quickly, contain it, learn, and update controls? The evidence should include time from anomaly to human decision, time to contain or revoke, false-positive and bypass rates, and lessons from incidents and exercises.
-
-5. **Security that earns use:** Are the safe paths sufficiently fast and usable that staff do not resort to personal email, consumer AI, unsanctioned storage, or informal workarounds? Management should measure approved-tool adoption, stale access, exception use, and staff confidence in reporting mistakes.
-
-6. **Ready for the bad day:** When did we last restore crown-jewel data from backup, run an incident exercise with executives present, and rehearse the disclosure decision? Management should show dates, findings, and what changed as a result.
+1. Can staff share routine internal information quickly in approved tools, while protections rise clearly for sensitive data and high-consequence actions?
+2. Can management show the current inventory of AI tools, agents, connectors, and material third-party components, with named owners, data scope, authority, retention, and tested revocation?
+3. Which actions remain human decisions? For each, is approval specific, informed, recorded, and enforced at the point of action?
+4. Can management demonstrate that every agent has a separate bounded identity, least-privilege tools, approved destinations, execution limits, and logs sufficient to reconstruct a material action?
+5. Has management tested direct and indirect prompt injection, poisoned context or memory, tool misuse, and unauthorized delegation before an agent moves into a higher-autonomy role?
+6. Can management detect changing risk across channels, get a human to a high-risk case quickly, contain it, learn, and update the control?
+7. Are safe paths sufficiently fast that staff do not resort to consumer AI, personal email, unsanctioned storage, or informal workarounds?
+8. When did management last restore crown-jewel data, rehearse an incident with executives, and run an agent-specific stop, revoke, and recovery exercise?
 
 The board's job is not to choose between security and speed. It is to insist that the organization earns both.
 
-## Terms used in this note
-
-- **Zero trust:** Do not grant access merely because a person, device, or system is inside the organization. Check the identity, context, and requested action, then give only the access needed for the task.[4]
-
-- **Trust, but verify:** Trust people to work and report mistakes. Verify the whole setup (systems, data flows, high-consequence human actions, and AI claims) early enough to stop or contain harm. Verifying a consequential action is not surveillance of the person taking it.[6]
-
-- **Phishing-resistant MFA (multi-factor authentication):** Sign-in that cannot be captured and replayed by a fake site or a persuasive caller, in practice passkeys or hardware security keys. Codes sent by text or generated by an app can be phished; these cannot.[14]
-
-- **Prompt injection:** Instructions hidden in content an AI system reads (a web page, document, or email) that hijack the system into leaking data or misusing its permissions. The top-ranked risk in the Open Worldwide Application Security Project (OWASP) list for AI applications, and the core reason prompts are not an access-control boundary.[18]
-
-- **DMARC:** An email-domain control. It tells receiving mail systems what to do when a message claiming to be from your domain fails sender checks. It helps reduce domain spoofing, but does not prove that an email is genuine or safe.[11]
-
-- **TLS:** Encryption for the connection between email servers while a message travels over the internet. It protects the journey, not whether the recipient should receive the content, what they do after delivery, or whether the message is a fraud.[11]
-
-- **STRIDE:** A design-review method for product and security teams, not a board operating principle. It asks whether someone could impersonate a user or service, alter data, deny an action, disclose information, disrupt a service, or gain excess privilege (spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege). Use it when approving a material new AI system, connector, or data flow.[12]
-
 ## Sources
 
-1. [NCSC cyber security culture principles, principle 1](https://www.ncsc.gov.uk/collection/cyber-security-culture-principles/principle-1) — UK government guidance; supports the reporting-culture argument.
-2. [NCSC cyber security culture principles, principle 2](https://www.ncsc.gov.uk/collection/cyber-security-culture-principles/principle-2) — UK government guidance; supports culture plus controls.
-3. [NCSC guidelines for secure AI system development: secure design](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development/guidelines/secure-design) — joint government guidance; supports AI tool design defaults.
-4. [NIST SP 800-207, Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — US standard; supports the zero-trust definition and discipline.
-5. [NIST Cybersecurity Framework (CSF) 2.0](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf) — US framework; supports governance anchoring and access principles.
-6. [NIST AI 600-1, Generative AI Profile of the AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) — US framework profile; supports verification and monitoring of AI systems.
-7. [NCSC guidelines for secure AI system development: secure development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development/guidelines/secure-development) — joint government guidance; supports supply-chain and development controls.
-8. [CISA SCuBA Microsoft Exchange Online secure configuration baseline](https://www.cisa.gov/sites/default/files/2024-05/CISA%20SCuBA%20Microsoft%20Exchange%20Online%20SCB.pdf) — US government baseline; supports email defaults such as blocking automatic external forwarding.
-9. [NCSC guidance on reducing data exfiltration by malicious insiders](https://www.ncsc.gov.uk/guidance/reducing-data-exfiltration-by-malicious-insiders) — UK government guidance; supports the channel rules and exfiltration routes.
-10. [NCSC assessment: the impact of AI on the cyber threat to 2027](https://www.ncsc.gov.uk/report/impact-ai-cyber-threat-now-2027) — UK government threat assessment; supports the threat framing and the unpatched-systems point.
-11. [NCSC email security and anti-spoofing collection](https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing) — UK government guidance; supports the DMARC and TLS definitions.
-12. [Microsoft threat modeling tool threats (STRIDE)](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) — vendor documentation; supports the STRIDE definition.
-13. [ISO/IEC 42001:2023, AI management systems](https://www.iso.org/standard/81230.html) — international standard; supports framework anchoring for AI governance.
-14. [CISA fact sheet: implementing phishing-resistant MFA](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf) — US government guidance; supports the authentication recommendations.
-15. [MITRE ATT&CK, Exfiltration tactic (TA0010)](https://attack.mitre.org/tactics/TA0010/) — adversary technique catalogue; supports the exfiltration-route list.
-16. [PDPC: when an organisation is required to notify the PDPC](https://www.pdpc.gov.sg/required-to-notify-the-pdpc) — Singapore regulator page; supports the notification obligation.
-17. [PDPC guide on managing and notifying data breaches under the PDPA (15 Mar 2021)](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Other-Guides/Guide-on-Managing-and-Notifying-Data-Breaches-under-the-PDPA-15-Mar-2021.pdf) — Singapore regulator guide; supports the 30-day assessment and 3-calendar-day notification timelines (verified against the guide, 2026-08-29).
-18. [OWASP Top 10 for Large Language Model Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — community security standard; supports the prompt-injection definition.
+1. [NCSC cyber security culture principles, principle 1](https://www.ncsc.gov.uk/collection/cyber-security-culture-principles/principle-1) and [principle 2](https://www.ncsc.gov.uk/collection/cyber-security-culture-principles/principle-2) - UK government guidance; supports a reporting culture alongside technical controls.
+2. [NIST Cybersecurity Framework 2.0](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf) - US framework; supports risk-based governance and cybersecurity outcomes.
+3. [NIST AI Risk Management Framework 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - US framework; supports AI risk governance across the lifecycle.
+4. [NIST AI 600-1, Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) - NIST profile for managing risks unique to or exacerbated by generative AI.
+5. [NIST SP 800-207, Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - US standard; supports least privilege and contextual access.
+6. [CISA fact sheet: implementing phishing-resistant MFA](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf) - US government guidance; supports phishing-resistant authentication.
+7. [NCSC guidance on reducing data exfiltration by malicious insiders](https://www.ncsc.gov.uk/guidance/reducing-data-exfiltration-by-malicious-insiders) - UK government guidance; supports usable controls, monitoring, and data-exfiltration risks.
+8. [CISA, Careful Adoption of Agentic AI Services](https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services) (May 2026) - joint guidance for secure design, deployment, operation, and governance of agentic AI.
+9. [MITRE ATLAS](https://atlas.mitre.org/) - adversarial tactics and techniques against AI-enabled systems, including agents, prompt injection, tools, and context.
+10. [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) - current community security guide for LLM applications.
+11. [OWASP Top 10 for Agentic Applications for 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) - community guide for agent goal hijack, tool misuse, memory and context poisoning, supply chain, inter-agent communication, cascading failures, and human-agent trust.
+12. [PDPC guide on managing and notifying data breaches under the PDPA](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Other-Guides/Guide-on-Managing-and-Notifying-Data-Breaches-under-the-PDPA-15-Mar-2021.pdf) - Singapore regulator guide; supports the 30-day assessment and three-calendar-day notification timelines.
+13. [NCSC assessment: the impact of AI on the cyber threat to 2027](https://www.ncsc.gov.uk/report/impact-ai-cyber-threat-now-2027) - UK government threat assessment; supports the threat framing.
+14. [NCSC guidelines for secure AI system development: secure design](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development/guidelines/secure-design) - joint government guidance; supports secure AI design and lifecycle controls.
+15. [ISO/IEC 42001:2023, AI management systems](https://www.iso.org/standard/81230.html) - international standard; supports AI-management-system governance and accountability.
 
 ## Change history
 
-- **2026-08-30 — v1.1:** Retitled to "Balancing Knowledge Sharing, Convenience, and Security". Reframed trust-but-verify holistically: culture for people, verification across the whole setup including high-consequence human actions. Removed the prediction on fully automated end-to-end attacks. Renamed sections 2, 3, 4, 7, and 9. Spelled out acronyms at first use.
-- **2026-08-29 — v1.0:** Initial reviewed version.
+- **2026-08-30 - v2.0:** Rebuilt as a shorter board framework around safe sharing, secure design, zero trust, and verification. Added agent-specific controls for untrusted context, delegated authority, bounded tool use, memory, evidence, and recovery. Updated the AI-security source base with 2026 CISA, MITRE ATLAS, and OWASP guidance.
+- **2026-08-30 - v1.1:** Retitled to "Balancing Knowledge Sharing, Convenience, and Security" and reframed trust and verification across people, systems, data flows, and consequential actions.
+- **2026-08-29 - v1.0:** Initial reviewed version.
