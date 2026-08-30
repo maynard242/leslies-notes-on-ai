@@ -30,13 +30,14 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 1. Start from [`docs/NOTE_TEMPLATE.md`](./docs/NOTE_TEMPLATE.md).
 2. Save the note as `notes/<section>/<stable-slug>.md`, using one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`. The filename becomes its permanent public URL.
 3. Set the required `section` metadata to the matching section name.
-4. Choose a short, reusable `kind`, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`.
-5. Add one or more `topics` used by library search; follow [`docs/TOPICS.md`](./docs/TOPICS.md) so aliases and capitalization stay useful.
-6. For factual, legal, regulatory, empirical, or quantitative claims, add claim-adjacent citations and a compact `## Sources` or `## Reading list` section. Use `## Change history` for substantial notes.
-7. Keep `status: Draft` until the note is ready. Drafts are validated but omitted from public pages, routes, RSS, and sitemap. Because this repository is public, a committed draft remains visible on GitHub.
-8. The shared note page automatically renders *Written and updated by AI and Leslie Teo.* Do not duplicate or alter this attribution in the Markdown body.
-9. Run `npm run check`.
-10. Set the final status to `Reviewed` or `Maintained`, then commit and push to `main`. Vercel deploys the successful build automatically.
+4. Write a 50–180 character `description`: one specific sentence that says what the reader will learn, decide, or use.
+5. Choose a short, reusable `kind`, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`.
+6. Add one or more `topics` used by library search; follow [`docs/TOPICS.md`](./docs/TOPICS.md) so aliases and capitalization stay useful.
+7. For factual, legal, regulatory, empirical, or quantitative claims, add claim-adjacent citations and a compact `## Sources` or `## Reading list` section. Use `## Change history` for substantial notes.
+8. Keep `status: Draft` until the note is ready. Drafts are validated but omitted from public pages, routes, RSS, and sitemap. Because this repository is public, a committed draft remains visible on GitHub.
+9. The shared note page automatically renders *Written and updated by AI and Leslie Teo.* Do not duplicate or alter this attribution in the Markdown body.
+10. Run `npm run check`.
+11. Set the final status to `Reviewed` or `Maintained`, then commit and push to `main`. Vercel deploys the successful build automatically.
 
 Required metadata:
 

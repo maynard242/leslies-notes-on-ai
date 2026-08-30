@@ -115,7 +115,7 @@ describe("note content pipeline", () => {
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Newest feed note"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Misc"
 published: "2027-01-01"
@@ -206,7 +206,7 @@ $$
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Temporary draft"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Misc"
 published: "2026-07-27"
@@ -230,7 +230,7 @@ topics: [test]
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "General note"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "checklist"
 section: "Misc"
 published: "2026-07-27"
@@ -263,7 +263,7 @@ topics: [test]
     fs.mkdirSync(notesDirectory);
     fs.writeFileSync(path.join(notesDirectory, "bad-draft.md"), `---
 title: []
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Misc"
 published: "2026-07-27"
@@ -292,7 +292,7 @@ topics: [test]
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Invalid date"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Misc"
 published: "2026-02-30"
@@ -316,7 +316,7 @@ topics: [test]
     for (const [index, file] of files.entries()) {
       fs.writeFileSync(file, `---
 title: "Duplicate ${index}"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "${index === 0 ? "Data" : "Misc"}"
 published: "2026-07-27"
@@ -340,7 +340,7 @@ topics: [test]
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Mismatched section"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Governance"
 published: "2026-07-27"
@@ -363,7 +363,7 @@ topics: [test]
     const file = path.join(process.cwd(), "notes", "Misc", `${slug}.md`);
     fs.writeFileSync(file, `---
 title: "Invalid section"
-description: "Regression fixture"
+description: "A temporary regression fixture that validates the note metadata contract."
 kind: "reference"
 section: "Unsorted"
 published: "2026-07-27"

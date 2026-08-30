@@ -98,6 +98,13 @@ function parseMeta(slug: string, data: Record<string, unknown>, content: string)
       throw new Error(`${slug}: missing or invalid ${field}`);
     }
   }
+  const description = data.description as string;
+  if (description.trim().length < 50 || description.trim().length > 180) {
+    throw new Error(`${slug}: description must be 50–180 characters`);
+  }
+  if (!/[.!?]$/.test(description.trim())) {
+    throw new Error(`${slug}: description must be one specific sentence`);
+  }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.kind as string)) {
     throw new Error(`${slug}: kind must be a kebab-case value`);
   }

@@ -5,7 +5,7 @@ Copy the block below into `notes/<section>/<stable-slug>.md`, using one of `Data
 ```markdown
 ---
 title: "A precise title"
-description: "One sentence defining the note’s scope and use"
+description: "One specific sentence, 50–180 characters, explaining what the reader will learn, decide, or use."
 kind: "reference"
 section: "Governance"
 published: "YYYY-MM-DD"
@@ -50,7 +50,7 @@ Prefer primary sources for load-bearing claims. Put citations close to the claim
 - Keep the filename stable and kebab-case; its parent section may change without changing the public URL.
 - Set `section` to the matching directory: `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`.
 - Replace all placeholder dates and remove unresolved `TODO` or `TBD` markers.
-- Choose a reusable `kind`; do not encode the topic in both `kind` and `topics`.
+- Choose a 50–180 character description: one specific sentence saying what the reader will learn, decide, or use.
 - Follow [`docs/TOPICS.md`](./TOPICS.md): prefer an existing exact term when it means the same thing, and add a new one only when it will be reusable.
 - For factual, legal, regulatory, empirical, or quantitative claims, add claim-adjacent citations and a compact `## Sources` or `## Reading list` section. Identify the source type, version/date, and what any load-bearing source supports.
 - Keep `checked` only if the source-backed claims were actually verified on that date.

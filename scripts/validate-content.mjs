@@ -34,6 +34,9 @@ for (const file of files) {
   for (const field of ["title", "description"]) {
     if (typeof data[field] !== "string" || !data[field].trim()) throw new Error(`${relativeFile}: ${field} must be a non-empty string`);
   }
+  const description = data.description.trim();
+  if (description.length < 50 || description.length > 180) throw new Error(`${relativeFile}: description must be 50–180 characters`);
+  if (!/[.!?]$/.test(description)) throw new Error(`${relativeFile}: description must be one specific sentence`);
   for (const field of ["published", "updated", ...(data.checked === undefined ? [] : ["checked"])]) {
     const value = data[field];
     const parsedDate = typeof value === "string" ? new Date(`${value}T00:00:00Z`) : null;

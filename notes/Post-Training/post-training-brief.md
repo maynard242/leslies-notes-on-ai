@@ -1,6 +1,6 @@
 ---
 title: "Post-Training in 2026"
-description: "An engineering reference to supervised fine-tuning, preference optimization, RLHF, verifiable-reward RL, distillation, agentic environments, and the failure modes that connect them."
+description: "An engineering reference to post-training methods, their trade-offs, and the failure modes that connect supervised tuning, preference optimization, and distillation."
 kind: "reference"
 section: "Post-Training"
 published: "2026-07-27"
