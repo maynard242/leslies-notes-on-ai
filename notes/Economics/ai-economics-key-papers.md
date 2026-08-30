@@ -1,201 +1,279 @@
 ---
 title: "AI Economics: Key Papers"
-description: "A category-first bibliography of papers on AI, jobs, productivity, adoption, macroeconomics, competition, and development."
-kind: "reference"
-section: "Economics"
-published: "2026-08-29"
-updated: "2026-08-30"
-checked: "2026-08-30"
-status: "Maintained"
+description: "A living reference list of key papers on AI's economic and social impact."
+kind: reference
+section: Economics
+published: "2026-08-31"
+updated: "2026-08-31"
+status: Maintained
 topics:
   - economics
   - jobs
+  - adoption
   - productivity
-  - AI adoption
 ---
 
 # AI Economics: Key Papers
 
-A category-first bibliography for the economics of AI. Each item appears once under its main question, even where it has implications across several categories.
+A living map of the research on AI's economic and social impact. Academic literature comes first, then institutional reports, then recent captures from Les's research pipeline. Within each section, papers are grouped by theme and ordered oldest first, so each theme reads as the evidence developed.
 
-**Scope.** This list contains academic papers and working papers relevant to the economic effects of AI, including a pre-2018 conceptual and empirical lineage. It is a retrieval aid, not a ranking or endorsement.
+## Academic literature
 
-## Jobs, skills, and distribution
+Landmark papers and empirical studies, with what each finds and why it matters.
 
-- **[The Skill Content of Recent Technological Change: An Empirical Exploration](https://doi.org/10.1162/003355303322552801)** — Autor, Levy, and Murnane (2003, *QJE*). Develops the task framework separating routine and non-routine work, which later AI-exposure studies apply to occupations.
+### AI and Jobs
 
-- **[The Growth of Low-Skill Service Jobs and the Polarization of the US Labor Market](https://doi.org/10.1257/aer.103.5.1553)** — Autor and Dorn (2013, *AER*). Examines employment polarization associated with computerization and provides a historical comparison for AI-related changes in occupational demand.
+**[Employment Outlook 2023: Artificial Intelligence and the Labour Market](https://www.oecd.org/en/publications/oecd-employment-outlook-2023_08785bba-en.html)** — OECD, 2023
 
-- **[Why Are There Still So Many Jobs? The History and Future of Workplace Automation](https://doi.org/10.1257/jep.29.3.3)** — Autor (2015, *Journal of Economic Perspectives*). Reviews substitution and complementarity between machines and labor, output-demand effects, job polarization, and comparative advantage in occupational change.
+First cross‑country synthesis of AI’s labour‑market impacts, based on surveys of workers and firms in OECD countries, emphasising task change over job loss and the importance of skills and social dialogue.
 
-- **[The Future of Employment: How Susceptible Are Jobs to Computerisation?](https://doi.org/10.1016/j.techfore.2016.08.019)** — Frey and Osborne (2017, *Technological Forecasting and Social Change*). Maps computerization susceptibility across US occupations using occupational-task characteristics.
+**[A Task‑Based Approach to Inequality](https://economics.mit.edu/sites/default/files/2024-07/A%20Task-Based%20Approach%20to%20Inequality.pdf)** — Acemoglu, 2024
 
-- **[Artificial Intelligence, Automation and Work](https://www.nber.org/papers/w24196)** — Acemoglu and Restrepo (2018, NBER WP 24196; published 2019). Sets out a task-based framework in which displacement, productivity, capital accumulation, and new-task creation jointly affect labor demand.
+Theoretical and empirical framework linking automation and task displacement to declines in the labour share and rising inequality, providing a cautionary baseline for interpreting AI.
 
-- **[The Race between Man and Machine: Implications of Technology for Growth, Factor Shares, and Employment](https://doi.org/10.1257/aer.20160696)** — Acemoglu and Restrepo (2018, *AER*). Models automation and new-task creation as countervailing forces affecting wages, employment, capital shares, and growth.
+**[Artificial Intelligence and Wage Inequality](https://www.oecd.org/en/publications/artificial-intelligence-and-wage-inequality_bf98a45c-en.html)** — OECD, 2024
 
-- **[AI and Jobs: The Role of Demand](https://www.nber.org/papers/w24235)** — Bessen (2018; published 2019). Uses historical manufacturing industries to show how demand elasticity mediates the employment effects of automation.
+Empirical study using AI exposure indices and wage data across 19 OECD countries, finding no effect on between‑occupation wage inequality so far and some evidence of reduced within‑occupation wage dispersion.
 
-- **[A Method to Link Advances in Artificial Intelligence to Occupational Abilities](https://doi.org/10.1257/pandp.20181018)** — Felten, Raj, and Seamans (2018, *AEA Papers and Proceedings*). Links measures of progress in AI capabilities to occupational abilities as a basis for estimating exposure.
+**[Gen‑AI: Artificial Intelligence and the Future of Work](https://www.imf.org/en/publications/staff-discussion-notes/issues/2024/01/14/gen-ai-artificial-intelligence-and-the-future-of-work-542379)** — IMF, 2024
 
-- **[What Can Machines Learn, and What Does It Mean for Occupations and the Economy?](https://doi.org/10.1257/pandp.20181019)** — Brynjolfsson, Mitchell, and Rock (2018, *AEA Papers and Proceedings*). Applies a suitability-for-machine-learning rubric to O*NET tasks and distinguishes task exposure from whole-occupation automation, including job redesign.
+Provides a global dashboard of AI exposure and preparedness, showing about 40 percent of global employment exposed and highlighting distributional risks and cross‑country differences.
 
-- **[Automation and New Tasks: How Technology Displaces and Reinstates Labor](https://doi.org/10.1257/jep.33.2.3)** — Acemoglu and Restrepo (2019, *Journal of Economic Perspectives*). Explains a task-based account of labor displacement, task reinstatement, and productivity effects from automation.
+**[The Labour Market Impact of Generative AI: A Critical Survey of the Empirical Literature](https://rtsa.eu/RTSA_4_2025_Carbonara.pdf)** — Carbonara, Santarelli, 2025
 
-- **[Toward Understanding the Impact of Artificial Intelligence on Labor](https://doi.org/10.1073/pnas.1900949116)** — Frank et al. (2019, *PNAS*). Proposes measurement and research approaches for connecting AI advances to labor-market outcomes rather than treating occupations as wholly automatable.
+Synthesises early empirical work on generative AI’s labour‑market effects, highlighting methodological heterogeneity and unsettled conclusions.
 
-- **[The Occupational Impact of Artificial Intelligence: Labor, Skills, and Polarization](https://ssrn.com/abstract=3368605)** — Felten, Raj, and Seamans (2019/2021). Constructs an AI Occupational Impact measure and examines its relationship to occupational skills, wages, and employment structure.
+**[Generative AI and Cross‑Border Service Outsourcing](https://thedocs.worldbank.org/en/doc/2770aa5def57e42a6d2449c90d6cf974-0070062026/original/10-Chen.pdf)** — Chen, 2026
 
-- **[Robots and Jobs: Evidence from US Labor Markets](https://doi.org/10.1086/705716)** — Acemoglu and Restrepo (2020, *Journal of Political Economy*). Estimates local employment and wage effects of industrial-robot exposure across US commuting zones.
+Early empirical paper showing that AI exposure can reduce international outsourcing contracts and value to developing countries by roughly one‑third to two‑fifths, illuminating distributional risks in global value chains.
 
-- **[The Impact of Artificial Intelligence on the Labor Market](https://ssrn.com/abstract=3482150)** — Webb (2020, working paper). Uses text from AI, software, and robot patents to measure occupational exposure and compare it with prior technologies.
+### AI Adoption
 
-- **[Tasks, Automation, and the Rise in US Wage Inequality](https://www.nber.org/papers/w28920)** — Acemoglu and Restrepo (2022, NBER WP 28920). Attributes part of changes in US wage inequality to shifts in task content and the direction of automation.
+**[AI Index Report 2025](https://aiindex.stanford.edu/report/)** — Stanford HAI, 2025
 
-- **[Generative AI and Jobs: A Global Analysis of Potential Effects on Job Quantity and Quality](https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quality-and)** — Gmyrek, Berg, and Bescond (2023, ILO working paper). Maps generative-AI exposure across occupations and countries, with attention to task transformation and job quality.
+Data‑rich annual overview of AI capabilities, investment, and deployment, including trends in training compute, model performance, and the growing share of industry‑developed models.
 
-- **[GPTs Are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models](https://arxiv.org/abs/2303.10130)** — Eloundou, Manning, Mishkin, and Rock (2023, arXiv). Estimates the share of occupational tasks potentially exposed to LLMs using task descriptions and expert assessment.
+### AI and Productivity
 
-- **[Labor Market Exposure to AI: Cross-country Differences and Distributional Implications](https://www.imf.org/-/media/files/publications/wp/2023/english/wpiea2023216-print-pdf.pdf)** — Pizzinelli et al. (2023, IMF WP 23/216). Compares AI exposure and complementarity across advanced and emerging economies using worker-level microdata.
+**[Generative AI Could Raise Global GDP by 7%](https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent)** — Goldman Sachs, 2023
 
-- **[Gen-AI: Artificial Intelligence and the Future of Work](https://www.imf.org/-/media/files/publications/sdn/2024/english/sdnea2024001.pdf)** — Cazzaniga et al. (2024, IMF Staff Discussion Note). Combines exposure and complementarity measures with a country AI-preparedness framework.
+Investment‑bank analysis projecting a 7 percent increase in global GDP and 1.5 percentage‑point annual productivity boost, alongside exposure of up to 300 million full‑time equivalent jobs, highlighting upside and disruption.
 
-- **[Exposure to Artificial Intelligence and Occupational Mobility: A Cross-Country Analysis](https://www.imf.org/en/Publications/WP/Issues/2024/06/07/Exposure-to-Artificial-Intelligence-and-Occupational-Mobility-A-Cross-Country-Analysis-549989)** — Winkler (2024, IMF WP 24/127). Studies occupational transitions in Brazil and the United Kingdom in relation to exposure and potential complementarity.
+**[Generative AI at Work](https://www.nber.org/papers/w31161)** — Brynjolfsson, Li, Raymond, 2023, NBER; QJE
 
-- **[Artificial Intelligence and Wage Inequality](https://www.oecd.org/en/publications/artificial-intelligence-and-wage-inequality_bf98a45c-en.html)** — Georgieff and Hyee (2024, OECD AI Papers). Relates AI exposure to between- and within-occupation wage inequality across OECD countries.
+Landmark RCT showing a 14–15 percent productivity boost for customer‑support agents from a generative‑AI assistant, with largest gains for less‑experienced workers, illustrating augmentation in practice.
 
-## Productivity, work practices, and innovation
+**[The Economic Potential of Generative AI: The Next Productivity Frontier](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)** — McKinsey Global Institute, 2023
 
-- **[The Productivity Paradox of Information Technology](https://doi.org/10.1145/163298.163309)** — Brynjolfsson (1993, *Communications of the ACM*). Reviews the gap between rapid information-technology investment and weak aggregate productivity statistics, organizing explanations around measurement, implementation lags, redistribution, and management.
+Widely cited scenario analysis estimating 2.6–4.4 trillion US dollars of annual value and a 0.1–0.6 percentage‑point boost to labour‑productivity growth, useful as an upper‑bound benchmark.
 
-- **[Paradox Lost? Firm-Level Evidence on the Returns to Information Systems Spending](https://doi.org/10.1287/mnsc.42.4.541)** — Brynjolfsson and Hitt (1996, *Management Science*). Uses firm-level information-systems spending and output data for 1987–1991 to estimate the contribution of computer capital and information-systems labor to firm output.
+**[AI Adoption, Productivity and Employment: Evidence from European Firms](https://www.bis.org/publ/work1325.pdf)** — BIS / EIB, 2024
 
-- **[The Resurgence of Growth in the Late 1990s: Is Information Technology the Story?](https://doi.org/10.1257/jep.14.4.3)** — Oliner and Sichel (2000, *Journal of Economic Perspectives*). Uses growth accounting to estimate how IT-capital use and efficiency gains in computer production contributed to the late-1990s US productivity acceleration.
+Firm‑level evidence that AI adoption raises productivity without immediate net job losses, aligning more with mid‑range productivity projections than with “super‑boom” scenarios.
 
-- **[Artificial Intelligence and the Modern Productivity Paradox: A Clash of Expectations and Statistics](https://www.nber.org/papers/w24001)** — Brynjolfsson, Rock, and Syverson (2017, NBER WP 24001). Explains how general-purpose technologies can show delayed aggregate productivity effects because of complementary intangible investments and diffusion lags.
+### AI Macro and Policy
 
-- **[The Impact of Artificial Intelligence on Innovation](https://www.nber.org/papers/w24449)** — Cockburn, Henderson, and Stern (2018; published 2019). Examines how machine learning changes the research and invention process, including the organization of scientific search.
+**[Broadening the Gains from Generative AI: The Role of Fiscal Policies](https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/06/11/Broadening-the-Gains-from-Generative-AI-The-Role-of-Fiscal-Policies-549639)** — IMF, 2024
 
-- **[The Productivity J-Curve: How Intangibles Complement General Purpose Technologies](https://www.nber.org/papers/w25148)** — Brynjolfsson, Rock, and Syverson (2018, NBER WP 25148; published 2021). Models how complementary investments in processes, products, business models, and human capital can depress measured productivity early and raise it later.
+Sets out a coherent fiscal policy framework for AI, arguing against robot taxes and in favour of stronger capital taxation, upgraded social protection, and targeted training and ALMPs.
 
-- **[Robots at Work](https://doi.org/10.1162/rest_a_00754)** — Graetz and Michaels (2018, *Review of Economics and Statistics*). Uses industry-level robot adoption across 17 countries from 1993–2007 to study labor productivity, total factor productivity, prices, employment, and occupational composition.
+**[AI Compute Sovereignty: Infrastructure Control Across Territories, Cloud Providers, and Accelerators](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5312977)** — Lehdonvirta et al., 2025
 
-- **[Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence](https://doi.org/10.1126/science.adh2586)** — Noy and Zhang (2023, *Science*). Uses an online writing experiment to measure how access to ChatGPT changes completion time and output quality.
+Empirical mapping of AI compute infrastructure and ownership, clarifying what “compute sovereignty” means in practice and the trade‑offs facing governments.
 
-- **[The Impact of AI on Developer Productivity: Evidence from GitHub Copilot](https://arxiv.org/abs/2302.06590)** — Peng, Kalliamvakou, Cihon, and Demirer (2023). Runs a controlled study of Copilot use on a programming task and measures task-completion time.
+**[Competition in Artificial Intelligence Infrastructure](https://www.oecd.org/en/publications/competition-in-artificial-intelligence-infrastructure_623d1874-en/full-report/component-5.html)** — OECD, 2025
 
-- **[Navigating the Jagged Technological Frontier](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b2b0b9-1b0f-46bc-86e7-563b0eebb9ad.pdf)** — Dell’Acqua et al. (2023). Studies GPT-4 use by consultants on tasks inside and outside the system’s capability frontier.
+Analytical report on competition and concentration in chips, data centres, and cloud services, explaining how AI infrastructure markets function and what tools competition authorities might use.
 
-- **[Generative AI at Work](https://www.nber.org/papers/w31161)** — Brynjolfsson, Li, and Raymond (2023; published 2025, *QJE*). Studies staggered deployment of a conversational assistant among customer-support workers, including effects on output, learning, and worker heterogeneity.
+**[Digital Progress and Trends Report 2025: Strengthening AI Foundations](https://www.worldbank.org/en/publication/dptr2025-ai-foundations)** — World Bank, 2025
 
+Comprehensive overview of AI in development, introducing the “Four Cs” (connectivity, compute, context, competency) and documenting both opportunities and divides in AI adoption across income groups.
 
-- **[AI Adoption, Productivity and Employment: Evidence from European Firms](https://www.bis.org/publ/work1325.htm)** — Aldasoro, Gambacorta, Pál, Revoltella, Weiss, and Wolski (2026, BIS WP 1325). Uses matched European and US firm data to study productivity, employment, wages, innovation, and complementary investments after AI adoption.
+**[Meek Models Shall Inherit the Earth](https://ide.mit.edu/wp-content/uploads/2026/01/Meek_Models_Jan2026.pdf?x65156)** — MIT IDE, 2026
 
-- **[Artificial Intelligence, Productivity, and the Workforce: Evidence from Corporate Executives](https://www.nber.org/papers/w34984)** — Baslandze et al. (2026, NBER WP 34984). Uses a survey of corporate executives to measure reported AI use, productivity, innovation, and workforce effects.
+Argues, with empirical modelling, that diminishing returns to compute will make modest‑budget models increasingly competitive, with implications for competition and democratisation of AI.
 
-- **[The Rise of Industrial AI in America: Microfoundations of the Productivity J-Curve(s)](https://www.aeaweb.org/conference/2026/program/paper/Z5DzGsQy)** — McElheran, Yang, Kroff, and Brynjolfsson (2026, working paper). Uses US manufacturing data to examine adjustment costs, organizational changes, and later performance after industrial-AI adoption.
+**[World Development Report 2026: Artificial Intelligence for Development](https://thedocs.worldbank.org/en/doc/1e4e52502104a331fb42cba0d4afa995-0050062026/original/WDR2026-Concept-Note.pdf)** — World Bank, 2026, Concept Note
 
-## Adoption, firms, and organization
+Lays out a research and policy programme on AI as a general‑purpose technology for development, with emphasis on state capabilities and inclusive deployment.
 
-- **[Hybrid Corn: An Exploration in the Economics of Technological Change](https://doi.org/10.2307/1905380)** — Griliches (1957, *Econometrica*). Examines the spread of hybrid corn across US regions and relates diffusion timing and speed to expected profitability and the availability of locally suitable innovations.
+## Institutional reports
 
-- **[Technical Change and the Rate of Imitation](https://doi.org/10.2307/1911817)** — Mansfield (1961, *Econometrica*). Develops and tests a model of how quickly firms imitate innovations using adoption data for 12 innovations in four industries.
+Publications from international organizations and research institutions.
 
-- **[Information Technology, Workplace Organization, and the Demand for Skilled Labor: Firm-Level Evidence](https://doi.org/10.1162/003355302753399526)** — Bresnahan, Brynjolfsson, and Hitt (2002, *QJE*). Studies complementarities among IT, workplace reorganization, new products and services, productivity, and skilled-labor demand.
+### AI and Jobs
 
-- **[Adoption of New Technology](https://www.nber.org/papers/w9730)** — Hall and Khan (2003, NBER WP 9730). Reviews models and evidence on adoption decisions under uncertain costs and benefits, including firm, technology, market, and policy determinants.
+**[Annual Economic Report](https://www.bis.org/publ/arpdf/ar2024e3.htm)** — 2024, Flagship Report Chapter
 
-- **[Cross-Country Technology Adoption: Making the Theories Face the Facts](https://doi.org/10.1016/j.jmoneco.2003.07.003)** — Comin and Hobijn (2004, *Journal of Monetary Economics*). Tracks diffusion of more than 20 technologies across 23 industrial economies and analyzes human capital, institutions, trade openness, and predecessor technologies as correlates of adoption speed.
+Landmark analysis stating AI will affect financial systems, productivity, consumption, investment, and labor markets; central banks are directly affected as stewards of economy and as AI users; AI will impact price and financial stability through multiple channels; identifies opportunities and risks for central bank operations.
 
-- **[AI, Labor, Productivity and the Need for Firm-Level Data](https://www.nber.org/system/files/chapters/c14037/revisions/c14037.rev1.pdf)** — Raj and Seamans (2018). Reviews early evidence on AI, labor, and productivity and sets out the case for collecting firm-level adoption and outcomes data.
+**[African Development Bank (AfDB)](https://www.afdb.org/en/news-and-events/press-releases/africas-ai-revolution-african-development-bank-report-projects-1-trillion-additional-gdp-2035-use-ai-enhance-productivity-89619)** — 2025, Major Report
 
-- **[Digital Capital and Superstar Firms](https://www.nber.org/papers/w28285)** — Tambe, Hitt, and Rock (2020, NBER WP 28285). Constructs a measure of firm-level digital capital from IT labor investments and studies its concentration across firms and relationship with later productivity.
+Strategic roadmap for AI in Africa; projects AI could generate $1 trillion in additional GDP by 2035; outlines three-phase roadmap: ignition (2025–27), consolidation (2028–31), and scale (2032–35); developed under G20 Digital Transformation Working Group; finds AI in sub-Saharan Africa more likely to augment than substitute labor.
 
-- **[Advanced Technologies Adoption and Use by U.S. Firms: Evidence from the Annual Business Survey](https://www.nber.org/papers/w28290)** — Zolas et al. (2020, NBER WP 28290). Introduces a nationally representative US survey module covering AI, cloud computing, robotics, and digitization.
+**[Bernie Sanders / US Senate — Robot Tax Proposal for Large Corporations](https://www.taxnotes.com/featured-news/robot-tax-proposal-sparks-skepticism-over-its-practicality/2025/10/20/7t67l)** — 2025
 
-- **[A Portrait of AI Adopters Across Countries: Firm Characteristics, Assets’ Complementarities and Productivity](https://doi.org/10.1787/0fb79bb9-en)** — Calvino and Fontanelli (2023, OECD STI WP 2023/02). Uses harmonized firm surveys from 11 countries to describe adopters, complementary assets, and productivity differences.
+A US Senate report (October 2025) — citing a ChatGPT-based model estimating AI/automation could replace ~100 million jobs over 10 years, and data showing generative AI accounted for >10,000 job cuts in first 7 months of 2025 — included a "robot tax" proposal for large corporations to fund displaced workers. Senator Sanders was among proponents.
 
-- **[AI Adoption in America: Who, What, and Where](https://www.nber.org/papers/w31788)** — McElheran et al. (2023; published 2024). Uses the US Annual Business Survey to map early production use of AI by firm, sector, startup characteristics, and geography.
+**[Brynjolfsson et al. — "Canaries in the Coal Mine": AI Already Reducing Entry-Level Employment](https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/)** — 2025
 
-- **[The Rapid Adoption of Generative AI](https://www.nber.org/papers/w32966)** — Bick, Blandin, and Deming (2024, NBER WP 32966). Uses nationally representative US surveys to measure early generative-AI use at work and at home, adoption patterns across workers, work-hour coverage, and reported time savings.
+Stanford Digital Economy Lab working paper documents 6 facts about AI's employment effects. Key finding: In jobs with high AI exposure, employment for 22–25 year olds fell 6% between late 2022 and July 2025 — signalling early displacement concentrated at entry-level positions.
 
-- **[Artificial Intelligence, Firm Growth, and Product Innovation](https://doi.org/10.1016/j.jfineco.2023.103745)** — Babina, Fedyk, He, and Hodson (2024, *Journal of Financial Economics*). Uses resume and job-posting data to measure firm AI investment and relate it to growth, product innovation, and industry concentration.
+**[Digital Progress and Trends Reports](https://www.worldbank.org/en/publication/dptr2025-ai-foundations)** — 2025, Flagship Report
 
-- **[The Impact of Cloud Computing and AI on Industry Dynamics and Concentration](https://www.nber.org/papers/w32811)** — Lu, Phillips, and Yang (2024, NBER WP 32811). Studies cloud and AI shocks in China, including firm entry, exit, financing, mergers, and industry concentration.
+Second edition of DPTR, focused on AI; highlights the "global AI divide"; spotlights affordable "Small AI" solutions for developing countries; outlines infrastructure, data governance, skills, and trust as four foundational pillars for inclusive AI; presents data-driven snapshot of AI readiness across income groups.
 
-- **[Firm Data on AI](https://www.nber.org/papers/w34836)** — Yotzov et al. (2026, NBER WP 34836). Provides cross-country survey evidence on business use of AI, reported effects, and employer-worker expectations.
+**[European Bank for Reconstruction and Development (EBRD)](https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2025-26.html)** — 2025, Annual Flagship Report
 
-- **[Understanding Firms’ AI Efforts and Their Economic Impact](https://www.nber.org/papers/w35123)** — Babina (2026, NBER WP 35123). Reviews available firm-level measures of AI effort and synthesizes evidence on growth, valuation, productivity, labor, and competition.
+Centers AI and demographics as dual transformation forces; explores whether AI and robots will soon conduct nearly all economically significant activities, making demographic concerns irrelevant; analyzes AI's potential role in addressing aging and labor shortages in EBRD transition economies.
 
-## Macro, growth, and aggregate measurement
+**[KPMG / University of Melbourne — 58% View AI as Trustworthy, Only 46% Willing to Trust It](https://kpmg.com/xx/en/our-insights/ai-and-technology/trust-attitudes-and-use-of-ai.html)** — 2025
 
-- **[Technical Change and the Aggregate Production Function](https://doi.org/10.2307/1926047)** — Solow (1957, *Review of Economics and Statistics*). Develops a growth-accounting method that separates output growth associated with capital deepening from shifts in the aggregate production function.
+The most comprehensive global AI trust study to date (48,340 people across 47 countries, November 2024–January 2025): on average, 58% of people view AI systems as trustworthy, but only 46% are willing to actually trust them. AI adoption rising but "trust remains a critical challenge." Workers are hiding AI use from managers.
 
-- **[Endogenous Technological Change](https://doi.org/10.1086/261725)** — Romer (1990, *Journal of Political Economy*). Models technological change as the result of intentional investment in nonrival, partly excludable ideas, with human capital and monopolistic competition determining growth.
+**[OECD Employment Outlook 2025 — AI Reshaping Skills Demand](https://www.oecd.org/en/publications/oecd-employment-outlook-2025_194a947b-en.html)** — 2025
 
-- **[A Model of Growth Through Creative Destruction](https://doi.org/10.2307/2951599)** — Aghion and Howitt (1992, *Econometrica*). Models growth through innovations that render earlier technologies obsolete and links research incentives, market power, and the rate and size of innovation.
+OECD Employment Outlook 2025 ("Can We Get Through the Demographic Crunch?") highlights AI as a key factor reshaping labour markets, increasing demand for digital, business, and management skills. Focus on demographic pressures intersecting with AI-driven labour transformation.
 
-- **[Workers, Machines, and Economic Growth](https://doi.org/10.1162/003355398555847)** — Zeira (1998, *QJE*). Models labor-saving technologies that raise capital requirements, showing how adoption can vary with productivity and amplify cross-country output differences.
+**[UNCTAD](https://unctad.org/publication/technology-and-innovation-report-2025)** — 2025, Annual Flagship Report
 
-- **[Artificial Intelligence and Economic Growth](https://www.nber.org/papers/w23928)** — Aghion, Jones, and Jones (2017 working paper; published 2019). Models AI as task automation in goods and idea production, with attention to growth, factor shares, bottlenecks, and market structure.
+Major UNCTAD report warning of growing AI inequality — "AI is not inherently inclusive"; projects AI global market value at $4.8 trillion by 2033; finds AI could affect up to 40% of jobs worldwide; identifies three leverage points: infrastructure, data, and skills; provides roadmap for inclusive AI, especially from developing-country perspective; calls for urgent action to prevent widening digital divide.
 
-- **[Should We Fear the Robot Revolution? (The Correct Answer is Yes)](https://www.imf.org/en/Publications/WP/Issues/2018/09/05/Should-We-Fear-the-Robot-Revolution-The-Correct-Answer-is-Yes-46209)** — Berg, Buffie, and Zanna (2018, IMF WP 18/116). Uses dynamic general-equilibrium models with robot and conventional capital to analyze output growth, wages, labor shares, and inequality during automation transitions.
+**[WEF Future of Jobs Report 2025 — 92M Jobs Displaced, 170M Created by 2030](https://www.eweek.com/news/inside-ai-employment-paradox-2026/)** — 2025
 
-- **[Artificial Intelligence and Its Implications for Income Distribution and Unemployment](https://www.nber.org/books-and-chapters/economics-artificial-intelligence-agenda/artificial-intelligence-and-its-implications-income-distribution-and-unemployment)** — Korinek and Stiglitz (2019). Analyzes how automation can affect income distribution, unemployment, and policy choices in a general-equilibrium setting.
+WEF's Future of Jobs Report 2025 projects 92 million current jobs will become obsolete by 2030 (mainly clerical, secretarial, manual roles), offset by creation of approximately 170 million new roles — a net positive of ~78 million jobs (+7% global net increase). AI/information processing is expected to create ~11 million jobs and displace ~9 million in its direct category.
 
-- **[Are We Approaching an Economic Singularity? Information Technology and the Future of Economic Growth](https://doi.org/10.1257/mac.20170105)** — Nordhaus (2021, *AEJ: Macroeconomics*). Uses historical evidence on information technology to assess conditions under which growth could accelerate sharply.
+**[World Bank East Asia/Pacific — Only 10% of Jobs Complementary to AI](https://www.worldbank.org/en/region/eap/publication/future-jobs)** — 2025
 
-- **[Economic Growth Under Transformative AI](https://www.nber.org/papers/w31815)** — Trammell and Korinek (2023; revised 2026). Examines growth, labor shares, and wages in scenarios where AI automates production and research tasks at different rates.
+World Bank report finds only about 10% of jobs in the East Asia and Pacific region involve tasks complementary to AI — similar to other emerging economies but far below the 30% share in advanced economies.
 
-- **[The Simple Macroeconomics of AI](https://www.nber.org/papers/w32487)** — Acemoglu (2024; published 2025, *Economic Policy*). Calibrates a task-based macro model using assumptions about AI-relevant tasks, adoption, and labor displacement.
+**[World Bank South Asia — Only 7% of Jobs at Risk; AI Skills Demand Up 75%](https://www.worldbank.org/en/news/press-release/2025/10/03/south-asia-development-update-october-2025-press-release)** — 2025
 
-- **[AI and Growth: Where Do We Stand?](https://www.frbsf.org/wp-content/uploads/AI-and-Growth-Aghion-Bunel.pdf)** — Aghion and Bunel (2024, working paper). Reconsiders macroeconomic mechanisms through which AI can affect productivity and innovation, including idea generation.
+World Bank's October 2025 South Asia Development Update ("Jobs, AI and Trade") finds South Asia's labour market is less exposed to AI than other regions, with only 7% of jobs at risk of displacement due to predominance of low-skill, agricultural, and manual work. However, AI-related job postings in South Asia more than doubled from 2.9% to 6.5% of all listings (Jan 2023–March 2025), and demand for AI skills grew 75%.
 
-- **[The Macroeconomics of Artificial Intelligence](https://doi.org/10.1787/4d2b1f42-en)** — Filippucci, Gal, and Schief (2024, OECD working paper). Combines task-exposure measures with adoption assumptions in a multi-sector general-equilibrium model.
+**[AI Policy Observatory (OECD.AI)](https://oecd.ai/en/ai-publications/the-oecd-ai-index-technical-paper)** — 2026, Technical Paper / Index
 
-- **[Scenarios for the Transition to AGI](https://www.nber.org/papers/w32255)** — Korinek and Suh (2024, NBER WP 32255). Models output and wages as automation expands across tasks of differing complexity.
+New composite framework measuring national AI capabilities across five dimensions: policy implementation, R&D, infrastructure, jobs & skills, and AI diffusion; designed to provide evidence-based support for AI governance decisions.
 
-- **[The Global Impact of AI: Mind the Gap](https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025076-print-pdf.pdf)** — Cerutti et al. (2025, IMF WP 25/76). Applies a multi-country macro model to AI exposure, preparedness, and access across economies.
+**[Acemoglu & Restrepo — "Automation and Rent Dissipation" (QJE, 2026)](https://academic.oup.com/qje/advance-article-abstract/doi/10.1093/qje/qjag006/8445541)** — 2026
 
+Daron Acemoglu and Pascual Restrepo's paper in the Quarterly Journal of Economics uncovers how automation disproportionately targets tasks that pay workers above-market wages, eroding those wage rents and amplifying wage losses for affected workers — explaining why automation may worsen inequality even where aggregate productivity rises.
 
-## Others: market structure, development, trade, and public policy
+**[Edelman Trust Barometer 2026 — AI Fears + Economic Anxiety Driving Social Insularity](https://prsay.prsa.org/2026/01/23/edelman-trust-barometer-economic-anxiety-ai-fears-distrust-making-people-insular/)** — 2026
 
-- **[The Economics of Artificial Intelligence: An Agenda](https://www.nber.org/books-and-chapters/economics-artificial-intelligence-agenda)** — Agrawal, Gans, and Goldfarb, eds. (2018). A collection that frames AI as a prediction technology and sets out labor, innovation, growth, competition, and policy research questions.
+The full 2026 Edelman Trust Barometer (published January 2026) finds: 70% of respondents are hesitant or unwilling to trust people with different values or backgrounds. "Steep decline in workforce happiness" amidst AI fears, national isolationism, and tariff uncertainty. Trust in AI companies has fallen sharply (from general tech trust of 76%). Fear of foreign actors spreading disinformation at all-time highs.
 
-- **[AI as the Next GPT: A Political-Economy Perspective](https://www.nber.org/papers/w24245)** — Trajtenberg (2018, NBER WP 24245). Treats AI as a general-purpose technology and distinguishes human-enhancing from human-replacing innovation in discussing skills, care work, job quality, and policy.
+**[New Research — AI Raises Average Wages 21%, Reduces Wage Inequality (2026)](https://www.foxbusiness.com/economy/ai-raises-average-wages-21-substantially-reduces-wage-inequality-researchers-find)** — 2026
 
-- **[AI and International Trade](https://www.nber.org/papers/w24254)** — Goldfarb and Trefler (2018, NBER WP 24254). Examines AI through trade mechanisms involving scale, competition, knowledge creation and diffusion, and policy issues including privacy, data localization, standards, and research investment.
+A 2026 paper finds AI generates sizable welfare gains for almost all workers at labour market entry — equivalent to permanent wage gains of 26–34% for most workers — and raises average wages by 21%, substantially reducing wage inequality (contrasting with Acemoglu & Restrepo findings, likely reflecting different modelling assumptions and timeframes).
 
-- **[Artificial Intelligence: The Ambiguous Labor Market Impact of Automating Prediction](https://doi.org/10.1257/jep.33.2.31)** — Agrawal, Gans, and Goldfarb (2019, *Journal of Economic Perspectives*). Explains how lower prediction costs can reorganize decisions and generate both substitution and complementarity effects.
+**[ScienceDirect — AI, Economic Inequality, and Sustainable Peace (2026)](https://www.sciencedirect.com/science/article/pii/S2590291126002524)** — 2026
 
-- **[Artificial Intelligence, Economics, and Industrial Organization](https://www.nber.org/books-and-chapters/economics-artificial-intelligence-agenda/artificial-intelligence-economics-and-industrial-organization)** — Varian (2019, book chapter). Discusses how machine learning may affect the industrial organization of firms that supply AI services and industries that adopt them.
+Recent paper (2026) finds automation disproportionately affects routine and semi-skilled occupations while enhancing returns to high-skill workers and firms controlling data and computational infrastructure — creating structural inequality dynamics relevant to global security and peace.
 
-- **[AI and the Economy](https://doi.org/10.1086/699936)** — Furman and Seamans (2019, *Innovation Policy and the Economy*). Reviews evidence on AI activity, productivity, labor-market channels, market power, and policy responses.
+### AI Adoption
 
-- **[Digital Economics](https://doi.org/10.1257/jel.20171452)** — Goldfarb and Tucker (2019, *Journal of Economic Literature*). Organizes digital-economics research around reductions in search, replication, transportation, tracking, and verification costs.
+**[AI Ethics and Governance](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)** — 2021, International Normative Instrument
 
-- **[Artificial Intelligence, Algorithmic Pricing, and Collusion](https://doi.org/10.1257/aer.20190623)** — Calvano, Calzolari, Denicolò, and Pastorello (2020, *American Economic Review*). Studies Q-learning pricing agents in a repeated-oligopoly model and reports the pricing strategies that emerge without direct communication among agents.
+The world's first global normative instrument on AI ethics, adopted by 193 UNESCO Member States; covers human rights, transparency, accountability, fairness; UNESCO's Readiness Assessment Methodology (RAM) is the implementation tool; in 2024, RAM identified compliance and governance gaps in 78% of participating nations.
 
-- **[Nonrivalry and the Economics of Data](https://doi.org/10.1257/aer.20191330)** — Jones and Tonetti (2020, *American Economic Review*). Models data as a nonrival input and analyzes broad reuse, firm data hoarding, privacy, and alternative allocations of data rights.
+**[AI in Education](https://unesdoc.unesco.org/ark:/48223/pf0000386693)** — 2023, Policy Guidance Document
 
-- **[Artificial Intelligence, Globalization, and Strategies for Economic Development](https://www.nber.org/papers/w28453)** — Korinek and Stiglitz (2021, NBER WP 28453). Examines how AI can alter comparative advantage, trade, and development strategies under cross-country differences in capability and access.
+First UNESCO guidance on generative AI in educational and research contexts; human-centred approach to gen AI deployment; addresses equity in access, ethical design, and need for transparent/accountable AI systems; widely distributed to member state education ministries.
 
-- **[Inclusive Growth in the Era of Automation and AI: How Can Taxation Help?](https://doi.org/10.3389/frai.2022.867832)** — Gasteiger and Prettner (2022, *Frontiers in Artificial Intelligence*). Models tax policy, automation incentives, and distributional outcomes in an economy with AI and robots.
+**[Asian Infrastructure Investment Bank (AIIB)](https://www.aiib.org/en/news-events/news/2024/AIIB-Launches-InfraTech-Portal-to-Bring-Value-of-Technology-to-Infrastructure.html)** — 2024, Digital Platform Initiative
 
-- **[AI Specialization for Pathways of Economic Diversification](https://doi.org/10.1038/s41598-023-45723-x)** — Mishra, Koopman, de Prato, and coauthors (2023, *Scientific Reports*). Links country specialization in AI activities to goods and services specialization using a product-space approach.
+Launched in 2024, the InfraTech Portal is a free, neutral platform sharing information on infrastructure technologies (including AI-enabled infrastructure); promotes technology adoption in developing economies; supports AIIB's "technology-enabled infrastructure" thematic priority.
 
-- **[Broadening the Gains from Generative AI: The Role of Fiscal Policies](https://www.imf.org/-/media/files/publications/sdn/2024/english/sdnea2024002.pdf)** — Brollo et al. (2024, IMF Staff Discussion Note). Examines tax, transfer, education, and social-protection instruments in response to possible AI-driven shifts in labor and capital income.
+**[Digital Economy Outlook](https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/05/oecd-digital-economy-outlook-2024-volume-1_d30a04c9/a1689dc5-en.pdf)** — 2024, Biennial Flagship Report
 
-- **[Concentrating Intelligence: Scaling and Market Structure in Artificial Intelligence](https://www.nber.org/papers/w33139)** — Korinek and Vipra (2024; published 2025). Studies economies of scale and scope in foundation-model production, market tipping, vertical integration, and competition remedies.
+Provides data on AI diffusion and the ICT sector; uses machine learning and big data to produce real-time ICT sector growth estimates; Volume 1 covers technology trends including AI adoption across OECD countries.
 
-- **[Market Power in Artificial Intelligence](https://www.nber.org/papers/w32270)** — Gans (2024; published 2026). Surveys markets for training data, input data, and AI predictions, focusing on conditions under which market power can emerge or persist.
+**[Human Development Report](https://hdr.undp.org/content/human-development-report-2025)** — 2025, Annual Flagship Report
 
-- **[Artificial Intelligence, Competition, and Welfare](https://www.nber.org/papers/w34444)** — Athey and Scott Morton (2026, NBER WP 34444). Models how market structure in AI can affect rents, prices, labor transitions, and welfare across the economy.
+Explores AI's implications for human development; argues that AI is at an inflection point and that choices made now will determine whether it enhances or diminishes human capabilities; notes alarming deceleration in human development progress; finds AI breakneck adoption by businesses and individuals while noting the risk of exacerbating the AI divide; calls for bold decisions to shape AI's trajectory toward human development goals.
 
-## Sources and scope
+**[Africa — AI $10 Billion Initiative Launched (AfDB + UNDP)](https://www.afdb.org/en/news-and-events/press-releases/african-development-bank-undp-and-partners-launch-ai-10-billion-initiative-during-2026-nairobi-ai-forum-91104)** — 2026
 
-Each title links to a DOI, publisher, NBER, IMF, or other canonical record. The bibliography was rebuilt against an earlier 84-source AI-economics survey and independently reviewed for category coverage, citation corrections, historical coverage, duplicates, and non-paper material. Commercial forecasts, generic reports, proposals, and news captures are excluded from this list.
+African Development Bank and UNDP launched the "AI 10 Billion Initiative" at the 2026 Nairobi AI Forum — a continental drive to accelerate responsible AI adoption and inclusive digital economic growth across Africa. NVIDIA-powered GPU facilities being built across Africa, expected completion by end 2026.
 
-## Change history
+### AI and Productivity
 
-- **2026-08-30:** Rebuilt as a category-first reference list. Added historical productivity, adoption, macroeconomic, trade, market-structure, data, and algorithmic-pricing literature; removed reports, forecasts, proposals, and duplicated citations.
+**[IMF Working Paper — "The Global Impact of AI: Mind the Gap" (April 2025)](https://www.imf.org/en/Publications/WP/Issues/2025/04/11/The-Global-Impact-of-AI-Mind-the-Gap-566129)** — 2025
+
+IMF working paper examines how AI's global impact varies significantly across countries and income groups, emphasising risk of a "global AI divide" where advanced economies capture most productivity gains while developing countries face displacement risks.
+
+**[Inter-American Development Bank (IDB/IADB)](https://publications.iadb.org/en/artificial-intelligence-framework-inter-american-development-group)** — 2025, Institutional Policy Framework
+
+IDB Group's strategic AI framework; recognizes urgency of AI adoption in LAC to catalyze productivity, inclusion, and sustainable development; addresses personal data protection gaps (9 IDBG borrowing countries lack data protection laws as of publication); covers AI governance for the institution and its borrowing countries.
+
+**[OECD — "The Impact of AI on Productivity, Distribution and Growth" (2025)](https://www.oecd.org/en/publications/the-impact-of-artificial-intelligence-on-productivity-distribution-and-growth_8d900037-en.html)** — 2025
+
+OECD published a major analytical paper on AI's impact on productivity, distribution (inequality), and growth — part of its ongoing work tracking AI's economic effects across member countries.
+
+**[Penn Wharton Budget Model — AI Will Raise GDP 1.5% by 2035, 3.7% by 2075](https://budgetmodel.wharton.upenn.edu/issues/2025/9/8/projected-impact-of-generative-ai-on-future-productivity-growth)** — 2025
+
+PWBM projects AI will increase US productivity and GDP by 1.5% by 2035, nearly 3% by 2055, and 3.7% by 2075. Approximately 10% of current US GDP could be affected in the short run, rising to 15% over two decades under partial adoption.
+
+**[ECB — General-Purpose Technology Lag Before Aggregate Gains](https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp260323_1~1e06784a89.en.html)** — 2026
+
+ECB speech cites how investments in new general-purpose technologies (AI) initially reduce measured productivity, with aggregate gains materialising only after a substantial lag — validating the J-curve framework.
+
+### AI Macro and Policy
+
+**[BIS Quarterly Review](https://www.bis.org)** — 2024, BIS Quarterly Review Article
+
+Accessible introduction to LLMs for economic policy practitioners; explains how LLMs work, their capabilities and limitations; discusses applications in economic research and central banking.
+
+**[UN Secretary-General's High-Level Advisory Body on AI](https://www.un.org/sites/un2.un.org/files/governing_ai_for_humanity_final_report_en.pdf)** — 2024, Advisory Body Final Report
+
+Landmark report from UN SG's HLAB-AI; outlines blueprint for addressing AI risks and sharing transformative potential globally; proposes seven institutional innovations: (1) International Scientific Panel on AI, (2) Global Dialogue on AI Governance, (3) Global Fund on AI for SDGs, (4) AI Capacity Development Network, (5) Standards Exchange, (6) Global Data Framework, and (7) AI Office at the UN; based on extensive global consultations and AI Risk Pulse exercise.
+
+**[Asian Development Bank (ADB)](https://www.adb.org/adpr/editions/digital-transformation)** — 2025, Flagship Policy Report
+
+Presents evidence and case studies on how digital technologies (including AI) contribute to inclusive development in Asia-Pacific; covers AI applications in agriculture, SMEs, financial services, and public service delivery; emphasizes policy frameworks for digital transformation.
+
+**[BIS Papers](https://www.bis.org/publ/bppdf/bispap154.pdf)** — 2025, BIS Paper
+
+Analyzes market structure dynamics across the AI technology stack; examines concentration among AI hardware, model, and service providers; assesses systemic risks from dependency on few large technology companies; notes global standards coordination efforts including AI Action Summit (Paris, Feb 2025).
+
+**[Harnessing AI in Social Security](https://www.oecd.org/en/publications/harnessing-artificial-intelligence-in-social-security_b52405c1-en/full-report/building-an-ai-ready-workforce_9aa41028.html)** — 2025, Policy Report
+
+Documents how AI can improve access to social security benefits by getting right benefits to right people at right time; covers concrete policy levers and implementation challenges; addresses risks of algorithmic bias in benefit determination.
+
+**[ScienceDirect — AI and Income Inequality (China County-Level Data, 2025)](https://www.sciencedirect.com/science/article/abs/pii/S0264275125005815)** — 2025
+
+Study using county-level China data finds AI significantly reshapes income distribution in the digital economy, with complex effects on urban-rural and regional income gaps.
+
+**[Social Finance Institute — "Generative AI, Inequality, and Opportunity" (2025)](https://socialfinance.org/insight/shaping-the-future-of-work-generative-ai-inequality-and-opportunity/)** — 2025
+
+Research brief compiling latest economics and public policy evidence on AI's role in the future of work, with focus on inequality and opportunity dimensions for policy design.
+
+**[UNCTAD — Without Strategy, Developing Countries Risk Falling Behind](https://unctad.org/publication/preparing-seize-artificial-intelligence-opportunities-strategic-national-policies)** — 2025
+
+UNCTAD August 2025 policy brief warns that without timely and tailored strategies for integrating AI into industrial and innovation policies, developing countries risk falling behind. Recommends AI be embedded in broader development frameworks.
+
+**[US — December 11, 2025 EO: Federal Preemption of State AI Laws](https://www.sidley.com/en/insights/newsupdates/2025/12/unpacking-the-december-11-2025-executive-order)** — 2025
+
+President Trump signed a second major AI Executive Order on December 11, 2025 — "Ensuring a National Policy Framework for Artificial Intelligence" — seeking to block states from passing or enforcing AI laws that conflict with federal policy, citing protections for innovation from "onerous and excessive" state laws. Signals federal preemption strategy.
+
+**[Sovereign AI Infrastructure Market — $61.4B in 2025, Projected $78.6B by End 2026](https://www.nextmsc.com/report/sovereign-ai-infrastructure-market-ic4315)** — 2026
+
+The Sovereign AI Infrastructure Market was valued at $61.40 billion in 2025 and is expected to reach $78.61 billion by end of 2026, reflecting the trend of nations building domestically controlled AI compute.
+
+**[World Development Reports](https://www.worldbank.org/en/publication/wdr2026)** — 2026, World Development Report (WDR 2026)
+
+Explores AI as a general-purpose technology (GPT) from a developing-country perspective; examines governance and institutional arrangements for inclusive/responsible AI; explicitly corrects the academic bias toward high-income country perspectives; investigates both leapfrogging opportunities and widening-gap risks.
+
+## Recent captures
+
+Added by the research pipeline, newest first.
+
+### AI and Jobs
+
+- [The Pulse Beneath the Job Title: Monthly Readings of Requirements and Tasks from 750 Million Chinese Job Ads](https://arxiv.org/abs/2608.26924v1) (Qin Chen, Ying Fang, Xiangyu Wang et al., 2026)
+- [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1) (Julia Romberg, Tobias Gummer, Gabriella Lapesa et al., 2026)
+
+### AI Adoption
+
+- [FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare](https://arxiv.org/abs/2608.23643v1) (Jacob Idoko, Siddhartha Paudel, Mariana Bento et al., 2026)
