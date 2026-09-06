@@ -3,8 +3,8 @@ title: "AI Economics: Key Papers"
 description: "A living reference list of key papers on AI's economic and social impact."
 kind: reference
 section: Economics
-published: "2026-08-31"
-updated: "2026-08-31"
+published: "2026-09-07"
+updated: "2026-09-07"
 status: Maintained
 topics:
   - economics
@@ -271,9 +271,15 @@ Added by the research pipeline, newest first.
 
 ### AI and Jobs
 
+- [The Psychological Costs of Artificial Intelligence Adoption in Software Engineering](https://arxiv.org/abs/2609.03456v1) (Adam Alami, Elda Paja, Abhishek Tiwari, 2026)
 - [The Pulse Beneath the Job Title: Monthly Readings of Requirements and Tasks from 750 Million Chinese Job Ads](https://arxiv.org/abs/2608.26924v1) (Qin Chen, Ying Fang, Xiangyu Wang et al., 2026)
 - [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1) (Julia Romberg, Tobias Gummer, Gabriella Lapesa et al., 2026)
+- [What Work Does Generative AI Do? -- by Alexander Bick, Adam Blandin, David J. Deming, Tyler R. Schumacher](https://www.nber.org/papers/w35677#fromrss)
 
 ### AI Adoption
 
 - [FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare](https://arxiv.org/abs/2608.23643v1) (Jacob Idoko, Siddhartha Paudel, Mariana Bento et al., 2026)
+
+### AI and Productivity
+
+- [AI and the Economy: An Economic Examination of Production, Distribution, Firms, Labor, and Welfare](https://arxiv.org/abs/2609.01263v1) (Ali Zeytoon-Nejad, 2026)
