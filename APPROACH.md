@@ -95,7 +95,19 @@ The first retrieval layer is intentionally simple:
 - visible status and reading time, plus version and verification date when supplied
 - raw Markdown, RSS, and sitemap output
 
-The current library is derived from the public, non-draft Markdown files in `notes/`. The site is the live inventory; do not maintain a second hand-written list here because it will drift as notes are added, reviewed, or archived.
+The current published notes are:
+
+- **Multilingual Tokenizers: Designing the Model's Text Interface** — `Training` / `reference`
+- **Continued Pretraining and Mid-Training** — `Training` / `reference`
+- **Evaluating Multilingual and Cultural Capability** — `Training` / `reference`
+- **Post-Training in 2026** — `Post-Training` / `reference`
+- **Harnesses** — `Agents` / `reference`
+- **AI Governance: Five Questions for the Board** — `Governance` / `guide`
+- **AI Governance for Engineers** — `Governance` / `reference`
+- **From Prompts to Persistent Workflows** — `Misc` / `guide`
+- **Herdr: Beginner-to-Advanced Agent Workflows** — `Misc` / `guide`
+- **Neovim for AI Scientists** — `Misc` / `guide`
+- **SSH First: A Modern Terminal Toolkit for AI Work** — `Misc` / `guide`
 
 Add dedicated topic pages, related-note links, backlinks, or a full-text index only when the note collection is large enough to show which navigation problem is real.
 

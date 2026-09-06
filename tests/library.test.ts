@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { formatNoteDates } from "@/lib/format";
 import { filterAndSortNotes } from "@/lib/library";
-import { matchesNoteQuery } from "@/lib/search";
 import type { NoteMeta } from "@/lib/notes";
 import { getSectionLabel } from "@/lib/sections";
 
@@ -36,11 +35,6 @@ describe("library reader cues", () => {
   it("keeps updated and source-verification dates distinct", () => {
     expect(formatNoteDates(notes[0])).toBe("Updated Jul 28, 2026 · Sources checked Jul 26, 2026");
     expect(formatNoteDates(notes[0], "long", true)).toBe("Published July 28, 2026 · Updated July 28, 2026 · Sources checked July 26, 2026");
-  });
-
-  it("matches every normalized search term across a note's metadata", () => {
-    expect(matchesNoteQuery({ ...notes[0], kind: "case-study", topics: ["model-training"] }, "model case study")).toBe(true);
-    expect(matchesNoteQuery({ ...notes[0], kind: "case-study", topics: ["model-training"] }, "model economics")).toBe(false);
   });
 
   it("filters metadata and sorts deterministically without relevance scoring", () => {

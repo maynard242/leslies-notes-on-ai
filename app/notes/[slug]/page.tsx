@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { NoteToc } from "@/components/note-toc";
 import { formatKind, formatNoteDates } from "@/lib/format";
 import { getNoteBySlug, getNoteSlugs } from "@/lib/notes";
-import { getSectionLabel } from "@/lib/sections";
 import { attribution } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -34,7 +33,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
     <div className="note-shell shell">
       <div className="note-utility">
         <Link href="/">← All notes</Link>
-        <div><span>{getSectionLabel(note.section)}</span><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
+        <div><span>{note.section}</span><span>{formatKind(note.kind)}</span><span>{note.status}</span>{note.version && <span>Version {note.version}</span>}<span>{note.minutes} min read</span></div>
       </div>
       <div className="note-intro">
         <p className="eyebrow">{formatNoteDates(note, "long", true)}</p>
