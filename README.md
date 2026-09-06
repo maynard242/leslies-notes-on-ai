@@ -4,7 +4,7 @@ A Markdown-first reference library by Leslie Teo for practical technical guidanc
 
 ## Content
 
-Canonical notes live in [`notes/`](./notes), organized under `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, and `Misc`. The site displays `Governance` as **Strategy & Governance** while keeping `Governance` as the stable source-directory and front-matter value. Save each note as `notes/<section>/<stable-slug>.md`; its filename remains its permanent public URL. The website discovers Markdown files recursively at build time, validates their front matter, and publishes those stable URLs.
+Canonical notes live in [`notes/`](./notes), organized under `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Economics`, and `Misc`. The site displays `Governance` as **Strategy & Governance** and `Economics` as **Economics & Social** while keeping those source-directory and front-matter values stable. Save each note as `notes/<section>/<stable-slug>.md`; its filename remains its permanent public URL. The website discovers Markdown files recursively at build time, validates their front matter, and publishes those stable URLs.
 
 The reference and editorial approach is recorded in [`APPROACH.md`](./APPROACH.md). The implementation decisions, build sequence, hardening work, deployment, and current publishing workflow are recorded in [`docs/HOW_IT_WAS_BUILT.md`](./docs/HOW_IT_WAS_BUILT.md).
 
@@ -28,7 +28,7 @@ This runs content validation, tests, TypeScript, ESLint, and a production build.
 ## Add a note
 
 1. Start from [`docs/NOTE_TEMPLATE.md`](./docs/NOTE_TEMPLATE.md).
-2. Save the note as `notes/<section>/<stable-slug>.md`, using one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, or `Misc`. The filename becomes its permanent public URL.
+2. Save the note as `notes/<section>/<stable-slug>.md`, using one of `Data`, `Training`, `Post-Training`, `Agents`, `Governance`, `Economics`, or `Misc`. The filename becomes its permanent public URL.
 3. Set the required `section` metadata to the matching section name.
 4. Write a 50–180 character `description`: one specific sentence that says what the reader will learn, decide, or use.
 5. Choose a short, reusable `kind`, such as `reference`, `guide`, `explainer`, `checklist`, `case-study`, or `reading-note`.
@@ -70,6 +70,18 @@ npm run review:stale
 ```
 
 Flags `Reviewed` and `Maintained` notes that haven't been checked in 90+ days (configurable with `--threshold=`). The read-only monthly Hermes Cron review reports to Leslie’s Argos conversation; it never edits a note. The owner, schedule, expected output, and failure path are recorded in [`docs/REVIEW_PROCESS.md`](./docs/REVIEW_PROCESS.md).
+
+## Publish with Hermes
+
+The existing Git-to-Vercel path remains the only publishing path. [`docs/PUBLISHING_WITH_HERMES.md`](./docs/PUBLISHING_WITH_HERMES.md) adds safe, explicit local commands for preflight, diff review, scoped commits, and an independently confirmed push to `main`. They do not upload directly to Vercel or bypass Hermes approvals.
+
+```bash
+npm run publish:preflight
+npm run publish:review
+# after an explicit human decision:
+npm run publish:commit -- --confirm-commit --message "content: publish my note" -- notes/Governance/my-note.md
+npm run publish:push -- --confirm-push
+```
 
 ## Deployment
 

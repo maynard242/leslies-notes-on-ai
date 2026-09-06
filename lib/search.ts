@@ -21,5 +21,5 @@ export function matchesNoteQuery(note: SearchableNote, query: string) {
     ...note.topics,
   ].join(" "));
 
-  return haystack.includes(needle);
+  return needle.split(" ").every((term) => haystack.includes(term));
 }

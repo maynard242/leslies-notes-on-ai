@@ -14,6 +14,10 @@
     "test": "vitest run",
     "validate:content": "node scripts/validate-content.mjs",
     "review:stale": "node scripts/review-notes.mjs",
+    "publish:preflight": "node scripts/publish-workflow.mjs preflight",
+    "publish:review": "node scripts/publish-workflow.mjs review",
+    "publish:commit": "node scripts/publish-workflow.mjs commit",
+    "publish:push": "node scripts/publish-workflow.mjs push",
     "check": "npm run test && npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {

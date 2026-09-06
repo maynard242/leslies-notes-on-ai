@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { NoteCard } from "@/components/note-card";
+import { formatKind } from "@/lib/format";
 import { filterAndSortNotes, getLibraryKinds, getSectionLabel, type LibrarySort } from "@/lib/library";
 import { NOTE_SECTIONS } from "@/lib/sections";
 import type { NoteMeta } from "@/lib/notes";
@@ -26,7 +27,7 @@ export function NoteLibrary({ notes }: { notes: NoteMeta[] }) {
       </label>
       <div className="library-controls">
         <fieldset><legend>Section</legend><div className="filter-row"><button type="button" aria-pressed={section === "all"} onClick={() => setSection("all")}>All</button>{NOTE_SECTIONS.map((item) => <button type="button" aria-pressed={section === item} key={item} onClick={() => setSection(item)}>{getSectionLabel(item)}</button>)}</div></fieldset>
-        <fieldset><legend>Kind</legend><div className="filter-row"><button type="button" aria-pressed={kind === "all"} onClick={() => setKind("all")}>All</button>{kinds.map((item) => <button type="button" aria-pressed={kind === item} key={item} onClick={() => setKind(item)}>{item}</button>)}</div></fieldset>
+        <fieldset><legend>Kind</legend><div className="filter-row"><button type="button" aria-pressed={kind === "all"} onClick={() => setKind("all")}>All</button>{kinds.map((item) => <button type="button" aria-pressed={kind === item} key={item} onClick={() => setKind(item)}>{formatKind(item)}</button>)}</div></fieldset>
         <label className="sort-control">Sort <select value={sort} onChange={(event) => setSort(event.target.value as LibrarySort)}><option value="library">Library order</option><option value="updated">Most recently updated</option><option value="title">Title</option></select></label>
         {active && <button className="clear-filters" type="button" onClick={clear}>Clear all</button>}
       </div>
