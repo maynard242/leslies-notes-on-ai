@@ -3,8 +3,8 @@ title: "AI Economics: Key Papers"
 description: "A living reference list of key papers on AI's economic and social impact."
 kind: reference
 section: Economics
-published: "2026-09-07"
-updated: "2026-09-07"
+published: "2026-09-14"
+updated: "2026-09-14"
 status: Maintained
 topics:
   - economics
@@ -271,6 +271,7 @@ Added by the research pipeline, newest first.
 
 ### AI and Jobs
 
+- [Characterizing Bluesky Content Moderation Service: From Automation of Service to Landscape of Harms](https://arxiv.org/abs/2609.11373v1) (Pushpdeep Singh, Sayeh Jarollahi, Ayan Majumdar et al., 2026)
 - [The Psychological Costs of Artificial Intelligence Adoption in Software Engineering](https://arxiv.org/abs/2609.03456v1) (Adam Alami, Elda Paja, Abhishek Tiwari, 2026)
 - [The Pulse Beneath the Job Title: Monthly Readings of Requirements and Tasks from 750 Million Chinese Job Ads](https://arxiv.org/abs/2608.26924v1) (Qin Chen, Ying Fang, Xiangyu Wang et al., 2026)
 - [Hybrid Panels: Toward Human-AI Collaboration in Survey Research](https://arxiv.org/abs/2608.22582v1) (Julia Romberg, Tobias Gummer, Gabriella Lapesa et al., 2026)
@@ -282,4 +283,6 @@ Added by the research pipeline, newest first.
 
 ### AI and Productivity
 
+- [The Vibe Shift in Software Engineering: Evaluating AI-Led Conversational Programming for Performance, Cognition, and Responsible Adoption](https://arxiv.org/abs/2609.09560v1) (Sales G. Aribe, Louie Jay S. Labastida, 2026)
+- [AI Innovation and Firm Performance in the Medical Device Industry](https://arxiv.org/abs/2609.08485v1) (Fazliddin Shermatov, Stephane Robin, Aldo Geuna, 2026)
 - [AI and the Economy: An Economic Examination of Production, Distribution, Firms, Labor, and Welfare](https://arxiv.org/abs/2609.01263v1) (Ali Zeytoon-Nejad, 2026)
