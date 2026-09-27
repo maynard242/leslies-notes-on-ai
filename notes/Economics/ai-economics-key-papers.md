@@ -3,8 +3,8 @@ title: "AI Economics: Key Papers"
 description: "A living reference list of key papers on AI's economic and social impact."
 kind: reference
 section: Economics
-published: "2026-09-14"
-updated: "2026-09-14"
+published: "2026-09-28"
+updated: "2026-09-28"
 status: Maintained
 topics:
   - economics
@@ -271,6 +271,9 @@ Added by the research pipeline, newest first.
 
 ### AI and Jobs
 
+- [Can Labor Markets Function in the Age of AI? The Evaluation Bottleneck in Hiring](https://arxiv.org/abs/2609.30058v1) (Itai Ashlagi, Ramesh Johari, Jon Kleinberg et al., 2026)
+- [AI adoption in Chinese enterprises boosts productivity but raises concerns about jobs and skills - International Labour Organization](https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUEh5M05PZ2JLenV0QWR5eGlTbjZhQk9DWDBsX0ZGMUFoOHpGc054VmZ0ZWxiS1FtRnNMM3FudWx4VFg3MWVnT1prYUFQamtnLWZWSTc3WjU1N1Vha29DRkRlc3VkTFVlOVVneS1pMjBlU3VoamZsTktuSW5MQ1NYMmk5OHVlSE5PdEhNQUxkdFpmV0d1VjVvdHY3bTBqOUxMeHZfX1c0blRrYWc?oc=5) (2026)
+- [Further results on AI and labor market reallocation](https://marginalrevolution.com/marginalrevolution/2026/09/further-results-on-ai-and-labor-market-reallocation.html?utm_source=rss&utm_medium=rss&utm_campaign=further-results-on-ai-and-labor-market-reallocation) (Tyler Cowen, 2026)
 - [Characterizing Bluesky Content Moderation Service: From Automation of Service to Landscape of Harms](https://arxiv.org/abs/2609.11373v1) (Pushpdeep Singh, Sayeh Jarollahi, Ayan Majumdar et al., 2026)
 - [The Psychological Costs of Artificial Intelligence Adoption in Software Engineering](https://arxiv.org/abs/2609.03456v1) (Adam Alami, Elda Paja, Abhishek Tiwari, 2026)
 - [The Pulse Beneath the Job Title: Monthly Readings of Requirements and Tasks from 750 Million Chinese Job Ads](https://arxiv.org/abs/2608.26924v1) (Qin Chen, Ying Fang, Xiangyu Wang et al., 2026)
