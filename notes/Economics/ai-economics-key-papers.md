@@ -3,8 +3,8 @@ title: "AI Economics: Key Papers"
 description: "A living reference list of key papers on AI's economic and social impact."
 kind: reference
 section: Economics
-published: "2026-09-28"
-updated: "2026-09-28"
+published: "2026-10-05"
+updated: "2026-10-05"
 status: Maintained
 topics:
   - economics
@@ -271,6 +271,8 @@ Added by the research pipeline, newest first.
 
 ### AI and Jobs
 
+- [Digital Labor Platforms as Infrastructure of Extractivism](https://arxiv.org/abs/2609.37614v1) (Julian Posada, 2026)
+- [AI-based matching improves refugee employment in a double-blind randomized trial](https://arxiv.org/abs/2609.35448v1) (Kirk Bansak, Jens Hainmueller, Dominik Hangartner et al., 2026)
 - [Can Labor Markets Function in the Age of AI? The Evaluation Bottleneck in Hiring](https://arxiv.org/abs/2609.30058v1) (Itai Ashlagi, Ramesh Johari, Jon Kleinberg et al., 2026)
 - [AI adoption in Chinese enterprises boosts productivity but raises concerns about jobs and skills - International Labour Organization](https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUEh5M05PZ2JLenV0QWR5eGlTbjZhQk9DWDBsX0ZGMUFoOHpGc054VmZ0ZWxiS1FtRnNMM3FudWx4VFg3MWVnT1prYUFQamtnLWZWSTc3WjU1N1Vha29DRkRlc3VkTFVlOVVneS1pMjBlU3VoamZsTktuSW5MQ1NYMmk5OHVlSE5PdEhNQUxkdFpmV0d1VjVvdHY3bTBqOUxMeHZfX1c0blRrYWc?oc=5) (2026)
 - [Further results on AI and labor market reallocation](https://marginalrevolution.com/marginalrevolution/2026/09/further-results-on-ai-and-labor-market-reallocation.html?utm_source=rss&utm_medium=rss&utm_campaign=further-results-on-ai-and-labor-market-reallocation) (Tyler Cowen, 2026)
@@ -289,3 +291,7 @@ Added by the research pipeline, newest first.
 - [The Vibe Shift in Software Engineering: Evaluating AI-Led Conversational Programming for Performance, Cognition, and Responsible Adoption](https://arxiv.org/abs/2609.09560v1) (Sales G. Aribe, Louie Jay S. Labastida, 2026)
 - [AI Innovation and Firm Performance in the Medical Device Industry](https://arxiv.org/abs/2609.08485v1) (Fazliddin Shermatov, Stephane Robin, Aldo Geuna, 2026)
 - [AI and the Economy: An Economic Examination of Production, Distribution, Firms, Labor, and Welfare](https://arxiv.org/abs/2609.01263v1) (Ali Zeytoon-Nejad, 2026)
+
+### AI Macro and Policy
+
+- [Is AI Widening the Wage Gap? A Hybrid Agentic Simulation for Labor Equity](https://arxiv.org/abs/2609.33367v1) (Zhongbo Hu, Zonghang Wu, Georgina Curto et al., 2026)
